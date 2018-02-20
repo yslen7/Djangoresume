@@ -21,13 +21,3 @@ def index(request):
         'education' : education,
         'skill_sets' : skill_sets,
     })
-
-    '''return render_to_response('resume/resume.html', {
-                    'site_name': site_name,
-                    'personal_info': personal_info,
-                    'overview' : overview,
-                    'job_list' : job_list,
-                    'education' : education,
-                    'skill_sets' : skill_sets,
-             }, context_instance=RequestContext(request))'''
-
