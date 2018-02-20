@@ -20,7 +20,6 @@ sks.save()
 s1=Skill.objects.create(name='Python',skillset=sks)
 s2=Skill.objects.create(name='Django',skillset=sks)
 
-
 date=datetime.date(year=2018,month=2,day=19)
 date2=datetime.date(year=2018,month=2,day=20)
 j=Job.objects.create(company='MyCompany',start_date=date,completion_date=date2)
@@ -41,5 +40,5 @@ Skill
 
 You can print the available fields for each model using:
 ```
-
+[f.name for f in Overview._meta.get_fields()]
 ```

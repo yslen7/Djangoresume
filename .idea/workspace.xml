@@ -17,24 +17,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="python.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="python.py" pinned="false" current-in-tab="true">
         <entry file="file://$USER_HOME$/Dropbox/IS/WRC/python.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="244" column="78" lean-forward="false" selection-start-line="244" selection-start-column="78" selection-end-line="244" selection-end-column="78" />
+            <state relative-caret-position="742">
+              <caret line="268" column="41" lean-forward="true" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resume/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="129" column="11" lean-forward="false" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,6 +87,7 @@
       <find>class jo</find>
       <find>class post</find>
       <find>ss edu</find>
+      <find>present</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -278,21 +277,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Dropbox/IS/WRC/python.py">
+    <entry file="file://$PROJECT_DIR$/resume/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="244" column="78" lean-forward="false" selection-start-line="244" selection-start-column="78" selection-end-line="244" selection-end-column="78" />
+        <state relative-caret-position="0">
+          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resume/models.py">
+    <entry file="file://$USER_HOME$/Dropbox/IS/WRC/python.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="129" column="11" lean-forward="false" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="742">
+          <caret line="268" column="41" lean-forward="true" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
