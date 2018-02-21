@@ -5,6 +5,13 @@ from django.template import RequestContext
 
 from .models import Overview, PersonalInfo, Education, Job, Accomplishment, Skillset, Skill
 
+
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+
+
 def index(request):
     site_name = RequestSite(request).domain
     personal_info = PersonalInfo.objects.all()[:1]
@@ -21,3 +28,19 @@ def index(request):
         'education' : education,
         'skill_sets' : skill_sets,
     })
+
+
+
+
+class OverviewCreate(CreateView):
+    model = Overview
+    fields = '__all__'
+    initial={'text':'add an overview of your resume',}
+class OverviewUpdate(UpdateView):
+    model = Overview
+    fields = '__all__'
+    def get_success_url(self):
+        return reverse_lazy('resume_home')
+class OverviewDelete(DeleteView):
+    model = Overview
+    success_url = reverse_lazy('resume_home')

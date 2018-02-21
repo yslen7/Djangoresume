@@ -16,7 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from resume import views #import my views
+from django.urls import path
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='resume_home'),
+]
+### TODO <int:pk> can be a slug - https://chriskief.com/2012/12/29/django-generic-detailview-without-a-pk-or-slug/
+urlpatterns += [  
+    path('overview/create/', views.OverviewCreate.as_view(), name='overview_create'),
+    path('overview/update/', views.OverviewUpdate.as_view(), name='overview_update'),
+    path('overview/<int:pk>/delete/', views.OverviewDelete.as_view(), name='overview_delete'),
 ]

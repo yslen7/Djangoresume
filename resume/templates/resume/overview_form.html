@@ -1,0 +1,9 @@
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %} <!--cross site request forgery protection. inside <form> tags using POST-->
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit" />
+</form>
+{% endblock %}
