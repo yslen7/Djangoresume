@@ -30,17 +30,50 @@ def index(request):
     })
 
 
-
-
 class OverviewCreate(CreateView):
     model = Overview
     fields = '__all__'
     initial={'text':'add an overview of your resume',}
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
 class OverviewUpdate(UpdateView):
     model = Overview
     fields = '__all__'
-    def get_success_url(self):
-        return reverse_lazy('resume_home')
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
 class OverviewDelete(DeleteView):
     model = Overview
-    success_url = reverse_lazy('resume_home')
+    fields = '__all__'
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+
+class PersonalInfoCreate(CreateView):
+    model = PersonalInfo
+    fields = '__all__'
+    initial={'text':'add personal info to your resume',}
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+class PersonalInfoUpdate(UpdateView):
+    model = PersonalInfo
+    fields = '__all__'
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+class PersonalInfoDelete(DeleteView):
+    model = PersonalInfo
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+class EducationCreate(CreateView):
+    model = Education
+    fields = '__all__'
+    initial={'text':'add education to your resume',}
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+class EducationUpdate(UpdateView):
+    model = Education
+    fields = '__all__'
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+class EducationDelete(DeleteView):
+    model = Education
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')

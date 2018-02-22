@@ -3,12 +3,23 @@
 <head>
   <meta charset="utf-8">
   <title> Resume </title>
-  <!--[if lt IE 9]>
-    <script src="/static/js/html5shiv.js"></script>
-  <![endif]-->
   <link rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" href="{{ STATIC_URL }}css/screen.css" />
+  
+  <!-- from https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Home_page -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body id="resume">
+    {% if user.is_authenticated %}
+    <li>User: {{ user.get_username }}</li>
+    <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+  {% else %}
+    <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+  {% endif %} 
+
 <div id="wrap">
 <div class="contentwrap">
 <div class="container_24">
@@ -17,7 +28,12 @@
   <!-- Personal Contact Information in hCard markup --> 
   {% with personal_info|first as personal_info %}
   <div id="contactinfo" class="vcard"> 
-    <h1 class="fn n" id="name"><a class="url" href="{% if request.is_secure %}https{% else %}http{% endif %}://{{ site_name }}{% url 'resume_home' %}" rel="me"><span class="given-name">{{ personal_info.first_name}}</span> <span class="family-name">{{ personal_info.last_name }}</span></a></h1> 
+    <h1 class="fn n" id="name">
+      <span class="given-name">{{ personal_info.first_name}}</span> 
+      <span class="middle-name">{{ personal_info.middle_name }}</span>
+      <span class="family-name">{{ personal_info.last_name }}</span>
+      </a>
+    </h1> 
     <div class="adr"> 
       <span class="locality">{{ personal_info.locality }}</span>, <abbr class="region" title="{{ personal_info.region }}">{{ personal_info.region_shorthand }}</abbr> 
     </div>
