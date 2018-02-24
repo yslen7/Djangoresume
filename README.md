@@ -9,10 +9,11 @@ import datetime
 
 from resume.models import PersonalInfo
 pi=PersonalInfo.objects.create(email='AlessandroMarin80@gmail.com', region='MA', first_name= 'Alessandro', locality='Boston', last_name='Marin')
+pi.title='Developer'
 pi.linkedin='https://www.linkedin.com/in/alessandromarin80/'
-pi.github='https://github.com/aless80/'
+pi.github='https://github.com/aless80'
 pi.sitename='my portfolio site'
-pi.site='www.myportfoliosite.com'
+pi.site='https://www.myportfoliosite.com'
 pi.save()
 pi.__dict__  #print the fields
 

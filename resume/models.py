@@ -14,7 +14,7 @@ class PersonalInfo(models.Model):
     last_name = models.CharField(max_length=255)
     locality = models.CharField(max_length=255, help_text="e.g. city such as Boston")
     region = models.CharField(max_length=255, help_text="e.g. MA or Italy",blank=True)
-    #region_shorthand = models.CharField(max_length=64, help_text="e.g. shorthand (abbr), MA for Massachusetts")
+    title = models.CharField(max_length=255, help_text="e.g. Developer",blank=True)
     email = models.EmailField(blank=True)
     linkedin = models.URLField(blank=True)
     github = models.URLField(blank=True)
@@ -26,7 +26,8 @@ class PersonalInfo(models.Model):
     def full_name(self):
         return " ".join([self.first_name, self.middle_name, self.last_name])    
     def githubname(self):
-        if self.github:
+        print('git='+str(self.github))
+        if self.github is not '':
             return self.github.rsplit('/',maxsplit=1)[1]
         else:
             return None
@@ -41,7 +42,7 @@ class Language(models.Model):
     class Meta:
         ordering = ['ordering','id']
     def __unicode__(self):
-        return ''.join([self.PersonalInfo.full_name(), '-', self.language, '-', self.level])
+        return ''.join([self.PersonalInfo.full_name, '-', self.language, '-', self.level])
 
 class Education(models.Model):
     name = models.CharField(max_length=250)

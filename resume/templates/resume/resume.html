@@ -1,15 +1,16 @@
 {% extends "resume/base.html" %}
 
 {% block content %}
+{% load static %}
 <div id="wrap">
   <div class="contentwrap">
       {% with personal_info|first as personal_info %}
 
       <div class="sidebar-wrapper">
           <div class="profile-container">
-              <img class="profile" src="assets/images/profile.png" alt="" />
+              <img class="profile" src="{% static 'images/profile.jpg' %}" alt="" />
               <h1 class="name">{{ personal_info.full_name}}</h1>
-              <h3 class="tagline">Full Stack Developer</h3>
+              <h3 class="tagline">{{personal_info.title}}</h3>
           </div><!--//profile-container-->
           
           <div class="contact-container container-block">
@@ -30,7 +31,7 @@
                   {% endif %}
                   {% if personal_info.github %}
                   <li class="github">
-                    <i class="fa fa-github"></i><a href="{{personal_info.github}}" target="_blank">{{personal_info.githubname}}</a>
+                    <i class="fa fa-github"></i><a href="{{personal_info.github}}" target="_blank">github.com/{{personal_info.githubname}}</a>
                   </li>
                   {% endif %}
                   {% if personal_info.twittername %}
