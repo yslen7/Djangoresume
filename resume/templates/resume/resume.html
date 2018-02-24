@@ -3,92 +3,119 @@
 {% block content %}
 <div id="wrap">
   <div class="contentwrap">
-    <div class="container_24">
-      <section class="grid_20 prefix_2 suffix_2">
+      {% with personal_info|first as personal_info %}
+      <div class="sidebar-wrapper">
+          <div class="profile-container">
+              <img class="profile" src="assets/images/profile.png" alt="" />
+              <h1 class="name">{{ personal_info.full_name}}</h1>
+              <h3 class="tagline">Full Stack Developer</h3>
+          </div><!--//profile-container-->
+          
+          <div class="contact-container container-block">
+              <ul class="list-unstyled contact-list">
+                  {% if personal_info.email %}  
+                  <li class="email">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a>
+                  </li>
+                  {% endif %}
 
-        <!-- Personal Contact Information in hCard markup --> 
-        {% with personal_info|first as personal_info %}
-        <div id="contactinfo" class="vcard"> 
-          <h1 class="fn n" id="name">
-            <span class="given-name">{{ personal_info.first_name}}</span> 
-            <span class="middle-name">{{ personal_info.middle_name }}</span>
-            <span class="family-name">{{ personal_info.last_name }}</span>
-            </a>
-          </h1> 
-          <div class="adr"> 
-            <span class="locality">{{ personal_info.locality }}</span>, <abbr class="region" title="{{ personal_info.region }}">{{ personal_info.region_shorthand }}</abbr> 
-          </div>
+
+                  <li class="website"><i class="fa fa-globe"></i><a href="http://themes.3rdwavemedia.com/website-templates/free-responsive-website-template-for-developers/" target="_blank">portfoliosite.com</a></li>
+                  {% if personal_info.linkedin %}
+                  <li class="linkedin">                  
+                      <a href="{{ personal_info.linkedin }}">{{ personal_info.linkedin|slice:"11:" }}</a>
+                  </li>
+                  {% endif %}
+                  <li class="github"><i class="fa fa-github"></i><a href="#" target="_blank">github.com/username</a></li>
+                  <li class="twitter"><i class="fa fa-twitter"></i><a href="https://twitter.com/3rdwave_themes" target="_blank">@twittername</a></li>
+              </ul>
+          </div><!--//contact-container-->
+          <div class="education-container container-block">
+              <h2 class="container-block-title">Education</h2>
+              <div class="item">
+                  <h4 class="degree">MSc in Computer Science</h4>
+                  <h5 class="meta">University of London</h5>
+                  <div class="time">2011 - 2012</div>
+              </div><!--//item-->
+              <div class="item">
+                  <h4 class="degree">BSc in Applied Mathematics</h4>
+                  <h5 class="meta">Bristol University</h5>
+                  <div class="time">2007 - 2011</div>
+              </div><!--//item-->
+          </div><!--//education-container-->
           
-          {% if personal_info.email %}
-          <div class="email">
-            <a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a>
-          </div>
-          {% endif %}
+          <div class="languages-container container-block">
+              <h2 class="container-block-title">Languages</h2>
+              <ul class="list-unstyled interests-list">
+                  <li>English <span class="lang-desc">(Native)</span></li>
+                  <li>French <span class="lang-desc">(Professional)</span></li>
+                  <li>Spanish <span class="lang-desc">(Professional)</span></li>
+              </ul>
+          </div><!--//interests-->
           
-          {% if personal_info.linkedin %}
-          <div class="linkedin">
-            <a href="{{ personal_info.linkedin }}">{{ personal_info.linkedin|slice:"11:" }}</a>
-          </div>
-          {% endif %}
-        </div> 
-        {% endwith %}
-        <!-- End Personal Contact Information --> 
-  
-        <div class="clear"></div> 
-  
-        <h2>Summary</h2>
-        <p class="summary">
+          <div class="interests-container container-block">
+              <h2 class="container-block-title">Interests</h2>
+              <ul class="list-unstyled interests-list">
+                  <li>Climbing</li>
+                  <li>Snowboarding</li>
+                  <li>Cooking</li>
+              </ul>
+          </div><!--//interests-->
+          
+      </div><!--//sidebar-wrapper-->
+
+
+
+
+
+    <div class="main-wrapper">
+            
+      <section class="section summary-section">
+          <h2 class="section-title"><span class="glyphicon glyphicon-user"></span>Career Profile</h2>
           {% with overview|first as overview %}
-          {{ overview.text|safe }}
-          {% endwith %}
-        </p>  
-        
-        <h2>Work Experience</h2>
-        <ul id="job-list" class="vcalendar">
-        {% for job in job_list %}
-        {% if job.is_public %}
-        <li class="experience vevent vcard">
-          <span class="org">{{ job.company }}</span> - <span class="location">{{ job.location }}</span>
-          <br/>
-          <a class="include" href="#name"></a>
-          <span class="title">{{ job.title }}</span> 
-          <span class="period">(<abbr class="dtstart" title="{{ job.full_start_date }}">{{ job.formatted_start_date }}</abbr> - <abbr class="dtend" title="{{ job.full_end_date }}">{{ job.formatted_end_date }}</abbr>)</span>
           
-          <div class="description">{{ job.description }}</div>
-          <ul class="achievements">
-            {% for a in job.accomplishment_set.all %}
-              <li>{{ a.description }}</li>
-            {% endfor %}
-          </ul>
-        </li>
-        {% endif %}
-        {% endfor %}
-        </ul>
-
-        <h2>Skills</h2>
-        <ul id="skill-list">
-          {% for skillset in skill_sets %}
-          <li class="skillset"><span class="skillset-title">{{ skillset.name }}:&nbsp;</span>
-            {% for s in skillset.skill_set.all %}
-            <a href="{{ s.skill_url }}" class="skill" rel="tag">{{ s.name }}</a>{% if not forloop.last %},&nbsp;{% endif %}
-            {% endfor %}
-          </li>
-          {% endfor %} 
-        </ul>
-        
-        <h2>Education</h2>
-        <ul id="edu-list" class="vcalendar">
-          {% for edu in education %}
-          <li class="education vevent vcard">
-            <span class="period"><abbr class="dtstart" title="{{ edu.full_start_date }}">{{ edu.formatted_start_date }}</abbr> - <abbr class="dtend" title="{{ edu.full_end_ate }}">{{ edu.formatted_end_date }}</abbr></span> - 
-            <span class="org"><a rel="employer" href="{{ edu.school_url }}" class="summary url" title="{{ edu.name }}">{{ edu.name }}</a></span> - <span class="location">{{ edu.location }}</span>
-            <div class="summary"> {{ edu.summary }}</div>
-          </li>
+          <div class="summary">
+          <!--    <p>Summarise your career here lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can <a href="http://themes.3rdwavemedia.com/website-templates/orbit-free-resume-cv-template-for-developers/" target="_blank">download this free resume/CV template here</a>. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.</p>
+          -->
+          <p>{{ overview.text|safe }}</p>
+          {% endwith %}
+          </div><!--//summary-->
+      </section><!--//section-->
+      
+      <section class="section experiences-section">
+          <h2 class="section-title"><span class="glyphicon glyphicon-briefcase"></span>Experiences</h2>
+          
+          {% for job in job_list %}
+          {% if job.is_public %}
+          <div class="item">
+              <div class="meta">
+                  <div class="upper-row">
+                      <h3 class="job-title">{{ job.title|capfirst }}</h3>
+                      <div class="time">{{ job.formatted_start_date }} - {{ job.formatted_end_date }}</div>
+                  </div><!--//upper-row-->
+                  <!--<div class="company">-->
+                  <div class="upper-row">
+                      {% if job.company_url %}
+                      <a target="_blank" href="{{ job.company_url }}">{{ job.company }}</a>
+                      {% else %}
+                      <a>{{ job.company }}</a>
+                      {% endif %}
+                      <div class="time">{{ job.location|capfirst }}</div>
+                  </div>
+              </div><!--//meta-->
+              <div class="details">
+                  <p>{{ job.description|capfirst }}</p>
+              </div><!--//details-->
+          </div><!--//item-->
+          {% endif %}
           {% endfor %}
-        </ul>
-      </section>
-      <div class="clear"></div>
-    </div>
+          
+      </section><!--//section-->
+      </div>
+
+    {% endwith %}
+    
   </div>
 </div>
 {% endblock %}

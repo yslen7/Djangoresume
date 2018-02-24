@@ -20,7 +20,7 @@ class PersonalInfo(models.Model):
     class Meta:
         verbose_name_plural = "Personal Info"    
     def full_name(self):
-        return " ".join([self.first_name, self.last_name])    
+        return " ".join([self.first_name, self.middle_name, self.last_name])    
     def __unicode__(self):
         return self.full_name()
 
@@ -62,7 +62,7 @@ class Job(models.Model):
     company_url = models.URLField('Company URL')
     description = models.TextField(blank=True)
     start_date = models.DateField()
-    completion_date = models.DateField()
+    completion_date = models.DateField(blank=True)
     is_current = models.BooleanField(default=False)
     is_public = models.BooleanField(default=True)
     company_image = models.CharField(max_length=250, blank=True, 
