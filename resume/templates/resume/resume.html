@@ -107,6 +107,12 @@
               <div class="details">
                   <p>{{ job.description|capfirst }}</p>
               </div><!--//details-->
+
+              <ul class="achievements">
+                  {% for a in job.accomplishment_set.all %}
+                    <li>{{ a.description }}</li>
+                  {% endfor %}
+              </ul>
           </div><!--//item-->
           {% endif %}
           {% endfor %}

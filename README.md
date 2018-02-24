@@ -25,6 +25,19 @@ date2=datetime.date(year=2018,month=2,day=20)
 j=Job.objects.create(company='MyCompany',start_date=date,completion_date=date2)
 j.company='my company'
 j.company_url='www.google.com'
+j.title="CTO"
+j.description="some description of the job which goes here and will be displayed ok you get it"
+
+from resume.models import Accomplishment
+acc=Accomplishment.objects.create(order=2,job_id=1)
+acc.description="first accomplishement"
+acc.save()
+acc=Accomplishment.objects.create(order=3,job_id=1)
+acc.description="my second incomplete accomplishm"
+acc.save()
+acc=Accomplishment.objects.create(order=1,job_id=1)
+acc.description="accomplishment there"
+acc.save()
 
 from resume.models import Education
 Education.objects.create(name='University Somewhere',start_date=date,completion_date=date2)
