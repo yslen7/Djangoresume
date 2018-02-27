@@ -41,26 +41,29 @@
                   {% endif %}
               </ul>
           </div><!--//contact-container-->
+
+          {% for edu in education %}
           <div class="education-container container-block">
               <h2 class="container-block-title">Education</h2>
-              {% for edu in education %}
               <div class="item">
                   <h4 class="degree">{{ edu.summary }}</h4>
                   <h5 class="meta">{{ edu.name }}, {{ edu.location }}</h5>
                   <div class="time">{{ edu.formatted_start_date }} - {{ edu.formatted_end_date }}</div>
-              </div><!--//item-->
-              {% endfor %}
+              </div>
           </div><!--//education-container-->
+          {% endfor %}
           
+          {% for lan in language %}
           <div class="languages-container container-block">
               <h2 class="container-block-title">Languages</h2>
               <ul class="list-unstyled interests-list">
-                  <li>English <span class="lang-desc">(Native)</span></li>
+                  <li>{{ lan.language}} <span class="lang-desc">({{ lan.lanaguage}})</span></li>
                   <li>French <span class="lang-desc">(Professional)</span></li>
                   <li>Spanish <span class="lang-desc">(Professional)</span></li>
               </ul>
-          </div><!--//interests-->
-          
+          </div>
+          {% endfor %}
+
           <div class="interests-container container-block">
               <h2 class="container-block-title">Interests</h2>
               <ul class="list-unstyled interests-list">
