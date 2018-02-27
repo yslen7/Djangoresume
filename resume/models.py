@@ -37,7 +37,7 @@ class PersonalInfo(models.Model):
 class Language(models.Model):
     language = models.CharField(max_length=20,blank=False)
     level = models.CharField(max_length=30,blank=False)
-    personalinfo = models.ForeignKey('PersonalInfo',on_delete=models.CASCADE)
+    #personalinfo = models.ForeignKey('PersonalInfo',on_delete=models.CASCADE)
     ordering = models.IntegerField(default=1)
     class Meta:
         ordering = ['ordering','id']
