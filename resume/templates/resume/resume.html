@@ -2,12 +2,12 @@
 
 {% block content %}
 {% load static %}
-<div id="wrap">
-  <div class="contentwrap">
+<div id="wrapper">
+  <div class="contentwrap"> <!-- sidebar-wrapper and main-wrapper -->
+    
       {% with personal_info|first as pinfo %}
-
-      <div class="sidebar-wrapper">
-          <div class="profile-container">
+      <div class="sidebar-wrapper text-left">
+          <div class="profile-container text-center">
               <img class="profile" src="{% static 'images/profile.jpg' %}" alt="" />
               <h1 class="name">{{ pinfo.full_name}}</h1>
               <h3 class="tagline">{{pinfo.title}}</h3>
@@ -15,28 +15,27 @@
           
           <div class="contact-container container-block">
               <ul class="list-unstyled contact-list">
-                  {% if pinfo.email %}  
+                  {% if pinfo.email %}
                   <li class="email">
                     <i class="fa fa-envelope"></i>
                     <a href="mailto:{{ pinfo.email }}">{{ pinfo.email }}</a>
                   </li>
                   {% endif %}
 
-
                   <li class="website"><i class="fa fa-globe"></i><a href="{{ pinfo.site}}" target="_blank">{{ pinfo.sitename}}</a></li>
                   {% if pinfo.linkedin %}
                   <li class="linkedin">                  
-                      <a href="{{ pinfo.linkedin }}">{{ pinfo.linkedin|slice:"11:" }}</a>
+                    <i class="fab fa-linkedin"></i><a href="{{ pinfo.linkedin }}">{{ pinfo.linkedin|slice:"11:" }}</a>
                   </li>
                   {% endif %}
                   {% if pinfo.github %}
                   <li class="github">
-                    <i class="fa fa-github"></i><a href="{{pinfo.github}}" target="_blank">github.com/{{pinfo.githubname}}</a>
+                    <i class="fab fa-github"></i><a href="{{pinfo.github}}" target="_blank">github.com/{{pinfo.githubname}}</a>
                   </li>
                   {% endif %}
                   {% if pinfo.twittername %}
                   <li class="twitter">
-                    <i class="fa fa-twitter"></i><a href="https://twitter.com/{{pinfo.twittername}}" target="_blank">@{{pinfo.twittername}}</a>
+                    <i class="fab fa-twitter"></i><a href="https://twitter.com/{{pinfo.twittername}}" target="_blank">@{{pinfo.twittername}}</a>
                   </li>
                   {% endif %}
               </ul>
@@ -57,7 +56,7 @@
               <h2 class="container-block-title">Languages</h2>
               {% for lan in language %}
               <ul class="list-unstyled interests-list">
-                  <li>{{ lan.language}} <span class="lang-desc">({{ lan.lanaguage}})</span></li>
+                  <li>{{ lan.language}} <span class="lang-desc">({{ lan.level}})</span></li>
               </ul>
               {% endfor %}
           </div>
