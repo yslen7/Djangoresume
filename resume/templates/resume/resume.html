@@ -4,39 +4,39 @@
 {% load static %}
 <div id="wrap">
   <div class="contentwrap">
-      {% with personal_info|first as personal_info %}
+      {% with personal_info|first as pinfo %}
 
       <div class="sidebar-wrapper">
           <div class="profile-container">
               <img class="profile" src="{% static 'images/profile.jpg' %}" alt="" />
-              <h1 class="name">{{ personal_info.full_name}}</h1>
-              <h3 class="tagline">{{personal_info.title}}</h3>
+              <h1 class="name">{{ pinfo.full_name}}</h1>
+              <h3 class="tagline">{{pinfo.title}}</h3>
           </div><!--//profile-container-->
           
           <div class="contact-container container-block">
               <ul class="list-unstyled contact-list">
-                  {% if personal_info.email %}  
+                  {% if pinfo.email %}  
                   <li class="email">
                     <i class="fa fa-envelope"></i>
-                    <a href="mailto:{{ personal_info.email }}">{{ personal_info.email }}</a>
+                    <a href="mailto:{{ pinfo.email }}">{{ pinfo.email }}</a>
                   </li>
                   {% endif %}
 
 
-                  <li class="website"><i class="fa fa-globe"></i><a href="{{ personal_info.site}}" target="_blank">{{ personal_info.sitename}}</a></li>
-                  {% if personal_info.linkedin %}
+                  <li class="website"><i class="fa fa-globe"></i><a href="{{ pinfo.site}}" target="_blank">{{ pinfo.sitename}}</a></li>
+                  {% if pinfo.linkedin %}
                   <li class="linkedin">                  
-                      <a href="{{ personal_info.linkedin }}">{{ personal_info.linkedin|slice:"11:" }}</a>
+                      <a href="{{ pinfo.linkedin }}">{{ pinfo.linkedin|slice:"11:" }}</a>
                   </li>
                   {% endif %}
-                  {% if personal_info.github %}
+                  {% if pinfo.github %}
                   <li class="github">
-                    <i class="fa fa-github"></i><a href="{{personal_info.github}}" target="_blank">github.com/{{personal_info.githubname}}</a>
+                    <i class="fa fa-github"></i><a href="{{pinfo.github}}" target="_blank">github.com/{{pinfo.githubname}}</a>
                   </li>
                   {% endif %}
-                  {% if personal_info.twittername %}
+                  {% if pinfo.twittername %}
                   <li class="twitter">
-                    <i class="fa fa-twitter"></i><a href="https://twitter.com/{{personal_info.twittername}}" target="_blank">@{{personal_info.twittername}}</a>
+                    <i class="fa fa-twitter"></i><a href="https://twitter.com/{{pinfo.twittername}}" target="_blank">@{{pinfo.twittername}}</a>
                   </li>
                   {% endif %}
               </ul>
