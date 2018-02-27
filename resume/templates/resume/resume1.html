@@ -1,0 +1,142 @@
+{% extends "resume/base.html" %}
+{% load static %}
+
+<!--<div id="wrap"></div>
+  <div class="contentwrap">-->
+{% block sidebar %}
+{% with personal_info|first as pinfo %}
+    <div class="sidebar-wrapper text-left">
+        <div class="profile-container text-center">
+            <img class="profile" src="{% static 'images/profile.jpg' %}" alt="" />
+            <h1 class="name">{{ pinfo.full_name}}</h1>
+            <h3 class="tagline">{{pinfo.title}}</h3>
+        </div><!--//profile-container-->
+        
+        <div class="contact-container container-block">
+            <ul class="list-unstyled contact-list">
+                {% if pinfo.email %}  
+                <li class="email">
+                  <i class="fa fa-envelope"></i>                    
+                  <a href="mailto:{{ pinfo.email }}" target="_blank">{{ pinfo.email }}</a>
+                </li>
+                {% endif %}
+
+                <li class="website">
+                  <i class="fa fa-globe"></i>
+                  <a href="{{ pinfo.site}}" target="_blank">{{ pinfo.sitename}}</a>
+                </li>
+                {% if pinfo.linkedin %}
+                <li class="linkedin">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="{{ pinfo.linkedin }}">{{ pinfo.linkedin|slice:"11:" }}</a>
+                </li>
+                {% endif %}
+                {% if pinfo.github %}
+                <li class="github">
+                  <i class="fab fa-github"></i>
+                  <a href="{{pinfo.github}}" target="_blank">github.com/{{pinfo.githubname}}</a>
+                </li>
+                {% endif %}
+                {% if pinfo.twittername %}
+                <li class="twitter">
+                  <i class="fab fa-twitter"></i>
+                  <a href="https://twitter.com/{{pinfo.twittername}}" target="_blank">@{{pinfo.twittername}}</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div><!--//contact-container-->
+        <div class="education-container container-block">
+            <h2 class="container-block-title">Education</h2>
+            {% for edu in education %}
+            <div class="item">
+                <h4 class="degree">{{ edu.summary }}</h4>
+                <h5 class="meta">{{ edu.name }}, {{ edu.location }}</h5>
+                <div class="time">{{ edu.formatted_start_date }} - {{ edu.formatted_end_date }}</div>
+            </div><!--//item-->
+            {% endfor %}
+        </div><!--//education-container-->
+        
+        <div class="languages-container container-block">
+            <h2 class="container-block-title">Languages</h2>
+            <ul class="list-unstyled interests-list">
+                <li> <span class="lang-desc">(Native)</span></li>
+                <li>French <span class="lang-desc">(Professional)</span></li>
+                <li>Spanish <span class="lang-desc">(Professional)</span></li>
+            </ul>
+        </div><!--//interests-->
+        
+        <div class="interests-container container-block">
+            <h2 class="container-block-title">Interests</h2>
+            <ul class="list-unstyled interests-list">
+                <li>Climbing</li>
+                <li>Snowboarding</li>
+                <li>Cooking</li>
+            </ul>
+        </div><!--//interests-->
+        
+    </div><!--//sidebar-wrapper-->
+{% endwith %}
+{% endblock %}
+
+
+
+{% block content %}
+{% with pinfo|first as pinfo %}
+<div class="main-wrapper text-left">        
+  <section class="section summary-section">
+      <h2 class="section-title">
+        <span class="glyphicon glyphicon-user"></span>
+        <i class="fa fa-user"></i>
+        Career Profile
+      </h2>
+      {% with overview|first as overview %}
+      
+      <div class="summary">
+      <!--    <p>Summarise your career here lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can <a href="http://themes.3rdwavemedia.com/website-templates/orbit-free-resume-cv-template-for-developers/" target="_blank">download this free resume/CV template here</a>. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.</p>
+      -->
+      <p>{{ overview.text|safe }}</p>
+      {% endwith %}
+      </div><!--//summary-->
+  </section><!--//section-->
+  
+  <section class="section experiences-section">
+      <h2 class="section-title"><span class="glyphicon glyphicon-briefcase"></span>Experiences</h2>
+      
+      {% for job in job_list %}
+      {% if job.is_public %}
+      <div class="item">
+          <div class="meta">
+              <div class="upper-row">
+                  <h3 class="job-title">{{ job.title|capfirst }}</h3>
+                  <div class="time">{{ job.formatted_start_date }} - {{ job.formatted_end_date }}</div>
+              </div><!--//upper-row-->
+              <!--<div class="company">-->
+              <div class="upper-row">
+                  {% if job.company_url %}
+                  <a target="_blank" href="{{ job.company_url }}">{{ job.company }}</a>
+                  {% else %}
+                  <a>{{ job.company }}</a>
+                  {% endif %}
+                  <div class="time">{{ job.location|capfirst }}</div>
+              </div>
+          </div><!--//meta-->
+          <div class="details">
+              <p>{{ job.description|capfirst }}</p>
+          </div><!--//details-->
+
+          <ul class="achievements">
+              {% for a in job.accomplishment_set.all %}
+                <li>{{ a.description }}</li>
+              {% endfor %}
+          </ul>
+      </div><!--//item-->
+      {% endif %}
+      {% endfor %}
+      
+  </section><!--//section-->
+  </div>
+  
+{% endwith %}
+{% endblock %}
+<!--  </div>
+</div>-->

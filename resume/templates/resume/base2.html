@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Theme Made By www.w3schools.com - No Copyright -->
   <title>My Site</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  -->
+  
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <!--From Orbit-->
-  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" media="all">
+  <!--
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 
+  -->  
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
+    <div class="row">
+        <div class="col-sm-4">.col-sm-4</div>
+        <div class="col-sm-4">.col-sm-4</div>
+        <div class="col-sm-4">.col-sm-4</div>
+      </div> 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -31,22 +40,21 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-left">
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#resume">RESUME</a></li>
+          <li><a href="#resume">RESUME</a></li>
+        <li><a href="#about">ABOUT</a></li>        
         <li><a href="#services">SERVICES</a></li>
         <li><a href="#projects">PROJECTS</a></li>
         <li><a href="#pricing">PRICING</a></li>
         <li><a href="#contact">CONTACT</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-
-                <li><a href="{% url 'index' %}">Home</a></li>
-                {% if user.is_authenticated %}
-                <li><a>{{ user.get_username }} </a></li>   
-                <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
-                {% else %}
-                <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
-                {% endif %}
+        <li><a href="{% url 'index' %}">Home</a></li>
+        {% if user.is_authenticated %}
+        <li><a>{{ user.get_username }} </a></li>   
+        <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+        {% else %}
+        <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
+        {% endif %}
       </ul>
     </div>
   </div>
@@ -65,6 +73,22 @@
   </form>-->
 </div>
 
+<!-- Container (Resume Section) -->
+<div id="resume" class="container-fluid text-center bg-grey">
+    <h2>Resume</h2>
+    <br>
+    <div class="row slideanim">    
+      <div id="wrap"></div>
+        <div class="contentwrap">
+          {% block sidebar %}{% endblock %}
+          {% block content %}{% endblock %}    
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
   <div class="row">
@@ -93,18 +117,6 @@
     </div>
   </div>
 </div>
-
-<!-- Container (Resume Section) -->
-<div id="resume" class="container-fluid text-center bg-grey">
-  <h2>Resume</h2><br>
-  <div class="row text-center slideanim">
-    
-    {% block content %}{% endblock %}
-
-  </div>
-</div><br>
-
-
 
 <!-- Container (Services Section) -->
 <div id="services" class="container-fluid text-center">
