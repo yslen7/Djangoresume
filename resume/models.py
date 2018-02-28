@@ -34,15 +34,14 @@ class PersonalInfo(models.Model):
     def __unicode__(self):
         return self.full_name()
 
-class Language(models.Model):
+class Languages(models.Model):
     language = models.CharField(max_length=20,blank=False)
     level = models.CharField(max_length=30,blank=False)
-    #personalinfo = models.ForeignKey('PersonalInfo',on_delete=models.CASCADE)
     ordering = models.IntegerField(default=1)
     class Meta:
         ordering = ['ordering','id']
     def __unicode__(self):
-        return ''.join([self.PersonalInfo.full_name, '-', self.language, '-', self.level])
+        return ''.join([self.language, '-', self.level])
 
 class Education(models.Model):
     name = models.CharField(max_length=250)

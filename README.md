@@ -17,9 +17,9 @@ pi.site='https://www.myportfoliosite.com'
 pi.save()
 pi.__dict__  #print the fields
 
-from resume.models import Language
-l1=Language.objects.create(language='English',level='professional', personalinfo=pi)
-l2=Language.objects.create(language='Dutch',level='professional', personalinfo=pi)
+from resume.models import Languages
+l1=Languages.objects.create(language='English',level='professional')
+l2=Languages.objects.create(language='Dutch',level='professional')
 l2.ordering=2
 l1.save()
 l2.save()
@@ -59,13 +59,13 @@ j2.description="Describe the job here"
 j2.save()
 
 from resume.models import Accomplishment
-acc=Accomplishment.objects.create(order=2,job_id=1)
+acc=Accomplishment.objects.create(order=2,job=j)
 acc.description="2nd accomplishement"
 acc.save()
-acc=Accomplishment.objects.create(order=3,job_id=1)
+acc=Accomplishment.objects.create(order=3,job=j)
 acc.description="my third incomplete accomplishm"
 acc.save()
-acc=Accomplishment.objects.create(order=1,job_id=1)
+acc=Accomplishment.objects.create(order=1,job=j)
 acc.description="first accomplishment there"
 acc.save()
 
@@ -83,10 +83,12 @@ ed2.location='Boston,MA'
 ed2.description="Studied electrodynamics"
 ed2.save()
 ```
+
 The available models are: 
 Overview
 PersonalInfo
 Education
+Languages
 Job
 Accomplishment
 Skillset
