@@ -119,24 +119,36 @@
             {% endif %}
             {% endfor %}
         </section>
-        
-        <section class="section experiences-section">
+
+
+        <section class="section ">
             <h2 class="section-title"><i class="fa fa-university"></i>Education</h2>
+            {% for edu in education %}
             <div class="item">
-                {% for edu in education %}
-                    <div class="meta">
-                        <div class="upper-row">
-            
-               
-                    <h4 class="job-title">{{ edu.summary }}</h4>
-                    <h5 class="meta">{{ edu.name }}, {{ edu.location }}</h5>
-                    <div class="time">{{ edu.formatted_start_date }} - {{ edu.formatted_end_date }}</div>
+                <div class="meta">
+                    <div class="upper-row">
+                        <h3 class="job-title">{{ edu.summary }}</h3>
+                        <h5 class="meta">{{ edu.name }}, {{ edu.location }}</h5>
+                        <div class="time">{{ edu.formatted_start_date }} - {{ edu.formatted_end_date }}</div>
+                        <p>{{ edu.description }}</p>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
+        </section>
+
+        <section class="section ">
+            <h2 class="section-title"><i class="fa fa-language"></i>Languages</h2>
+            {% for lan in language %}
+            <div class="item">
+                <div class="meta">
+                    <div class="upper-row">
+                        <h3 class="job-title">{{ lan.language }}</h3>
+                        <h5 class="meta">{{ lan.professional }}</h5>
+                    </div>
+                </div>
             </div>
             {% endfor %}
-            
-            
         </section>
       </div> <!--main-wrapper-->
 

@@ -172,7 +172,7 @@ contact-container
   font-weight: 500;
 }
 .main-wrapper .time {
-  position: absolute;
+  position: absolute; /* ale does not sound good */
   right: 0;
   top: 0;
   color: #97AAC3;

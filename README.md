@@ -79,7 +79,8 @@ ed1.save()
 ed2=Education.objects.create(name='University of Somewherelse')
 ed2.start_date=datetime.date(year=2015,month=4,day=1)
 ed2.summary="Hi school"
-ed1.location='Boston,MA'
+ed2.location='Boston,MA'
+ed2.description="Studied electrodynamics"
 ed2.save()
 ```
 The available models are: 

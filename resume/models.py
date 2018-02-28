@@ -51,6 +51,7 @@ class Education(models.Model):
     start_date = models.DateField(null=True)
     end_date = models.DateField(null=True)
     summary = models.TextField(blank=True)
+    description = models.TextField(blank=True)
     #is_current = models.BooleanField(default=True)
     class Meta:
         verbose_name_plural = "Education"
