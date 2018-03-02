@@ -17,6 +17,7 @@ class PersonalInfo(models.Model):
     title = models.CharField(max_length=255, help_text="e.g. Developer",blank=True)
     email = models.EmailField(blank=True)
     linkedin = models.URLField(blank=True)
+    facebook = models.URLField(blank=True)
     github = models.URLField(blank=True)
     site = models.URLField(blank=True)
     sitename  = models.CharField(max_length=255, default = site)
