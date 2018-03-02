@@ -140,18 +140,16 @@
           </div>
           <p>{{ job.description }}</p>
         </div>
-      <!--
+        <!-- original:
+          <div class="resume-date text-md-right">
+            <span class="text-primary">{{ job.formatted_start_date }} - {{ job.formatted_end_date }}</span>
+            <p >{{ job.location }}</p>
+          </div>
+        -->
         <div class="resume-date text-md-right">
-          <span class="text-primary">{{ job.formatted_start_date }} - {{ job.formatted_end_date }}</span>
+          <div class="subheading mb-3 text-primary">{{ job.formatted_start_date }} - {{ job.formatted_end_date }}</div>
           <p >{{ job.location }}</p>
         </div>
-      -->
-        <div class="resume-content mr-auto text-md-right">
-          <span class="subheading mb-3 text-primary">{{ job.formatted_start_date }} - {{ job.formatted_end_date }}</span>
-          <p >{{ job.location }}</p>
-        </div>
-      <!--  -->
-
 
       </div>
       {% endfor %}
