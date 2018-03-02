@@ -60,7 +60,7 @@
       <ul class="list-inline list-social-icons mb-0">
         {% if pinfo.email %}
         <li class="list-inline-item">
-          <a href="#">
+          <a href="{{pinfo.email}}" target="_blank">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
@@ -69,8 +69,8 @@
         </li>
         {% endif %}
         {% if pinfo.site %}
-        <li class="list-inline-item">
-          <a href="#">
+        <li class="list-inline-item" target="_blank">
+          <a href="{{pinfo.site}}" target="_blank">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
@@ -80,7 +80,7 @@
         {% endif %} 
         {% if pinfo.facebook %}
         <li class="list-inline-item">
-          <a href="#">
+          <a href="{{pinfo.facebook}}" target="_blank">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -90,7 +90,7 @@
         {% endif %}
         {% if pinfo.twitter %}
         <li class="list-inline-item">
-          <a href="#">
+          <a href="{{pinfo.twitter}}" target="_blank">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -100,7 +100,7 @@
         {% endif %}
         {% if pinfo.linkedin %}
         <li class="list-inline-item">
-          <a href="#">
+          <a href="{{pinfo.linkedin}}" target="_blank">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -110,7 +110,7 @@
         {% endif %}
         {% if pinfo.github %}
         <li class="list-inline-item">
-          <a href="#">
+          <a href="{{pinfo.github}}" target="_blank">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-github fa-stack-1x fa-inverse"></i>

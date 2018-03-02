@@ -20,7 +20,6 @@ class PersonalInfo(models.Model):
     facebook = models.URLField(blank=True)
     github = models.URLField(blank=True)
     site = models.URLField(blank=True)
-    sitename  = models.CharField(max_length=255, default = site)
     twittername = models.CharField(max_length=100, blank=True)
     class Meta:
         verbose_name_plural = "Personal Info"    
