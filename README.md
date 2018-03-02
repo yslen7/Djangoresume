@@ -97,4 +97,4 @@ Skill
 You can print the available fields for each model using:
 ```
 [f.name for f in Overview._meta.get_fields()]
-```
+```# Djangoresume
