@@ -49,7 +49,7 @@ class Education(models.Model):
     school_url = models.URLField('School URL', blank=True)
     start_date = models.DateField(null=True)
     end_date = models.DateField(null=True)
-    summary = models.TextField(blank=True)
+    degree = models.TextField(blank=True)
     description = models.TextField(blank=True)
     #is_current = models.BooleanField(default=True)
     class Meta:
