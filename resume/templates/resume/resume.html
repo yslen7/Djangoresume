@@ -21,13 +21,16 @@
         <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#achievements">Achievements</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="#education">Education</a>
       </li>
       <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
+        <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
       </li>
       <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
@@ -139,6 +142,11 @@
             {% endif %} 
           </div>
           <p>{{ job.description }}</p>
+          <ul class="achievements">
+            {% for acc in job.jobaccomplishment_set.all %}
+            <li>{{ acc.description }}</li>
+            {% endfor %}
+          </ul>
         </div>
         <!-- original:
           <div class="resume-date text-md-right">
@@ -150,13 +158,32 @@
           <div class="subheading mb-3 text-primary">{{ job.formatted_start_date }} - {{ job.formatted_end_date }}</div>
           <p >{{ job.location }}</p>
         </div>
-
       </div>
       {% endfor %}
 
     </div>
 
   </section>
+
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="achievements">
+      <div class="my-auto">
+        <h2 class="mb-5">Achievements</h2>
+        <ul class="achievements">
+          {% for ach in achievement %}
+          <ul class="fa-ul mb-0">
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              {{ ach.description|capfirst }} 
+              <a target="_blank" href="{{ ach.link }}">{{ ach.linkname }}</a>
+            </li>
+          </ul>
+          {% endfor %}
+        </ul>
+
+  
+      </div>
+    </section>
+
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
     <div class="my-auto">
@@ -226,21 +253,15 @@
         <li>
           <i class="fa-li fa fa-check"></i>
           Cross Browser Testing &amp; Debugging</li>
-        <li>
-          <i class="fa-li fa fa-check"></i>
-          Cross Functional Teams</li>
-        <li>
-          <i class="fa-li fa fa-check"></i>
-          Agile Development &amp; Scrum</li>
       </ul>
     </div>
   </section>
 
-  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="projects">
     <div class="my-auto">
-      <h2 class="mb-5">Interests</h2>
-      <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skiier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-      <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web development world.</p>
+      <h2 class="mb-5">Projects</h2>
+      <p> hipster stuff such as free climbing, biking, gearless bikes, slouching</p>
+      <p class="mb-0">also cooking and no profit tufts</p>
     </div>
   </section>
 

@@ -1,4 +1,7 @@
 
-.subheading {
-  text-transform: none;
-}
+.subheading{text-transform: none;}
+.subheading{text-transform:none;font-weight:500;font-family:'Saira Extra Condensed',serif;font-size:1.35rem}
+.bg-primary{background-color:rgb(0, 217, 255)!important}
+.text-primary{color:rgb(0, 217, 255)!important}
+a{color:rgb(0, 217, 255)}
+a:active,a:focus,a:hover{color:rgb(0, 26, 255)}

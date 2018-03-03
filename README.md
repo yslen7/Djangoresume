@@ -16,9 +16,9 @@ pi.site='http://www.somesite.com'
 pi.save()
 pi.__dict__  #print the fields
 
-from resume.models import Languages
-l1=Languages.objects.create(language='English',level='professional')
-l2=Languages.objects.create(language='Dutch',level='professional')
+from resume.models import Language
+l1=Language.objects.create(language='English',level='professional')
+l2=Language.objects.create(language='Dutch',level='professional')
 l2.ordering=2
 l1.save()
 l2.save()
@@ -57,16 +57,30 @@ j2.title="Technician"
 j2.description="Describe the job here"
 j2.save()
 
-from resume.models import Accomplishment
-acc=Accomplishment.objects.create(order=2,job=j)
+from resume.models import JobAccomplishment
+acc=JobAccomplishment.objects.create(order=2,job=j)
 acc.description="2nd accomplishement"
 acc.save()
-acc=Accomplishment.objects.create(order=3,job=j)
+acc=JobAccomplishment.objects.create(order=3,job=j)
 acc.description="my third incomplete accomplishm"
 acc.save()
-acc=Accomplishment.objects.create(order=1,job=j)
+acc=JobAccomplishment.objects.create(order=1,job=j)
 acc.description="first accomplishment there"
 acc.save()
+
+from resume.models import Achievement
+ach1=Achievement.objects.create()
+ach1.description="I developed this site. See it on "
+ach1.link="https://github.com/aless80/Djangoresume"
+ach1.linkname="github"
+ach1=Achievement.objects.create()
+ach1.save()
+ach2=Achievement.objects.create()
+ach2.description="Some achievement"
+ach2.save()
+ach3=Achievement.objects.create()
+ach3.description="Some other achievement"
+ach3.save()
 
 from resume.models import Education
 ed1=Education.objects.create(name='University of Somewhere')

@@ -34,15 +34,6 @@ class PersonalInfo(models.Model):
     def __unicode__(self):
         return self.full_name()
 
-class Languages(models.Model):
-    language = models.CharField(max_length=20,blank=False)
-    level = models.CharField(max_length=30,blank=False)
-    ordering = models.IntegerField(default=1)
-    class Meta:
-        ordering = ['ordering','id']
-    def __unicode__(self):
-        return ''.join([self.language, '-', self.level])
-
 class Education(models.Model):
     name = models.CharField(max_length=250)
     location = models.CharField(max_length=250)
@@ -74,6 +65,14 @@ class Education(models.Model):
     def __unicode__(self):
         return ' '.join([self.name, self.edu_date_range()])
 
+class Language(models.Model):
+    language = models.CharField(max_length=20,blank=False)
+    level = models.CharField(max_length=30,blank=False)
+    ordering = models.IntegerField(default=1)
+    class Meta:
+        ordering = ['ordering','id']
+    def __unicode__(self):
+        return ''.join([self.language, '-', self.level])
 
 class Job(models.Model):
     company = models.CharField(max_length=250)
@@ -114,16 +113,28 @@ class Job(models.Model):
     def __unicode__(self):
         return ' '.join([self.company, self.job_date_range()])
 
-class Accomplishment(models.Model):
+class JobAccomplishment(models.Model):
     description = models.TextField()
-    #job = models.ForeignKey(Job)
     job = models.ForeignKey('Job',on_delete=models.CASCADE)
     order = models.IntegerField(default=1)
     class Meta:
-        db_table = 'accomplishments'
+        db_table = 'jobaccomplishment'
         ordering = ['order', 'id']
     def __unicode__(self):
-        return ''.join([self.job.company, '-', self.description[0:50], '...'])
+        return ' - '.join([self.job.company, self.description[0:50]+'...'])
+
+class Achievement(models.Model):
+    description = models.TextField()
+    order = models.IntegerField(default=1)
+    link = models.URLField('School URL', blank=True)
+    linkdefault = 'this link' 
+    if link is not '': linkdefault = ''
+    linkname = models.URLField(default=linkdefault, blank=True)
+    class Meta:
+        db_table = 'achievement'
+        ordering = ['order', 'id']
+    def __unicode__(self):
+        return ' - '.join([self.order, self.link, self.description[0:50]+'...'])
 
 class Skillset(models.Model):
     name = models.CharField(max_length=250)
