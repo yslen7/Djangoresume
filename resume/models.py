@@ -1,4 +1,5 @@
-from django.db import models 
+from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 import time
 
 class Overview(models.Model):
@@ -37,7 +38,7 @@ class PersonalInfo(models.Model):
 class Education(models.Model):
     name = models.CharField(max_length=250)
     location = models.CharField(max_length=250)
-    school_url = models.URLField('School URL', blank=True)
+    schoolurl = models.URLField('School URL', blank=True)
     start_date = models.DateField(null=True)
     end_date = models.DateField(null=True)
     degree = models.TextField(blank=True)
@@ -76,9 +77,9 @@ class Language(models.Model):
 
 class Job(models.Model):
     company = models.CharField(max_length=250)
+    companyurl = models.URLField('Company URL')
     location = models.CharField(max_length=250)
-    title = models.CharField(max_length=250)
-    company_url = models.URLField('Company URL')
+    title = models.CharField(max_length=250)    
     description = models.TextField(blank=True)
     start_date = models.DateField(blank=True,null=True)
     end_date = models.DateField(blank=True,null=True)
@@ -126,9 +127,9 @@ class JobAccomplishment(models.Model):
 class Achievement(models.Model):
     description = models.TextField()
     order = models.IntegerField(default=1)
-    link = models.URLField('School URL', blank=True)
-    linkdefault = 'this link' 
-    if link is not '': linkdefault = ''
+    url = models.URLField('School URL', blank=True)
+    linkdefault = 'this link'
+    if url is not '': linkdefault = ''
     linkname = models.URLField(default=linkdefault, blank=True)
     class Meta:
         db_table = 'achievement'
@@ -138,14 +139,34 @@ class Achievement(models.Model):
 
 class Skillset(models.Model):
     name = models.CharField(max_length=250)
+    class Meta:
+        ordering = ['id']
     def __unicode__(self):
         return self.name
 
 class Skill(models.Model):
     name =  models.CharField(max_length=250)
-    skill_url = models.URLField('Skill URL', blank=True)
+    #skillurl = models.URLField('Skill URL', blank=True)
     skillset = models.ForeignKey('Skillset',on_delete=models.CASCADE)
     class Meta:
         ordering = ['id']
     def __unicode__(self):
         return ''.join([self.skillset.name, '-', self.name])
+
+class ProgrammingLanguage(models.Model):
+    name = models.CharField(max_length=250)
+    level = models.CharField(max_length=50, blank=True)
+    vote = models.IntegerField(
+        help_text="Kill level 1 to 5",
+        validators =[ #does this work?
+            MinValueValidator(1),
+            MaxValueValidator(5)           
+        ], 
+        null=True,
+        blank=True)
+    order = models.IntegerField(default=1)
+    class Meta:
+        db_table = 'programminglanguage'
+        ordering = ['order', 'id']
+    def __unicode__(self):
+        return self.name

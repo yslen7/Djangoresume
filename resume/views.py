@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.sites.requests import RequestSite
 from django.template import RequestContext
 
-from .models import Overview, PersonalInfo, Education, Job, JobAccomplishment, Skillset, Skill, Language, Achievement
+from .models import Overview, PersonalInfo, Education, Job, JobAccomplishment, Skillset, Skill, Language, Achievement, ProgrammingLanguage
 
 
 
@@ -23,7 +23,8 @@ def index(request):
     print(Achievement.__dict__)
     achievement = Achievement.objects.all()
     job_list = Job.objects.all()
-    skill_sets = Skillset.objects.all()
+    skillset = Skillset.objects.all()
+    proglan = ProgrammingLanguage.objects.all()
 
     return render(request, 'resume/resume.html', {
         'site_name': site_name,
@@ -33,7 +34,8 @@ def index(request):
         'language' : language,
         'achievement' : achievement,
         'job_list' : job_list,        
-        'skill_sets' : skill_sets,
+        'skillset' : skillset,
+        'proglan' : proglan,
     })
 
 
@@ -114,4 +116,21 @@ class AchievementUpdate(UpdateView):
 class AchievementDelete(DeleteView):
     model = Achievement
     template_name = 'resume/template_form.html'
-    success_url = reverse_lazy('index')'''
+    success_url = reverse_lazy('index')
+
+class ProgrammingLanguage(CreateView):
+    model = ProgrammingLanguage
+    fields = '__all__'
+    initial={'text':'add a programming language',}
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+class ProgrammingLanguageUpdate(UpdateView):
+    model = ProgrammingLanguage
+    fields = '__all__'
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+class ProgrammingLanguageDelete(DeleteView):
+    model = ProgrammingLanguage
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+'''

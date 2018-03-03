@@ -32,9 +32,6 @@
       <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
-      </li>
     </ul>
   </div>
 </nav>
@@ -135,16 +132,19 @@
         
         <div class="resume-content mr-auto">
           <div class="subheading mb-3">
-            {% if job.company_url %}
-            <a target="_blank" href="{{ job.company_url }}">{{ job.company }}</a>
+            {% if job.companyurl %}
+            <a target="_blank" href="{{ job.companyurl }}">{{ job.company }}</a>
             {% else %}
             <a target="_blank" href="">{{ job.company }}</a>
             {% endif %} 
           </div>
           <p>{{ job.description }}</p>
-          <ul class="achievements">
+          <ul class="fa-ul mb-0">
             {% for acc in job.jobaccomplishment_set.all %}
-            <li>{{ acc.description }}</li>
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              {{ acc.description }}
+            </li>
             {% endfor %}
           </ul>
         </div>
@@ -162,7 +162,6 @@
       {% endfor %}
 
     </div>
-
   </section>
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="achievements">
@@ -174,7 +173,7 @@
             <li>
               <i class="fa-li fa fa-check"></i>
               {{ ach.description|capfirst }} 
-              <a target="_blank" href="{{ ach.link }}">{{ ach.linkname }}</a>
+              <a target="_blank" href="{{ ach.url }}">{{ ach.linkname }}</a>
             </li>
           </ul>
           {% endfor %}
@@ -204,56 +203,80 @@
     </div>
   </section>
 
+
+
+
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
+
     <div class="my-auto">
       <h2 class="mb-5">Skills</h2>
 
+      <!--bullet skillset: link1,link2
+      {% for sks in skillset %}
+      <ul>
+          <li>
+            <span>{{ sks.name }}:</span>
+            {% for sk in sks.skill_set.all %}
+            <a href="{{ sk.skillurl }}" rel="tag">{{ sk.name }}</a>,
+            
+            {% endfor %}
+          </li>
+        </ul>
+      {% endfor %}
+      -->
+      <!--no bullet skillset
+      {% for sks in skillset %}
+      <div class="subheading mb-3">{{ sks.name }}</div>
+      <ul> 
+        {% for sk in sks.skill_set.all %}
+        <li style="list-style: none;">
+          <span>
+          {{ sk.name }}
+          {{ sk.skillurl }}
+          </span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endfor %}-->
+
+
+      {% for sks in skillset %}
+      <div class="subheading mb-3">{{ sks.name }}</div>
+      <ul>
+          {% for sk in sks.skill_set.all %} 
+        <li>
+          {{ sk.name }}
+          {{ sk.skillurl }}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+
       <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-      <ul class="list-inline list-icons">
-        <li class="list-inline-item">
-          <i class="devicons devicons-html5"></i>
+      <ul>
+        <li>
+          
+          {% for pl in proglan|dictsort:"vote" %}
+          <a title="{{ pl.level }}">{{ pl.name }} {{ pl.vote}}</a>{%if not forloop.last%},{%endif%}
+          {% endfor %}
         </li>
-        <li class="list-inline-item">
-          <i class="devicons devicons-css3"></i>
+      </ul>
+      </div>
+
+      <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+      {% regroup proglan by vote as vote_list %}
+      <ul>
+      {% for vote in vote_list %}
+        <li>{{ vote.grouper }}
+          <ul>
+            {% for prog in vote.list %}
+              <li>{{ prog.name }}: {{ prog.level }}</li>
+            {% endfor %}
+          </ul>
         </li>
-        <li class="list-inline-item">
-          <i class="devicons devicons-javascript"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicons devicons-jquery"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicons devicons-sass"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicons devicons-less"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicons devicons-bootstrap"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicons devicons-wordpress"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicons devicons-grunt"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicons devicons-gulp"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicons devicons-npm"></i>
-        </li>
+      {% endfor %}
       </ul>
 
-      <div class="subheading mb-3">Workflow</div>
-      <ul class="fa-ul mb-0">
-        <li>
-          <i class="fa-li fa fa-check"></i>
-          Mobile-First, Responsive Design</li>
-        <li>
-          <i class="fa-li fa fa-check"></i>
-          Cross Browser Testing &amp; Debugging</li>
-      </ul>
     </div>
   </section>
 
@@ -265,6 +288,7 @@
     </div>
   </section>
 
+  <!--
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
     <div class="my-auto">
       <h2 class="mb-5">Awards &amp; Certifications</h2>
@@ -299,6 +323,7 @@
       </ul>
     </div>
   </section>
+  -->
 
 </div>
 {% endwith %}
