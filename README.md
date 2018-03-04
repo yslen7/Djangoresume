@@ -121,6 +121,11 @@ l3.save()
 l4.save()
 l5.save()
 
+from resume.models import Project
+pr1=Project.objects.create(name='Djangoresume', link='https://github.com/aless80', order=2)
+pr1.description='Django template for online resumes'
+pr1.save()
+
 ```
 
 The available models are: 

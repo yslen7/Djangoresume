@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from django.contrib.sites.requests import RequestSite
 from django.template import RequestContext
 
-from .models import Overview, PersonalInfo, Education, Job, JobAccomplishment, Skillset, Skill, Language, Achievement, ProgrammingLanguage
+from .models import Overview, PersonalInfo
+from .models import Education, Job, JobAccomplishment
+from .models import Skillset, Skill, Language, Achievement, ProgrammingLanguage, Project
 
 
 
@@ -25,6 +27,7 @@ def index(request):
     skillset = Skillset.objects.all()
     proglan = ProgrammingLanguage.objects.all()
     language = Language.objects.all()
+    project = Project.objects.all()
 
     return render(request, 'resume/resume.html', {
         'site_name': site_name,
@@ -36,6 +39,7 @@ def index(request):
         'job_list' : job_list,        
         'skillset' : skillset,
         'proglan' : proglan,
+        'project' : project,
     })
 
 

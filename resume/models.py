@@ -1,6 +1,13 @@
 from django.db import models
 import time
 
+def showall(klass):
+    for object in klass.objects.all():
+        print('----- ' + klass._meta.model_name)
+        for field in object._meta.get_fields():
+            value = getattr(object, field.name, None)
+            print(field.name, value)
+            
 class Overview(models.Model):
     text = models.TextField()
     class Meta:
@@ -46,8 +53,8 @@ class Education(models.Model):
     class Meta:
         verbose_name_plural = "Education"
     def edu_date_range(self):
-        return ''.join(['(', self.formatted_start_date(), 
-            '-', self.formatted_end_date(), ')'])
+        return ' - '.join(['(', self.formatted_start_date(), 
+                            self.formatted_end_date(), ')'])
     def full_start_date(self):
         return self.start_date.strftime("%Y-%m-%d")
     def full_end_date(self):
@@ -81,7 +88,7 @@ class Job(models.Model):
         db_table = 'jobs'
         ordering = ['-end_date','-start_date']        
     def job_date_range(self):
-        return ''.join(['(', self.formatted_start_date(),'-', 
+        return ' - '.join(['(', self.formatted_start_date(),
             self.formatted_end_date(), ')'])    
     def full_start_date(self):
         if self.start_date is None:
@@ -141,7 +148,7 @@ class Skill(models.Model):
     class Meta:
         ordering = ['id']
     def __unicode__(self):
-        return ''.join([self.skillset.name, '-', self.name])
+        return ' - '.join([self.skillset.name, self.name])
 
 class ProgrammingLanguage(models.Model):
     name = models.CharField(max_length=250)
@@ -174,12 +181,14 @@ class Language(models.Model):
     class Meta:
         ordering = ['level','id']
     def __unicode__(self):
-        return ''.join([self.language, '-', self.level])
+        return ' - '.join([self.language, self.level])
 
-def showall(klass):
-    for object in klass.objects.all():
-        print('----- ' + klass._meta.model_name)
-        for field in object._meta.get_fields():
-            value = getattr(object, field.name, None)
-            print(field.name, value)
-            
+class Project(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=2000, blank=True)
+    link = models.EmailField(blank=True)
+    order = models.IntegerField(default=1)
+    class Meta:
+        ordering = ['order','id']
+    def __unicode__(self):
+        return ' - '.join([self.name, self.link, self.description[0:50]+'...'])
