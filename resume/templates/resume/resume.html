@@ -272,15 +272,17 @@
       <div class="subheading strong-underlined mb-3 my-3">
         Languages
       </div>
-      {% regroup language|dictsortreversed:"vote" by vote as vote_list %}
+      {% regroup language|dictsortreversed:"level" by level as level_list %}
       <ul>
-        {% for lan in language %}
+        {% for lan_list in level_list %}
         <li>
-          <strong>{{ lan.language }}</strong>: {{ lan.level }}
+          {% for lan in lan_list.list %}
+          <strong>{{ lan.language }}</strong>: {{ lan.level }}{%if not forloop.last%},{%endif%}
+          {% endfor %}
         </li>
         {% endfor %}
       </ul>
-      <br>
+
 
     </div>
   </section>
