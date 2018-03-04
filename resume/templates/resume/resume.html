@@ -239,46 +239,52 @@
       </ul>
       {% endfor %}-->
 
+      <div class="subheading mb-3 my-3">
+        <u><strong>Programming Languages &amp; Tools</strong></u>
+      </div>
+      {% regroup proglan|dictsortreversed:"vote" by vote as vote_list %}
+      <ul>
+        {% for vote in vote_list %}
+        <li>
+          {% for prog in vote.list %}
+          <strong>{{ prog.name }}</strong>: {{ prog.level }}{%if not forloop.last%},{%endif%}
+          {% endfor %}
+        </li>
+        {% endfor %}
+      </ul>
+      <br>
 
       {% for sks in skillset %}
-      <div class="subheading mb-3">{{ sks.name }}</div>
+      <div class="subheading strong-underlined mb-3 my-3">
+        {{sks.name}}
+      </div>
       <ul>
-          {% for sk in sks.skill_set.all %} 
+        {% for sk in sks.skill_set.all %} 
         <li>
           {{ sk.name }}
           {{ sk.skillurl }}
         </li>
         {% endfor %}
       </ul>
+      <br>
       {% endfor %}
 
-      <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-      <ul>
-        <li>
-          
-          {% for pl in proglan|dictsort:"vote" %}
-          <a title="{{ pl.level }}">{{ pl.name }} {{ pl.vote}}</a>{%if not forloop.last%},{%endif%}
-          {% endfor %}
-        </li>
-      </ul>
+      <div class="subheading strong-underlined mb-3 my-3">
+        Languages
       </div>
-
-      <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-      {% regroup proglan by vote as vote_list %}
+      {% regroup language|dictsortreversed:"vote" by vote as vote_list %}
       <ul>
-      {% for vote in vote_list %}
-        <li>{{ vote.grouper }}
-          <ul>
-            {% for prog in vote.list %}
-              <li>{{ prog.name }}: {{ prog.level }}</li>
-            {% endfor %}
-          </ul>
+        {% for lan in language %}
+        <li>
+          <strong>{{ lan.language }}</strong>: {{ lan.level }}
         </li>
-      {% endfor %}
+        {% endfor %}
       </ul>
+      <br>
 
     </div>
   </section>
+
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="projects">
     <div class="my-auto">

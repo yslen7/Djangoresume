@@ -6,3 +6,8 @@
 .text-primary{color:rgb(0, 217, 255)!important}
 a{color:rgb(0, 217, 255)}
 a:active,a:focus,a:hover{color:rgb(0, 26, 255)}
+
+.strong-underlined {
+  font-weight: bolder;
+  text-decoration: underline;
+}

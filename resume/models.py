@@ -68,10 +68,26 @@ class Education(models.Model):
 
 class Language(models.Model):
     language = models.CharField(max_length=20,blank=False)
-    level = models.CharField(max_length=30,blank=False)
-    ordering = models.IntegerField(default=1)
+    ILR_scale = (
+        (5, 'Native'),
+        (4, 'Full professional proficiency'),
+        (3, 'Professional working proficiency'),
+        (2, 'Limited professional proficiency'),
+        (1, 'Elementary professional proficiency')
+        )
+    level = models.CharField(max_length=1, choices=ILR_scale)
+    #level = models.CharField(max_length=30,blank=False)
+    #ordering = models.IntegerField(default=1)
+    '''vote = models.IntegerField(
+        help_text="Kill level 1 to 5",
+        validators =[ #does this work?
+            MinValueValidator(1),
+            MaxValueValidator(5)           
+        ], 
+        null=True,
+        blank=True)'''
     class Meta:
-        ordering = ['ordering','id']
+        ordering = ['level','id']
     def __unicode__(self):
         return ''.join([self.language, '-', self.level])
 
