@@ -132,11 +132,14 @@ The available models are:
 Overview
 PersonalInfo
 Education
-Languages
 Job
-Accomplishment
+Achievement
+JobAccomplishment
 Skillset
 Skill
+ProgrammingLanguage
+Language
+Project
 
 You can print the available fields for each model using:
 ```
