@@ -16,35 +16,9 @@ pi.site='http://www.somesite.com'
 pi.save()
 pi.__dict__  #print the fields
 
-from resume.models import Language
-l1=Language.objects.create(language='English',level='professional')
-l2=Language.objects.create(language='Dutch',level='professional')
-l2.ordering=2
-l1.save()
-l2.save()
-
 from resume.models import Overview
 over=Overview.objects.create(text='This is a test overview for this CV')
 over.save()
-
-from resume.models import Skillset
-from resume.models import Skill
-sks=Skillset.objects.create(name='Technical Skills')
-s1=Skill.objects.create(name='Data analysis in MATLAB, R, Python',skillset=sks)
-s2=Skill.objects.create(name='Experience with relational and NoSQL databases',skillset=sks)
-s3=Skill.objects.create(name='UI development in LabView, HTML/Javascript (jQuery, AJAX, D3), LabWindows',skillset=sks)
-s1.save()
-s2.save()
-s3.save()
-sks.save()
-
-sks2=Skillset.objects.create(name='Transferable Skills')
-s1=Skill.objects.create(name='Troubleshooting: problem solving skills in complex software and hardware problems',skillset=sks2)
-s2=Skill.objects.create(name='Strong analytical, multi-tasking and problem solving skills',skillset=sks2)
-s1.save()
-s2.save()
-sks2.save()
-
 
 from resume.models import Job
 j=Job.objects.create(company='MyCompany')
@@ -107,15 +81,46 @@ ed2.location='Boston,MA'
 ed2.description="Studied electrodynamics"
 ed2.save()
 
+from resume.models import Skillset
+from resume.models import Skill
+sks=Skillset.objects.create(name='Technical Skills')
+s1=Skill.objects.create(name='Data analysis in MATLAB, R, Python',skillset=sks)
+s2=Skill.objects.create(name='Experience with relational and NoSQL databases',skillset=sks)
+s3=Skill.objects.create(name='UI development in LabView, HTML/Javascript (jQuery, AJAX, D3), LabWindows',skillset=sks)
+s1.save()
+s2.save()
+s3.save()
+sks.save()
+
+sks2=Skillset.objects.create(name='Transferable Skills')
+s1=Skill.objects.create(name='Troubleshooting: problem solving skills in complex software and hardware problems',skillset=sks2)
+s2=Skill.objects.create(name='Strong analytical, multi-tasking and problem solving skills',skillset=sks2)
+s1.save()
+s2.save()
+sks2.save()
+
 from resume.models import ProgrammingLanguage
-pl1=ProgrammingLanguage.objects.create(name='Python',level='Proficient',vote=1)
-pl2=ProgrammingLanguage.objects.create(name='Javascript',level='Intermediate',vote=3,order=2)
-pl3=ProgrammingLanguage.objects.create(name='C',level='Used in the past',vote=2,order=5)
-pl4=ProgrammingLanguage.objects.create(name='Django',level='Daily use',vote=5,order=4)
+pl1=ProgrammingLanguage.objects.create(name='Python',description='Proficient',level=5)
+pl2=ProgrammingLanguage.objects.create(name='Javascript',description='Intermediate',level=3,order=2)
+pl3=ProgrammingLanguage.objects.create(name='C',description='Used in the past',level=2,order=5)
+pl4=ProgrammingLanguage.objects.create(name='Django',description='Daily use',level=5,order=4)
 pl1.save()
 pl2.save()
 pl3.save()
 pl4.save()
+
+from resume.models import Language
+l1=Language.objects.create(language='English',level=4)
+l2=Language.objects.create(language='English',level=4)
+l3=Language.objects.create(language='Spanish',level=3)
+l4=Language.objects.create(language='French',level=3)
+l5=Language.objects.create(language='Italian',level=5)
+l1.save()
+l2.save()
+l3.save()
+l4.save()
+l5.save()
+
 ```
 
 The available models are: 

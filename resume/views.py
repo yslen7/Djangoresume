@@ -17,7 +17,6 @@ def index(request):
     personal_info = PersonalInfo.objects.all()[:1]
     overview = Overview.objects.all()[:1]
     education = Education.objects.all()
-    language = Language.objects.all()
     jobaccomplishment = JobAccomplishment.objects.all()
     hey=Achievement.__dict__
     print(Achievement.__dict__)
@@ -25,6 +24,7 @@ def index(request):
     job_list = Job.objects.all()
     skillset = Skillset.objects.all()
     proglan = ProgrammingLanguage.objects.all()
+    language = Language.objects.all()
 
     return render(request, 'resume/resume.html', {
         'site_name': site_name,

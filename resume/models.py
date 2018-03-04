@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator
 import time
 
 class Overview(models.Model):
@@ -65,31 +64,6 @@ class Education(models.Model):
             return self.end_date.strftime("%b %Y")
     def __unicode__(self):
         return ' '.join([self.name, self.edu_date_range()])
-
-class Language(models.Model):
-    language = models.CharField(max_length=20,blank=False)
-    ILR_scale = (
-        (5, 'Native'),
-        (4, 'Full professional proficiency'),
-        (3, 'Professional working proficiency'),
-        (2, 'Limited professional proficiency'),
-        (1, 'Elementary professional proficiency')
-        )
-    level = models.CharField(max_length=1, choices=ILR_scale)
-    #level = models.CharField(max_length=30,blank=False)
-    #ordering = models.IntegerField(default=1)
-    '''vote = models.IntegerField(
-        help_text="Kill level 1 to 5",
-        validators =[ #does this work?
-            MinValueValidator(1),
-            MaxValueValidator(5)           
-        ], 
-        null=True,
-        blank=True)'''
-    class Meta:
-        ordering = ['level','id']
-    def __unicode__(self):
-        return ''.join([self.language, '-', self.level])
 
 class Job(models.Model):
     company = models.CharField(max_length=250)
@@ -171,18 +145,41 @@ class Skill(models.Model):
 
 class ProgrammingLanguage(models.Model):
     name = models.CharField(max_length=250)
-    level = models.CharField(max_length=50, blank=True)
-    vote = models.IntegerField(
-        help_text="Kill level 1 to 5",
-        validators =[ #does this work?
-            MinValueValidator(1),
-            MaxValueValidator(5)           
-        ], 
-        null=True,
-        blank=True)
+    NIH_proficiency_scale = (
+        (5, 'Expert'),
+        (4, 'Advanced'),
+        (3, 'Intermediate'),
+        (2, 'Novice'),
+        (1, 'Fundamental Awareness')
+        )
+    level = models.IntegerField(help_text='Choice between 1 and 5', choices=NIH_proficiency_scale)
+    description = models.CharField(max_length=50, blank=True)
     order = models.IntegerField(default=1)
     class Meta:
         db_table = 'programminglanguage'
         ordering = ['order', 'id']
     def __unicode__(self):
         return self.name
+
+class Language(models.Model):
+    language = models.CharField(max_length=20,blank=False)
+    ILR_scale = (
+        (5, 'Native'),
+        (4, 'Full professional proficiency'),
+        (3, 'Professional working proficiency'),
+        (2, 'Limited professional proficiency'),
+        (1, 'Elementary professional proficiency')
+        )
+    level = models.IntegerField(help_text='Choice between 1 and 5', default=5, choices=ILR_scale)
+    class Meta:
+        ordering = ['level','id']
+    def __unicode__(self):
+        return ''.join([self.language, '-', self.level])
+
+def showall(klass):
+    for object in klass.objects.all():
+        print('----- ' + klass._meta.model_name)
+        for field in object._meta.get_fields():
+            value = getattr(object, field.name, None)
+            print(field.name, value)
+            
