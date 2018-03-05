@@ -5,7 +5,7 @@ from django.template import RequestContext
 
 from .models import Overview, PersonalInfo
 from .models import Education, Job, JobAccomplishment
-from .models import Skillset, Skill, Language, Achievement, ProgrammingLanguage, Project
+from .models import Skillset, Skill, ProgrammingLanguage, Language, Achievement, Project
 
 
 
@@ -20,8 +20,6 @@ def index(request):
     overview = Overview.objects.all()[:1]
     education = Education.objects.all()
     jobaccomplishment = JobAccomplishment.objects.all()
-    hey=Achievement.__dict__
-    print(Achievement.__dict__)
     achievement = Achievement.objects.all()
     job_list = Job.objects.all()
     skillset = Skillset.objects.all()
@@ -91,22 +89,23 @@ class EducationDelete(DeleteView):
     template_name = 'resume/template_form.html'
     success_url = reverse_lazy('index')
 
-class Languages(CreateView):
+class Language(CreateView):
     model = Language
     fields = '__all__'
     initial={'text':'add a language to your skills',}
     template_name = 'resume/template_form.html'
     success_url = reverse_lazy('index')
-class LanguagesUpdate(UpdateView):
+class LanguageUpdate(UpdateView):
     model = Language
     fields = '__all__'
     template_name = 'resume/template_form.html'
     success_url = reverse_lazy('index')
-class LanguagesDelete(DeleteView):
+class LanguageDelete(DeleteView):
     model = Language
     template_name = 'resume/template_form.html'
     success_url = reverse_lazy('index')
-'''class Achievement(CreateView):
+
+class Achievement(CreateView):
     model = Achievement
     fields = '__all__'
     initial={'text':'add an achievement to your resume',}
@@ -137,4 +136,22 @@ class ProgrammingLanguageDelete(DeleteView):
     model = ProgrammingLanguage
     template_name = 'resume/template_form.html'
     success_url = reverse_lazy('index')
-'''
+
+class Project(CreateView):
+    model = Project
+    fields = '__all__'
+    initial={'text':'add a project',}
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+class ProjectUpdate(UpdateView):
+    model = ProgrammingLanguage
+    fields = '__all__'
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+class ProjectDelete(DeleteView):
+    model = ProgrammingLanguage
+    template_name = 'resume/template_form.html'
+    success_url = reverse_lazy('index')
+
+#'proglan' : proglan,
+#'project' : project,
