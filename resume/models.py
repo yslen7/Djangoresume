@@ -128,7 +128,7 @@ class Achievement(models.Model):
     url = models.URLField('School URL', blank=True)
     linkdefault = 'this link'
     if url is not '': linkdefault = ''
-    linkname = models.URLField(default=linkdefault, blank=True)
+    linkname = models.CharField(default=linkdefault, max_length=150, blank=True)
     class Meta:
         db_table = 'achievement'
         ordering = ['order', 'id']
@@ -144,10 +144,11 @@ class Skillset(models.Model):
 
 class Skill(models.Model):
     name =  models.CharField(max_length=250)
+    order = models.IntegerField(default=1)
     #skillurl = models.URLField('Skill URL', blank=True)
     skillset = models.ForeignKey('Skillset',on_delete=models.CASCADE)
     class Meta:
-        ordering = ['id']
+        ordering = ['order','id']
     def __unicode__(self):
         return ' - '.join([self.skillset.name, self.name])
 
@@ -187,7 +188,7 @@ class Language(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=2000, blank=True)
-    link = models.EmailField(blank=True)
+    link = models.URLField(blank=True)
     order = models.IntegerField(default=1)
     class Meta:
         ordering = ['order','id']
