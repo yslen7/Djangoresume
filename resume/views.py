@@ -88,7 +88,7 @@ class EducationDelete(DeleteView):
     model = Education
     template_name = 'resume/template_form.html'
     success_url = reverse_lazy('index')
-
+'''
 class Language(CreateView):
     model = Language
     fields = '__all__'
@@ -152,6 +152,4 @@ class ProjectDelete(DeleteView):
     model = ProgrammingLanguage
     template_name = 'resume/template_form.html'
     success_url = reverse_lazy('index')
-
-#'proglan' : proglan,
-#'project' : project,
+'''
