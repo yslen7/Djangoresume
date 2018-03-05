@@ -11,8 +11,8 @@ admin.site.register(Overview,OverviewAdmin)
 
 admin.site.register(PersonalInfo)
 
-admin.site.register(Job)
-admin.site.register(JobAccomplishment)
+
+
 admin.site.register(Skillset)
 admin.site.register(Skill)
 admin.site.register(ProgrammingLanguage)
@@ -28,4 +28,26 @@ class EducationAdmin(admin.ModelAdmin):
     date_hierarchy = 'end_date'
     ordering = ['end_date', 'id']
 
-admin.site.register(Education,EducationAdmin)
+class JobAdmin(admin.ModelAdmin):
+    list_display = ('company', 'location', 'title', 'end_date')
+    list_filter = ('company', 'location', 'title', 'end_date')
+    search_fields = ('company', 'location', 'title')
+    #prepopulated_fields = {'slug': ('degree',)}
+    date_hierarchy = 'end_date'
+    ordering = ['end_date', 'id']
+
+class JobAccomplishmentAdmin(admin.ModelAdmin):
+    list_display = ('get_job', 'order', 'description')
+    list_filter = ('job__company', 'order')
+    #search_fields = ('order')
+    #prepopulated_fields = {'slug': ('degree',)}
+    #date_hierarchy = 'order'
+    ordering = ['-job__end_date','order'] #TODO get_job does not work
+    def get_job(self, obj):
+        return obj.job.company
+    get_job.short_description = 'Job'
+    get_job.admin_order_field = 'job__end_date'
+
+admin.site.register(Education, EducationAdmin)
+admin.site.register(Job, JobAdmin)
+admin.site.register(JobAccomplishment, JobAccomplishmentAdmin)

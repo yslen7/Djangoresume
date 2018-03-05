@@ -190,10 +190,16 @@
       {% for edu in education %}
       <div class="resume-item d-flex flex-column flex-md-row mb-5">
         <div class="resume-content mr-auto">
+          
+          <span>
           <h3 class="mb-0">{{ edu.name }}</h3>
+          {% if edu.schoolurl %}
+            <a href="{{edu.schoolurl}}" target="_blank"> link</a>
+          {% endif %}
+          </span>
+          
           <div class="subheading mb-3">{{ edu.degree }}</div>
           <div>{{edu.description}}</div>
-          <!--<p>GPA: 3.23</p>-->
         </div>
         <div class="resume-date text-md-right">
           <span class="text-primary">{{ edu.formatted_start_date }} - {{ edu.formatted_end_date }}</span>

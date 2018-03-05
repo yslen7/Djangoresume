@@ -52,6 +52,7 @@ class Education(models.Model):
     #is_current = models.BooleanField(default=True)
     class Meta:
         verbose_name_plural = "Education"
+        ordering = ['-end_date','id']
     def edu_date_range(self):
         return ' - '.join(['(', self.formatted_start_date(), 
                             self.formatted_end_date(), ')'])
@@ -86,7 +87,7 @@ class Job(models.Model):
         help_text='path to company image, local or otherwise')
     class Meta:
         db_table = 'jobs'
-        ordering = ['-end_date','-start_date']        
+        ordering = ['-end_date','id']        
     def job_date_range(self):
         return ' - '.join(['(', self.formatted_start_date(),
             self.formatted_end_date(), ')'])    
