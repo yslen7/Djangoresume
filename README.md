@@ -12,6 +12,21 @@ python3 manage.py runserver 		#launch the server
 ```
 Then use the UI to manually insert data.
 
+The available models are:  
+```
+Overview  
+PersonalInfo  
+Education  
+Job  
+Achievement  
+JobAccomplishment  
+Skillset  
+Skill  
+ProgrammingArea  
+ProgrammingLanguage  
+Language  
+Project  ```
+
 Alternatively, fire up a shell and create a mock resume with commands similar to the following ones: 
 ```
 python3 manage.py shell
@@ -138,19 +153,6 @@ pr1.description='Django template for online resumes'
 pr1.save()
 
 ```
-
-The available models are: 
-Overview
-PersonalInfo
-Education
-Job
-Achievement
-JobAccomplishment
-Skillset
-Skill
-ProgrammingLanguage
-Language
-Project
 
 You can print the available fields for each model using:
 ```
