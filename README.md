@@ -25,9 +25,11 @@ Skill
 ProgrammingArea  
 ProgrammingLanguage  
 Language  
-Project  ```
+Project  
+```
 
 Alternatively, fire up a shell and create a mock resume with commands similar to the following ones: 
+
 ```
 python3 manage.py shell
 
