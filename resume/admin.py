@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Overview, PersonalInfo
-from .models import Education, Job, JobAccomplishment
+from .models import Education, Job, JobAccomplishment, Publication
 from .models import Skillset, Skill, ProgrammingLanguage, Language, Achievement, Project
 
 # Register your models here.
@@ -27,6 +27,8 @@ class JobAdmin(admin.ModelAdmin):
     #prepopulated_fields = {'slug': ('degree',)}
     date_hierarchy = 'end_date'
     ordering = ['end_date', 'id']
+    #def __unicode__(self):
+    #    return self.company
 
 class JobAccomplishmentAdmin(admin.ModelAdmin):
     list_display = ('get_job', 'order', 'description')
@@ -39,6 +41,8 @@ class JobAccomplishmentAdmin(admin.ModelAdmin):
         return obj.job.company
     get_job.short_description = 'Job'
     get_job.admin_order_field = 'job__end_date'
+    #def __unicode__(self):
+    #    return self.job.company
 
 class SkillsetAdmin(admin.ModelAdmin):
     exclude = ()
@@ -63,12 +67,21 @@ class SkillAdmin(admin.ModelAdmin):
 
 class AchievementAdmin(admin.ModelAdmin):
     exclude = ()
-    list_display = ('description', 'order', 'url','id')
-    list_filter = ('description', 'order', 'url','id')
-    search_fields = ('description','name',)
+    list_display = ('title','description', 'order', 'url','id')
+    list_filter = ('title','description', 'order', 'url','id')
+    search_fields = ('title','description','name',)
     #prepopulated_fields = {'slug': ('degree',)}
     #date_hierarchy = 'order'
     ordering = ['order','id']
+
+class PublicationAdmin(admin.ModelAdmin):
+    exclude = ()
+    list_display = ('title','year','order', 'journal',)
+    list_filter = ('title','year','order', 'journal',)
+    search_fields = ('title','year','order', 'journal',)
+    #prepopulated_fields = {'slug': ('degree',)}
+    #date_hierarchy = 'order'
+    ordering = ['-year','order']
 
 class ProgrammingLanguageAdmin(admin.ModelAdmin):
     exclude = ()
@@ -104,6 +117,7 @@ admin.site.register(JobAccomplishment, JobAccomplishmentAdmin)
 admin.site.register(Skillset, SkillsetAdmin)
 admin.site.register(Skill, SkillAdmin)
 admin.site.register(Achievement, AchievementAdmin)
+admin.site.register(Publication, PublicationAdmin)
 
 admin.site.register(ProgrammingLanguage, ProgrammingLanguageAdmin)
 admin.site.register(Language, LanguageAdmin)

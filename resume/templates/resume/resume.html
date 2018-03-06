@@ -165,22 +165,41 @@
   </section>
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="achievements">
-      <div class="my-auto">
-        <h2 class="mb-5">Achievements</h2>
-        <ul class="achievements">
-          {% for ach in achievement %}
-          <ul class="fa-ul mb-0">
-            <li>
-              <i class="fa-li fa fa-check"></i>
-              {{ ach.description|capfirst }} 
-              <a target="_blank" href="{{ ach.url }}">{{ ach.linkname }}</a>
-            </li>
-          </ul>
-          {% endfor %}
+    <div class="my-auto">
+      <h2 class="mb-5">Achievements</h2>
+      <ul class="achievements">
+        {% for ach in achievement %}
+        <ul class="fa-ul mb-0">
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            {% if ach.title %}
+            <a href="{{ ach.url}}" target="_block">{{ ach.title }}</a>:
+            {%endif%}
+            {{ ach.description|capfirst|safe }} 
+          </li>
         </ul>
-
-  
+        {% endfor %}
+      </ul>
+      <br>
+      
+      {% if publication %}
+      <div class="my-auto">
+          <h2 class="mb-5">Publications</h2>
+          <ul class="achievements">
+            {% for pub in publication %}
+            <ul class="fa-ul mb-0">
+              <li >
+                <i class="fa-li fa fa-check" style="display:block;"></i>
+                {{ pub.formatted_authors|safe }} {{ pub.title }} 
+                  <span class="italic">{{ pub.journal }}</span>, {{ pub.year }},
+                {{ pub.journalpages }}.
+                <a target="_blank" href="{{ pub.link }}">Link</a>
+              </li>
+            </ul>
+            {% endfor %}
+          </ul>
       </div>
+      {% endif %}
     </section>
 
 
@@ -188,24 +207,24 @@
     <div class="my-auto">
       <h2 class="mb-5">Education</h2>
       {% for edu in education %}
-      <div class="resume-item d-flex flex-column flex-md-row mb-5">
+      <h3 class="mb-0">{{ edu.degree }}</h3>
+      <div class="resume-item d-flex flex-column flex-md-row mb-5">        
         <div class="resume-content mr-auto">
-          
-          <span>
-          <h3 class="mb-0">{{ edu.name }}</h3>
-          {% if edu.schoolurl %}
-            <a href="{{edu.schoolurl}}" target="_blank"> link</a>
-          {% endif %}
-          </span>
-          
-          <div class="subheading mb-3">{{ edu.degree }}</div>
-          <div>{{edu.description}}</div>
+          <div class="subheading mb-3"></div>
+          <p class="mb-0">{{ edu.degree }}</p>
+          <div class="subheading mb-3">{{ edu.name }}
+            {% if edu.schoolurl %}
+            <a href="{{ edu.schoolurl }}" target="_blank">&nbsp;Link</a>
+            {% endif %} 
+          </div>
+          <p>{{ edu.description }}</p>
         </div>
-        <div class="resume-date text-md-right">
-          <span class="text-primary">{{ edu.formatted_start_date }} - {{ edu.formatted_end_date }}</span>
-        </div>
+      <div class="resume-date text-md-right">
+        <div class="subheading mb-3 text-primary">{{ edu.formatted_start_date }} - {{ edu.formatted_end_date }}</div>
+        <p >{{ edu.location }}</p>
       </div>
-      {% endfor %}
+    </div>
+    {% endfor %}
     </div>
   </section>
 
@@ -245,8 +264,8 @@
       </ul>
       {% endfor %}-->
 
-      <div class="subheading strong-underlined mb-3 my-3">
-        <u><strong>Programming Languages &amp; Tools</strong></u>
+      <div class="subheading strong underlined mb-3 my-3">
+        <u>Programming Languages &amp; Tools</u>
       </div>
       {% regroup proglan|dictsortreversed:"level" by level as level_list %}
       <ul>
@@ -261,7 +280,7 @@
       <br>
 
       {% for sks in skillset %}
-      <div class="subheading strong-underlined mb-3 my-3">
+      <div class="subheading strong underlined mb-3 my-3">
         {{sks.name}}
       </div>
       <ul>
@@ -275,13 +294,7 @@
       <br>
       {% endfor %}
 
-
-      {% for lan in language %}
-      {{lan.level}}
-      {{lan.get_level_display}}
-      {% endfor %}
-
-      <div class="subheading strong-underlined mb-3 my-3">
+      <div class="subheading strong underlined mb-3 my-3">
         Languages
       </div>
       {% regroup language|dictsortreversed:"level" by level as level_list %}
@@ -300,23 +313,13 @@
   </section>
 
 
-
-  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
-    <div class="my-auto">
-      <h2 class="mb-5">hey</h2>
-    </div>
-  </section>
-        
-  
-
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="projects">
     <div class="my-auto">
       <h2 class="mb-5">Projects</h2>
-
         <ul>
           {% for proj in project %}
           <li>
-            <strong>{{ proj.name }}</strong>: {{ proj.description }}
+            <strong><a href="{{proj.link}}" target="_blank">{{ proj.name }}</a></strong>: {{ proj.description }}
           </li>
           {% endfor %}
         </ul>
@@ -324,6 +327,55 @@
 
   </section>
 
+
+
+
+
+
+
+
+
+  <!-- I need this stuff! -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <br>
+
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+  
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      {% for proj in project %}        
+      <div class="item active">
+        <img src="{{proj.link}}" alt="{{proj.name}}">
+        <div class="carousel-caption">
+          <h3>{{proj.name}}</h3>
+          <p>{{proj.description}}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <br> 
   <!--
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
     <div class="my-auto">

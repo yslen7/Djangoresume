@@ -4,7 +4,7 @@ from django.contrib.sites.requests import RequestSite
 from django.template import RequestContext
 
 from .models import Overview, PersonalInfo
-from .models import Education, Job, JobAccomplishment
+from .models import Education, Job, JobAccomplishment, Publication
 from .models import Skillset, Skill, ProgrammingLanguage, Language, Achievement, Project
 
 
@@ -26,6 +26,7 @@ def index(request):
     proglan = ProgrammingLanguage.objects.all()
     language = Language.objects.all()
     project = Project.objects.all()
+    publication = Publication.objects.all()
 
     return render(request, 'resume/resume.html', {
         'site_name': site_name,
@@ -38,6 +39,7 @@ def index(request):
         'skillset' : skillset,
         'proglan' : proglan,
         'project' : project,
+        'publication' : publication,
     })
 
 
@@ -104,7 +106,6 @@ class LanguageDelete(DeleteView):
     model = Language
     template_name = 'resume/template_form.html'
     success_url = reverse_lazy('index')
-
 class Achievement(CreateView):
     model = Achievement
     fields = '__all__'
@@ -120,7 +121,6 @@ class AchievementDelete(DeleteView):
     model = Achievement
     template_name = 'resume/template_form.html'
     success_url = reverse_lazy('index')
-
 class ProgrammingLanguage(CreateView):
     model = ProgrammingLanguage
     fields = '__all__'
@@ -136,7 +136,6 @@ class ProgrammingLanguageDelete(DeleteView):
     model = ProgrammingLanguage
     template_name = 'resume/template_form.html'
     success_url = reverse_lazy('index')
-
 class Project(CreateView):
     model = Project
     fields = '__all__'

@@ -1,5 +1,6 @@
 from django.db import models
 import time
+from datetime import date
 
 def showall(klass):
     for object in klass.objects.all():
@@ -123,17 +124,35 @@ class JobAccomplishment(models.Model):
         return ' - '.join([self.job.company, self.description[0:50]+'...'])
 
 class Achievement(models.Model):
+    title = models.CharField(max_length=50, blank=True)
     description = models.TextField()
     order = models.IntegerField(default=1)
-    url = models.URLField('School URL', blank=True)
-    linkdefault = 'this link'
-    if url is not '': linkdefault = ''
-    linkname = models.CharField(default=linkdefault, max_length=150, blank=True)
+    url = models.URLField('URL', blank=True)
+    #linkdefault = 'this link'
+    #if url is not '': linkdefault = ''
+    #linkname = models.CharField(default=linkdefault, max_length=150, blank=True)
     class Meta:
         db_table = 'achievement'
         ordering = ['order', 'id']
     def __unicode__(self):
         return ' - '.join([self.order, self.link, self.description[0:50]+'...'])
+
+class Publication(models.Model):
+    title = models.CharField(max_length=250)
+    authors = models.TextField()
+    author_underlined = models.CharField(max_length=50, default="Marin A")
+    journal = models.CharField(max_length=150)
+    year = models.IntegerField(default=date.today().year)
+    order = models.IntegerField(default=1)
+    journalpages = models.TextField(blank=True)
+    link = models.URLField('Publication URL', blank=True)
+    class Meta:
+        db_table = 'publications'
+        ordering = ['-year', 'order']
+    def formatted_authors(self):
+        return self.authors.replace(self.author_underlined,'<span class="strong-underlined">'+self.author_underlined+'</span>')
+    def __unicode__(self):
+        return ' - '.join([self.id, self.year, self.order, self.journal+'...'])
 
 class Skillset(models.Model):
     name = models.CharField(max_length=250)
@@ -190,6 +209,7 @@ class Project(models.Model):
     description = models.CharField(max_length=2000, blank=True)
     link = models.URLField(blank=True)
     order = models.IntegerField(default=1)
+    picture = models.CharField(blank=True, max_length=150)
     class Meta:
         ordering = ['order','id']
     def __unicode__(self):

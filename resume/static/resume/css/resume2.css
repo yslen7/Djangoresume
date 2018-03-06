@@ -4,6 +4,8 @@
 .subheading{text-transform:none;font-weight:500;font-family:'Saira Extra Condensed',serif;font-size:1.35rem}
 .bg-primary{background-color:rgb(0, 217, 255)!important}
 .text-primary{color:rgb(0, 217, 255)!important}
+.text-primary{color:#868e96!important}
+
 a{color:rgb(0, 217, 255)}
 a:active,a:focus,a:hover{color:rgb(0, 26, 255)}
 
@@ -11,7 +13,12 @@ a:active,a:focus,a:hover{color:rgb(0, 26, 255)}
   font-weight: bolder;
   text-decoration: underline;
 }
-/*.strong {
+.strong {
   font-weight: bolder;
 }
-*/
+.underlined {
+  text-decoration: underline;
+}
+.italic {
+  font-style: italic;
+}
