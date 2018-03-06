@@ -44,8 +44,11 @@ class PersonalInfo(models.Model):
 
 class Education(models.Model):
     name = models.CharField(max_length=250)
+    name2 = models.CharField(max_length=250, blank=True)
     location = models.CharField(max_length=250)
+    location2 = models.CharField(max_length=250, blank=True)
     schoolurl = models.URLField('School URL', blank=True)
+    schoolurl2   = models.URLField('School URL2', blank=True)
     start_date = models.DateField(null=True)
     end_date = models.DateField(null=True)
     degree = models.TextField(blank=True)

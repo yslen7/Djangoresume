@@ -13,9 +13,9 @@ admin.site.register(PersonalInfo)
 
 
 class EducationAdmin(admin.ModelAdmin):
-    list_display = ('name', 'degree', 'formatted_end_date', 'location', 'description')
-    list_filter = ('name', 'degree', 'location')
-    search_fields = ('name', 'degree')
+    list_display = ('name','name2', 'degree', 'formatted_end_date', 'location', 'description')
+    list_filter = ('name','name2', 'degree', 'location')
+    search_fields = ('name','name2', 'degree')
     #prepopulated_fields = {'slug': ('degree',)}
     date_hierarchy = 'end_date'
     ordering = ['end_date', 'id']

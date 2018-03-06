@@ -169,13 +169,19 @@
           <p>
             {% if edu.schoolurl %}
             <a href="{{ edu.schoolurl }}" target="_blank">{{ edu.name|safe }}</a>
+            {% endif %}
+          </p>
+          <p>
+            {% if edu.schoolurl2 %}
+            <a href="{{ edu.schoolurl2 }}" target="_blank">{{ edu.name2|safe }}</a>
             {% endif %} 
           </p>
           <p>{{ edu.description }}</p>
         </div>
       <div class="resume-date text-md-right mb-0">
         <div class="subheading mb-3 text-primary">{{ edu.formatted_start_date }} - {{ edu.formatted_end_date }}</div>
-        <p>{{ edu.location|safe }}</p>
+        <p>{{ edu.location }}</p>
+        <p>{{ edu.location2 }}</p>
       </div>
     </div>
     {% endfor %}
@@ -185,36 +191,15 @@
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
       <div class="my-auto">
         <h2 class="mb-5">Skills</h2>
-        <!--bullet skillset: link1,link2
-        {% for sks in skillset %}
-        <ul>
-            <li>
-              <span>{{ sks.name }}:</span>
-              {% for sk in sks.skill_set.all %}
-              <a href="{{ sk.skillurl }}" rel="tag">{{ sk.name }}</a>,
-              
-              {% endfor %}
-            </li>
-          </ul>
-        {% endfor %}
-        -->
-        <!--no bullet skillset
-        {% for sks in skillset %}
-        <div class="subheading mb-3">{{ sks.name }}</div>
-        <ul> 
-          {% for sk in sks.skill_set.all %}
-          <li style="list-style: none;">
-            <span>
-            {{ sk.name }}
-            {{ sk.skillurl }}
-            </span>
-          </li>
-          {% endfor %}
-        </ul>
-        {% endfor %}-->
-  
-        <div class="subheading strong underlined mb-3 my-3">
-          <u>Programming Languages &amp; Tools</u>
+        <!-- for education there is this:
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <div class="subheading mb-3">
+                <h3 class="mb-0">{{ edu.degree }}</h3>
+              -->
+        <div class="subheading mb-3">
+            <h3 class="mb-0">Programming Languages &amp; Tools</h3>
+            <!--<u>Programming Languages &amp; Tools</u>-->
         </div>
         {% regroup proglan|dictsortreversed:"level" by level as level_list %}
         <ul>
@@ -229,8 +214,8 @@
         <br>
   
         {% for sks in skillset %}
-        <div class="subheading strong underlined mb-3 my-3">
-          {{sks.name}}
+        <div class="subheading mb-3">
+          <h3 class="mb-0">{{sks.name}}</h3>          
         </div>
         <ul>
           {% for sk in sks.skill_set.all %} 
@@ -243,8 +228,8 @@
         <br>
         {% endfor %}
   
-        <div class="subheading strong underlined mb-3 my-3">
-          Languages
+        <div class="subheading mb-3">
+          <h3 class="mb-0">Languages</h3>          
         </div>
         {% regroup language|dictsortreversed:"level" by level as level_list %}
         <ul>
@@ -265,6 +250,9 @@
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="achievements">
     <div class="my-auto">
       <h2 class="mb-5">Achievements</h2>
+      <div class="subheading mb-3">
+          <h3 class="mb-0">Projects and certificates</h3>
+      </div>
       <ul class="achievements">
         {% for ach in achievement %}
         <ul class="fa-ul mb-0">
@@ -282,7 +270,9 @@
       
       {% if publication %}
       <div class="my-auto">
-        <h2 class="mb-5">Publications</h2>
+          <div class="subheading mb-3">
+            <h3 class="mb-0">Publications</h3>
+          </div>
         <ul class="achievements">
           {% for pub in publication %}
           <ul class="fa-ul mb-0">
