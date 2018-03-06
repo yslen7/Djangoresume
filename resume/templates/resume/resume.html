@@ -59,7 +59,7 @@
       <ul class="list-inline list-social-icons mb-0">
         {% if pinfo.email %}
         <li class="list-inline-item">
-          <a href="{{pinfo.email}}" target="_blank">
+          <a href="{{pinfo.email}}" target="_blank" title="Send me an email">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
@@ -69,7 +69,7 @@
         {% endif %}
         {% if pinfo.site %}
         <li class="list-inline-item" target="_blank">
-          <a href="{{pinfo.site}}" target="_blank">
+          <a href="{{pinfo.site}}" target="_blank" title="My site at: {{pinfo.site}}">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
@@ -79,7 +79,7 @@
         {% endif %} 
         {% if pinfo.facebook %}
         <li class="list-inline-item">
-          <a href="{{pinfo.facebook}}" target="_blank">
+          <a href="{{pinfo.facebook}}" target="_blank" title="Go to my facebook page">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -89,7 +89,7 @@
         {% endif %}
         {% if pinfo.twitter %}
         <li class="list-inline-item">
-          <a href="{{pinfo.twitter}}" target="_blank">
+          <a href="{{pinfo.twitter}}" target="_blank" title="Go to my twitter account">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -99,7 +99,7 @@
         {% endif %}
         {% if pinfo.linkedin %}
         <li class="list-inline-item">
-          <a href="{{pinfo.linkedin}}" target="_blank">
+          <a href="{{pinfo.linkedin}}" target="_blank" title="Go to my linkedin account">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -109,7 +109,7 @@
         {% endif %}
         {% if pinfo.github %}
         <li class="list-inline-item">
-          <a href="{{pinfo.github}}" target="_blank">
+          <a href="{{pinfo.github}}" target="_blank" title="Go to my github account">
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-github fa-stack-1x fa-inverse"></i>
