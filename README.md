@@ -2,9 +2,17 @@
 Resume site based on Django. See it live at [aless80.pythonanywhere.com](https://aless80.pythonanywhere.com/)
 
 
+This repository contains the SQL database with my CV. To start yours I suggest running: 
 
+```
+python3 manage.py flush 			#clear all data
+python3 manage.py createsuperuser 	#create a superuser
+python3 manage.py runserver 		#launch the server
+!firefox http://127.0.0.1:8000/admin #launch your browser on localhost
+```
+Then use the UI to manually insert data.
 
-Fire up a shell and create your resume with commands similar to the following ones: 
+Alternatively, fire up a shell and create a mock resume with commands similar to the following ones: 
 ```
 python3 manage.py shell
 
@@ -147,8 +155,8 @@ Project
 You can print the available fields for each model using:
 ```
 [f.name for f in Overview._meta.get_fields()]
-```# Djangoresume
+```
 
 ## Credits
 The initial implementation was based on his [ckelly](https://github.com/ckelly)'s project on this repository: [django-resume](https://github.com/ckelly/django-resume). 
-Template based on 
+Template based on ... (can't find it now)
