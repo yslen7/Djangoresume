@@ -22,3 +22,21 @@ a:active,a:focus,a:hover{color:rgb(0, 26, 255)}
 .italic {
   font-style: italic;
 }
+
+/* override */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Saira Extra Condensed',serif;
+  font-weight: 700;
+  /*text-transform: uppercase;*/
+  text-transform: none;
+  color: #343a40;
+}
+h1, h2 {
+  text-transform: uppercase;
+}
+/*.text-transform-none {
+  text-transform: none;
+}*/
+.uppercase {
+  text-transform: uppercase;
+}
