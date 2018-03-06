@@ -148,12 +148,6 @@
             {% endfor %}
           </ul>
         </div>
-        <!-- original:
-          <div class="resume-date text-md-right">
-            <span class="text-primary">{{ job.formatted_start_date }} - {{ job.formatted_end_date }}</span>
-            <p >{{ job.location }}</p>
-          </div>
-        -->
         <div class="resume-date text-md-right">
           <div class="subheading mb-3 text-primary">{{ job.formatted_start_date }} - {{ job.formatted_end_date }}</div>
           <p >{{ job.location }}</p>
@@ -210,8 +204,9 @@
       <h3 class="mb-0">{{ edu.degree }}</h3>
       <div class="resume-item d-flex flex-column flex-md-row mb-5">        
         <div class="resume-content mr-auto">
-          <div class="subheading mb-3"></div>
-          <p class="mb-0">{{ edu.degree }}</p>
+          <div class="subheading mb-3">
+            <p class="mb-0">{{ edu.degree }}</p>
+          </div>
           <div class="subheading mb-3">{{ edu.name }}
             {% if edu.schoolurl %}
             <a href="{{ edu.schoolurl }}" target="_blank">&nbsp;Link</a>
