@@ -7,9 +7,6 @@ from .models import Skillset, Skill, ProgrammingArea, ProgrammingLanguage, Langu
 
 class OverviewAdmin(admin.ModelAdmin): #customize appearance
     list_display = ['text'] #otherwise it displays 'object'
-admin.site.register(Overview,OverviewAdmin)
-
-admin.site.register(PersonalInfo)
 
 
 class EducationAdmin(admin.ModelAdmin):
@@ -90,7 +87,7 @@ class ProgrammingAreaAdmin(admin.ModelAdmin):
 
 class ProgrammingLanguageAdmin(admin.ModelAdmin):
     exclude = ()
-    list_display = ('name', 'get_area','order', 'level',)
+    list_display = ('name', 'get_area','order', 'level','description',)
     list_filter = ('name','level', 'description', 'order')
     search_fields = ('name','level', 'description', 'order',)
     #prepopulated_fields = {'slug': ('degree',)}
@@ -116,7 +113,8 @@ class ProjectAdmin(admin.ModelAdmin):
     #date_hierarchy = 'order'
     ordering = ['order','name']
 
-
+admin.site.register(Overview,OverviewAdmin)
+admin.site.register(PersonalInfo)
 admin.site.register(Education, EducationAdmin)
 admin.site.register(Job, JobAdmin)
 admin.site.register(JobAccomplishment, JobAccomplishmentAdmin)

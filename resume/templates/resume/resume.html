@@ -208,7 +208,7 @@
             <p>
               <strong>{{ parea.name }}</strong>:
               {% for prog in parea.programminglanguage_set.all %}
-              {{ prog.name }}{%if not forloop.last%},{%endif%}
+              <span title={{prog.description}}>{{ prog.name }}</span>{%if not forloop.last%},{%endif%}
               {% endfor %}
             </p>
           </li>          
