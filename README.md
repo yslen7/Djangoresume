@@ -163,4 +163,4 @@ You can print the available fields for each model using:
 
 ## Credits
 The initial implementation was based on his [ckelly](https://github.com/ckelly)'s project on this repository: [django-resume](https://github.com/ckelly/django-resume). 
-Template based on ... (can't find it now)
+Template based on [BlackrockDigital/startbootstrap-resume](https://github.com/BlackrockDigital/startbootstrap-resume)
