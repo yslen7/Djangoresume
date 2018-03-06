@@ -1,7 +1,8 @@
-See this live at [aless80.pythonanywhere.com](https://aless80.pythonanywhere.com/)
+## Djangoresume
+Resume site based on Django. See it live at [aless80.pythonanywhere.com](https://aless80.pythonanywhere.com/)
 
-Credits to [ckelly](https://github.com/ckelly) on this repository: [django-resume](https://github.com/ckelly/django-resume) . 
-The project was not working on python 3 and Django 2.0.2 so I decided to rebuild it. I will probably work on it. 
+
+
 
 Fire up a shell and create your resume with commands similar to the following ones: 
 ```
@@ -147,3 +148,7 @@ You can print the available fields for each model using:
 ```
 [f.name for f in Overview._meta.get_fields()]
 ```# Djangoresume
+
+## Credits
+The initial implementation was based on his [ckelly](https://github.com/ckelly)'s project on this repository: [django-resume](https://github.com/ckelly/django-resume). 
+Template based on 
