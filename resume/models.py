@@ -115,6 +115,8 @@ class Job(models.Model):
             return self.end_date.strftime("%b %Y")
     def __unicode__(self):
         return ' '.join([self.company, self.job_date_range()])
+    def __str__(self):
+        return self.company
 
 class JobAccomplishment(models.Model):
     description = models.TextField()
@@ -163,6 +165,9 @@ class Skillset(models.Model):
         ordering = ['id']
     def __unicode__(self):
         return self.name
+    def __str__(self):
+        return self.name
+
 
 class Skill(models.Model):
     name =  models.CharField(max_length=250)
@@ -174,8 +179,17 @@ class Skill(models.Model):
     def __unicode__(self):
         return ' - '.join([self.skillset.name, self.name])
 
+class ProgrammingArea(models.Model):
+    name = models.CharField(max_length=250)
+    order = models.IntegerField(default=1)
+    class Meta:
+        ordering = ['order','name']
+    def __str__(self):
+        return self.name
+
 class ProgrammingLanguage(models.Model):
     name = models.CharField(max_length=250)
+    programmingarea = models.ForeignKey('ProgrammingArea',on_delete=models.CASCADE)
     NIH_proficiency_scale = (
         (5, 'Expert'),
         (4, 'Advanced'),

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Overview, PersonalInfo
 from .models import Education, Job, JobAccomplishment, Publication
-from .models import Skillset, Skill, ProgrammingLanguage, Language, Achievement, Project
+from .models import Skillset, Skill, ProgrammingArea, ProgrammingLanguage, Language, Achievement, Project
 
 # Register your models here.
 
@@ -33,9 +33,6 @@ class JobAdmin(admin.ModelAdmin):
 class JobAccomplishmentAdmin(admin.ModelAdmin):
     list_display = ('get_job', 'order', 'description')
     list_filter = ('job__company', 'order')
-    #search_fields = ('order')
-    #prepopulated_fields = {'slug': ('degree',)}
-    #date_hierarchy = 'order'
     ordering = ['-job__end_date','order']
     def get_job(self, obj):
         return obj.job.company
@@ -49,7 +46,6 @@ class SkillsetAdmin(admin.ModelAdmin):
     list_filter = ('name',)
     search_fields = ('name',)
     #prepopulated_fields = {'slug': ('degree',)}
-    #date_hierarchy = 'end_date'
     ordering = ['name', 'id']
 
 class SkillAdmin(admin.ModelAdmin):
@@ -83,14 +79,24 @@ class PublicationAdmin(admin.ModelAdmin):
     #date_hierarchy = 'order'
     ordering = ['-year','order']
 
-class ProgrammingLanguageAdmin(admin.ModelAdmin):
+class ProgrammingAreaAdmin(admin.ModelAdmin):
     exclude = ()
-    list_display = ('name', 'order', 'level',)
-    list_filter = ('name','level', 'description', 'order')
-    search_fields = ('name','level', 'description', 'order',)
+    list_display = ('name', 'order',)
+    list_filter = ('name','order', )
+    search_fields = ('name','order',)
     #prepopulated_fields = {'slug': ('degree',)}
     #date_hierarchy = 'order'
     ordering = ['order','name']
+
+class ProgrammingLanguageAdmin(admin.ModelAdmin):
+    exclude = ()
+    list_display = ('name', 'get_area','order', 'level',)
+    list_filter = ('name','level', 'description', 'order')
+    search_fields = ('name','level', 'description', 'order',)
+    #prepopulated_fields = {'slug': ('degree',)}
+    ordering = ['programmingarea__name','order']
+    def get_area(self, obj):
+        return obj.programmingarea.name
 
 class LanguageAdmin(admin.ModelAdmin):
     exclude = ()
@@ -118,7 +124,7 @@ admin.site.register(Skillset, SkillsetAdmin)
 admin.site.register(Skill, SkillAdmin)
 admin.site.register(Achievement, AchievementAdmin)
 admin.site.register(Publication, PublicationAdmin)
-
+admin.site.register(ProgrammingArea,ProgrammingAreaAdmin)
 admin.site.register(ProgrammingLanguage, ProgrammingLanguageAdmin)
 admin.site.register(Language, LanguageAdmin)
 admin.site.register(Project, ProjectAdmin)
