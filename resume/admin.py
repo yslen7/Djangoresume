@@ -100,12 +100,12 @@ class ProgrammingLanguageAdmin(admin.ModelAdmin):
 
 class LanguageAdmin(admin.ModelAdmin):
     exclude = ()
-    list_display = ('language', 'level',)
-    list_filter = ('language', 'level',)
-    search_fields = ('language', 'level',)
+    list_display = ('language', 'order', 'level',)
+    list_filter = ('language', 'order', 'level',)
+    search_fields = ('language', 'order', 'level',)
     #prepopulated_fields = {'slug': ('degree',)}
     #date_hierarchy = 'order'
-    ordering = ['-level','language']
+    ordering = ['-level','order']
 
 class ProjectAdmin(admin.ModelAdmin):
     exclude = ()

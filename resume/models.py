@@ -15,6 +15,8 @@ class Overview(models.Model):
         verbose_name_plural = "Overview"
     def __unicode__(self):
         return self.text[0:40] + '...'
+    def __str__(self):
+        return self.text[0:40] + '...'
 
 class PersonalInfo(models.Model):
     first_name = models.CharField(max_length=255)
@@ -41,6 +43,8 @@ class PersonalInfo(models.Model):
             return None
     def __unicode__(self):
         return self.full_name()
+    def __str__(self):
+        return self.full_name
 
 class Education(models.Model):
     name = models.CharField(max_length=250)
@@ -76,6 +80,8 @@ class Education(models.Model):
             return self.end_date.strftime("%b %Y")
     def __unicode__(self):
         return ' '.join([self.name, self.edu_date_range()])
+    def __str__(self):
+        return self.name
 
 class Job(models.Model):
     company = models.CharField(max_length=250)
@@ -127,6 +133,8 @@ class JobAccomplishment(models.Model):
         ordering = ['order', 'id']
     def __unicode__(self):
         return ' - '.join([self.job.company, self.description[0:50]+'...'])
+    def __str__(self):
+        return self.description[0:10]+'...'
 
 class Achievement(models.Model):
     title = models.CharField(max_length=50, blank=True)
@@ -141,6 +149,8 @@ class Achievement(models.Model):
         ordering = ['order', 'id']
     def __unicode__(self):
         return ' - '.join([self.order, self.link, self.description[0:50]+'...'])
+    def __str__(self):
+        return self.title
 
 class Publication(models.Model):
     title = models.CharField(max_length=250)
@@ -157,7 +167,9 @@ class Publication(models.Model):
     def formatted_authors(self):
         return self.authors.replace(self.author_underlined,'<span class="strong-underlined">'+self.author_underlined+'</span>')
     def __unicode__(self):
-        return ' - '.join([self.id, self.year, self.order, self.journal+'...'])
+        return ' - '.join([self.id, self.year, self.order, self.journal[0:10]+'...'])
+    def __str__(self):
+        return self.title[0:10]+'...'
 
 class Skillset(models.Model):
     name = models.CharField(max_length=250)
@@ -178,6 +190,8 @@ class Skill(models.Model):
         ordering = ['order','id']
     def __unicode__(self):
         return ' - '.join([self.skillset.name, self.name])
+    def __str__(self):
+        return self.name
 
 class ProgrammingArea(models.Model):
     name = models.CharField(max_length=250)
@@ -205,9 +219,12 @@ class ProgrammingLanguage(models.Model):
         ordering = ['order', 'id']
     def __unicode__(self):
         return self.name
+    def __str__(self):
+        return self.name
 
 class Language(models.Model):
     language = models.CharField(max_length=20,blank=False)
+    order = models.IntegerField(default=1)
     ILR_scale = (
         (5, 'Native'),
         (4, 'Full professional proficiency'),
@@ -217,9 +234,11 @@ class Language(models.Model):
         )
     level = models.IntegerField(help_text='Choice between 1 and 5', default=5, choices=ILR_scale)
     class Meta:
-        ordering = ['level','id']
+        ordering = ['level','order']
     def __unicode__(self):
         return ' - '.join([self.language, self.level])
+    def __str__(self):
+        return self.language
 
 class Project(models.Model):
     name = models.CharField(max_length=255)
@@ -231,3 +250,5 @@ class Project(models.Model):
         ordering = ['order','id']
     def __unicode__(self):
         return ' - '.join([self.name, self.link, self.description[0:50]+'...'])
+    def __str__(self):
+        return self.name

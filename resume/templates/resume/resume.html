@@ -200,21 +200,23 @@
                 <h3 class="mb-0">{{ edu.degree }}</h3>
               -->
         <div class="subheading mb-3">
-            <h3 class="mb-0">Programming Languages &amp; Tools</h3>
-            <!--<u>Programming Languages &amp; Tools</u>-->
+          <h3 class="mb-0">Programming Languages &amp; Tools</h3>
         </div>
-        {% regroup proglan|dictsortreversed:"level" by level as level_list %}
         <ul>
-          {% for level in level_list %}
+          {% for parea in progarea %}
           <li>
-            {% for prog in level.list %}
-            <strong>{{ prog.name }}</strong>: {{ prog.description }}{%if not forloop.last%},{%endif%}
-            {% endfor %}
-          </li>
+            <p>
+              <strong>{{ parea.name }}</strong>:
+              {% for prog in parea.programminglanguage_set.all %}
+              {{ prog.name }}{%if not forloop.last%},{%endif%}
+              {% endfor %}
+            </p>
+          </li>          
           {% endfor %}
         </ul>
         <br>
-  
+
+
         {% for sks in skillset %}
         <div class="subheading mb-3">
           <h3 class="mb-0">{{sks.name}}</h3>          
@@ -222,8 +224,10 @@
         <ul>
           {% for sk in sks.skill_set.all %} 
           <li>
+            <p>
             {{ sk.name }}
             {{ sk.skillurl }}
+            </p>
           </li>
           {% endfor %}
         </ul>
@@ -233,13 +237,13 @@
         <div class="subheading mb-3">
           <h3 class="mb-0">Languages</h3>          
         </div>
-        {% regroup language|dictsortreversed:"level" by level as level_list %}
+        
         <ul>
-          {% for lan_list in level_list %}
+          {% for lan in language|dictsortreversed:"level" %}
           <li>
-            {% for lan in lan_list.list %}
-            <strong>{{ lan.language }}</strong>: {{ lan.get_level_display }}{%if not forloop.last%},{%endif%}
-            {% endfor %}
+            <p>
+            <strong>{{ lan.language }}</strong>: {{ lan.get_level_display }}
+            </p>
           </li>
           {% endfor %}
         </ul>
