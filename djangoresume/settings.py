@@ -19,10 +19,10 @@ print("RUNNING_DEVSERVER: "+str(RUNNING_DEVSERVER))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #Deploy settings
 #SECURE_CONTENT_TYPE_NOSNIFF = True     #Not needed because Django isn’t involved in serving user-uploaded files
-SECURE_BROWSER_XSS_FILTER = True    #Protection
-SECURE_SSL_REDIRECT = True          #Serve https
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+#SECURE_BROWSER_XSS_FILTER = True    #Protection
+#SECURE_SSL_REDIRECT = True          #Serve https
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,7 +32,7 @@ CSRF_COOKIE_SECURE = True
 SECRET_KEY = 'pdr@%#n+*#s)4d5rso^m#a@2b=ozbv3k6)z8^)4)-&k7#fc)%i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','aless80.pythonanywhere.com']
 
