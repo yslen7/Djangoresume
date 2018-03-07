@@ -32,7 +32,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'pdr@%#n+*#s)4d5rso^m#a@2b=ozbv3k6)z8^)4)-&k7#fc)%i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = RUNNING_DEVSERVER
+print("DEBUG: "+str(DEBUG))
 
 ALLOWED_HOSTS = ['127.0.0.1','aless80.pythonanywhere.com']
 
@@ -133,5 +134,8 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR, '/static')
-        
 ]
+print("STATIC_ROOT: "+str(STATIC_ROOT))
+print("STATIC_URL: "+str(STATIC_URL))
+print("STATICFILES_DIRS: "+str(STATICFILES_DIRS))
+print("")

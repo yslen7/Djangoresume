@@ -12,7 +12,7 @@ def showall(klass):
 class Overview(models.Model):
     text = models.TextField()
     class Meta:
-        verbose_name_plural = "Overview"
+        verbose_name_plural = "01. Overview"
     def __unicode__(self):
         return self.text[0:40] + '...'
     def __str__(self):
@@ -32,7 +32,7 @@ class PersonalInfo(models.Model):
     site = models.URLField(blank=True)
     twittername = models.CharField(max_length=100, blank=True)
     class Meta:
-        verbose_name_plural = "Personal Info"    
+        verbose_name_plural = "02. Personal Info"    
     def full_name(self):
         return " ".join([self.first_name, self.middle_name, self.last_name])    
     def githubname(self):
@@ -59,7 +59,7 @@ class Education(models.Model):
     description = models.TextField(blank=True)
     #is_current = models.BooleanField(default=True)
     class Meta:
-        verbose_name_plural = "Education"
+        verbose_name_plural = "03. Education"
         ordering = ['-end_date','id']
     def edu_date_range(self):
         return ' - '.join(['(', self.formatted_start_date(), 
@@ -97,6 +97,7 @@ class Job(models.Model):
         help_text='path to company image, local or otherwise')
     class Meta:
         db_table = 'jobs'
+        verbose_name_plural = "04. Jobs"
         ordering = ['-end_date','id']        
     def job_date_range(self):
         return ' - '.join(['(', self.formatted_start_date(),
@@ -129,6 +130,7 @@ class JobAccomplishment(models.Model):
     job = models.ForeignKey('Job',on_delete=models.CASCADE)
     order = models.IntegerField(default=1)
     class Meta:
+        verbose_name_plural = "05. Job Accomplishments"
         db_table = 'jobaccomplishment'
         ordering = ['order', 'id']
     def __unicode__(self):
@@ -145,6 +147,7 @@ class Achievement(models.Model):
     #if url is not '': linkdefault = ''
     #linkname = models.CharField(default=linkdefault, max_length=150, blank=True)
     class Meta:
+        verbose_name_plural = "06. Achievements"
         db_table = 'achievement'
         ordering = ['order', 'id']
     def __unicode__(self):
@@ -162,6 +165,7 @@ class Publication(models.Model):
     journalpages = models.TextField(blank=True)
     link = models.URLField('Publication URL', blank=True)
     class Meta:
+        verbose_name_plural = "07. Publications"
         db_table = 'publications'
         ordering = ['-year', 'order']
     def formatted_authors(self):
@@ -174,6 +178,7 @@ class Publication(models.Model):
 class Skillset(models.Model):
     name = models.CharField(max_length=250)
     class Meta:
+        verbose_name_plural = "08. Skillsets"
         ordering = ['id']
     def __unicode__(self):
         return self.name
@@ -187,6 +192,7 @@ class Skill(models.Model):
     #skillurl = models.URLField('Skill URL', blank=True)
     skillset = models.ForeignKey('Skillset',on_delete=models.CASCADE)
     class Meta:
+        verbose_name_plural = "09. Skills"
         ordering = ['order','id']
     def __unicode__(self):
         return ' - '.join([self.skillset.name, self.name])
@@ -197,6 +203,7 @@ class ProgrammingArea(models.Model):
     name = models.CharField(max_length=250)
     order = models.IntegerField(default=1)
     class Meta:
+        verbose_name_plural = "10. Programming areas"
         ordering = ['order','name']
     def __str__(self):
         return self.name
@@ -215,6 +222,7 @@ class ProgrammingLanguage(models.Model):
     description = models.CharField(max_length=50, blank=True)
     order = models.IntegerField(default=1)
     class Meta:
+        verbose_name_plural = "11. Programming languages"
         db_table = 'programminglanguage'
         ordering = ['order', 'id']
     def __unicode__(self):
@@ -234,6 +242,7 @@ class Language(models.Model):
         )
     level = models.IntegerField(help_text='Choice between 1 and 5', default=5, choices=ILR_scale)
     class Meta:
+        verbose_name_plural = "12. Languages"
         ordering = ['level','order']
     def __unicode__(self):
         return ' - '.join([self.language, self.level])
@@ -247,6 +256,7 @@ class Project(models.Model):
     order = models.IntegerField(default=1)
     picture = models.CharField(blank=True, max_length=150)
     class Meta:
+        verbose_name_plural = "13. Projects"
         ordering = ['order','id']
     def __unicode__(self):
         return ' - '.join([self.name, self.link, self.description[0:50]+'...'])

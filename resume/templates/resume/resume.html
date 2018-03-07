@@ -29,9 +29,6 @@
       <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="#achievements"><div>Achievements</div><div>&amp; Projects</div></a>
       </li>  
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
-      </li>
     </ul>
   </div>
 </nav>
@@ -324,35 +321,52 @@
 
 
 
-  <!-- I need this stuff! 
+  <!-- I need this css! -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <br>
-
-
   
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
+  <div class="container">
+    <h2>Carousel Example</h2>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
-    
+
+      <!-- Wrapper for slides -->
       <div class="carousel-inner">
+
         <div class="item active">
-          <img src="la.jpg" alt="Los Angeles">
+          <img src="{% static 'resume/img/iGrow.png' %}" alt="iGrow" style="width:80%;">
+          <div class="carousel-caption">
+            <h3>Los Angeles</h3>
+            <p>LA is always so much fun!</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="{% static 'resume/img/DeepSeeButtons.gif' %}" alt="DeepSeeButtons" style="width:70%;">
+          <div class="carousel-caption">
+            <h3>Chicago</h3>
+            <p>Thank you, Chicago!</p>
+          </div>
+        </div>
+      
+        <div class="item">
+          <img src="{% static 'resume/img/profile.jpg' %}" alt="New York" style="width:60%;">
+          <div class="carousel-caption">
+            <h3>New York</h3>
+            <p>We love the Big Apple!</p>
+          </div>
         </div>
     
-        <div class="item">
-          <img src="chicago.jpg" alt="Chicago">
-        </div>
-    
-        <div class="item">
-          <img src="ny.jpg" alt="New York">
-        </div>
       </div>
-    
+
+      <!-- Left and right controls -->
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
@@ -362,8 +376,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-
--->
+  </div>
 
 </section>
 {% endwith %}
