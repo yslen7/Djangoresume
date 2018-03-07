@@ -22,3 +22,5 @@ nltk:3
 MDX:5
 LaTeX:1
 jQuery:3
+D3:2
+Tkinter:3
