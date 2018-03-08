@@ -83,6 +83,7 @@ LOGIN_REDIRECT_URL = '/'
 WSGI_APPLICATION = 'djangoresume.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 

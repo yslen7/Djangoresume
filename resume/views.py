@@ -4,14 +4,14 @@ from django.contrib.sites.requests import RequestSite
 from django.template import RequestContext
 
 from .models import Overview, PersonalInfo
-from .models import Education, Job, JobAccomplishment, Publication
-from .models import Skillset, Skill, ProgrammingArea, ProgrammingLanguage, Language, Achievement, Project
-
+from .models import Education, Job, JobAccomplishment
+from .models import Skillset, Skill, ProgrammingArea, ProgrammingLanguage, Language
+from .models import Project, OngoingProject
+from .models import Achievement, Publication
 
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-
 
 
 def index(request):
@@ -20,13 +20,15 @@ def index(request):
     overview = Overview.objects.all()[:1]
     education = Education.objects.all()
     jobaccomplishment = JobAccomplishment.objects.all()
-    achievement = Achievement.objects.all()
+
     job_list = Job.objects.all()
     skillset = Skillset.objects.all()
     progarea = ProgrammingArea.objects.all()
     proglan = ProgrammingLanguage.objects.all()
     language = Language.objects.all()
     project = Project.objects.all()
+    ongoingproject = OngoingProject.objects.all()
+    achievement = Achievement.objects.all()
     publication = Publication.objects.all()
 
     return render(request, 'resume/resume.html', {
@@ -35,12 +37,13 @@ def index(request):
         'overview' : overview,
         'education' : education,
         'language' : language,
-        'achievement' : achievement,
         'job_list' : job_list,        
         'skillset' : skillset,
         'progarea' : progarea,
         'proglan' : proglan,
         'project' : project,
+        'ongoingproject' : ongoingproject,
+        'achievement' : achievement,
         'publication' : publication,
     })
 

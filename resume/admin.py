@@ -1,7 +1,9 @@
 from django.contrib import admin
 from .models import Overview, PersonalInfo
-from .models import Education, Job, JobAccomplishment, Publication
-from .models import Skillset, Skill, ProgrammingArea, ProgrammingLanguage, Language, Achievement, Project
+from .models import Education, Job, JobAccomplishment
+from .models import Skillset, Skill, ProgrammingArea, ProgrammingLanguage, Language
+from .models import Project, OngoingProject
+from .models import Achievement, Publication
 
 # Register your models here.
 
@@ -61,24 +63,6 @@ class SkillAdmin(admin.ModelAdmin):
     get_skillset.short_description = 'skillset'
     get_skillset.admin_order_field = 'skillset__name'
 
-class AchievementAdmin(admin.ModelAdmin):
-    exclude = ()
-    list_display = ('title','description', 'order', 'url','id')
-    list_filter = ('title','url')
-    search_fields = ('title','description','name',)
-    #prepopulated_fields = {'slug': ('degree',)}
-    #date_hierarchy = 'order'
-    ordering = ['order','id']
-
-class PublicationAdmin(admin.ModelAdmin):
-    exclude = ()
-    list_display = ('title','year','order', 'journal',)
-    list_filter = ('title','year','order', 'journal',)
-    search_fields = ('title','year','journal',)
-    #prepopulated_fields = {'slug': ('degree',)}
-    #date_hierarchy = 'order'
-    ordering = ['-year','order']
-
 class ProgrammingAreaAdmin(admin.ModelAdmin):
     exclude = ()
     list_display = ('name', 'order',)
@@ -116,6 +100,32 @@ class ProjectAdmin(admin.ModelAdmin):
     #date_hierarchy = 'order'
     ordering = ['order','name']
 
+class OngoingProjectAdmin(admin.ModelAdmin):
+    exclude = ()
+    list_display = ('name','order', 'description',)
+    list_filter = ('name','order',)
+    search_fields = ('name','order', 'description', 'link',)
+    #prepopulated_fields = {'slug': ('degree',)}
+    #date_hierarchy = 'order'
+    ordering = ['order','name']
+class AchievementAdmin(admin.ModelAdmin):
+    exclude = ()
+    list_display = ('title','description', 'order', 'url','id')
+    list_filter = ('title','url')
+    search_fields = ('title','description','name',)
+    #prepopulated_fields = {'slug': ('degree',)}
+    #date_hierarchy = 'order'
+    ordering = ['order','id']
+
+class PublicationAdmin(admin.ModelAdmin):
+    exclude = ()
+    list_display = ('title','year','order', 'journal',)
+    list_filter = ('title','year','order', 'journal',)
+    search_fields = ('title','year','journal',)
+    #prepopulated_fields = {'slug': ('degree',)}
+    #date_hierarchy = 'order'
+    ordering = ['-year','order']
+
 admin.site.register(PersonalInfo, PersonalInfoAdmin)
 admin.site.register(Overview,OverviewAdmin)
 admin.site.register(Education, EducationAdmin)
@@ -123,9 +133,10 @@ admin.site.register(Job, JobAdmin)
 admin.site.register(JobAccomplishment, JobAccomplishmentAdmin)
 admin.site.register(Skillset, SkillsetAdmin)
 admin.site.register(Skill, SkillAdmin)
-admin.site.register(Achievement, AchievementAdmin)
-admin.site.register(Publication, PublicationAdmin)
 admin.site.register(ProgrammingArea,ProgrammingAreaAdmin)
 admin.site.register(ProgrammingLanguage, ProgrammingLanguageAdmin)
 admin.site.register(Language, LanguageAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(OngoingProject, OngoingProjectAdmin)
+admin.site.register(Achievement, AchievementAdmin)
+admin.site.register(Publication, PublicationAdmin)

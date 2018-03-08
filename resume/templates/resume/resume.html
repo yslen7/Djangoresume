@@ -27,8 +27,11 @@
         <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#achievements"><div>Achievements</div><div>&amp; Projects</div></a>
+        <a class="nav-link js-scroll-trigger" href="#achievements"><div>Projects</div></a>
       </li>  
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#courses"><div>Certificates</div><div>&amp; Courses</div></a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -257,51 +260,32 @@
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="achievements">
     <div class="my-auto">
-      <h2 class="mb-5">Achievements &amp; Projects</h2>
-      
-      {% if publication %}
+      <h2 class="mb-5">Projects</h2>
+  
       <div class="subheading mb-3">
-        <h3 class="mb-0">Publications</h3>
+          <h3 class="mb-0">Projects</h3>
       </div>
       <ul class="achievements">
-        {% for pub in publication %}
-        <ul class="fa-ul mb-0">
-          <li >
-            <i class="fa-li fa fa-check" style="display:block;"></i>
-            {{ pub.formatted_authors|safe }} {{ pub.title }} 
-              <span class="italic">{{ pub.journal }}</span>, {{ pub.year }},
-            {{ pub.journalpages }}.
-            <a target="_blank" href="{{ pub.link }}">Link</a>
-          </li>
-        </ul>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    
-      
-      <div class="subheading mb-3">
-          <h3 class="mb-0">Projects and certificates</h3>
-      </div>
-      <ul class="achievements">
-        {% for ach in achievement %}
+        {% for proj in project %}
         <ul class="fa-ul mb-0">
           <li>
             <i class="fa-li fa fa-check"></i>
-            {% if ach.title %}
-            <a href="{{ ach.url}}" target="_block">{{ ach.title }}</a>:
+            {% if proj.name %}
+            <a href="{{ proj.link}}" target="_block">{{ proj.name }}</a>:
             {%endif%}
-            {{ ach.description|capfirst|safe }} 
+            {{ proj.description|safe }} 
           </li>
         </ul>
         {% endfor %}
       </ul>
       <br>
-  
+
+      {% if ongoingproject %}
       <div class="subheading mb-3">
           <h3 class="mb-0">Ongoing Projects</h3>
       </div>
       <ul class="achievements">
-        {% for proj in project %}
+        {% for proj in ongoingproject %}
         <ul class="fa-ul mb-0">
           <li>
             <i class="fa-li fa fa-circle-thin"></i>
@@ -314,13 +298,47 @@
         {% endfor %}
       </ul>
       <br>
+      {% endif %}
     </div>
+  </section>
 
-    <!--<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="projects">-->
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="courses">
+  <div class="subheading mb-3">
+      <h3 class="mb-0">Certificates and Courses</h3>
+    </div>
+    <ul class="achievements">
+      {% for ach in achievement %}
+      <ul class="fa-ul mb-0">
+        <li>
+          <i class="fa-li fa fa-check"></i>
+          {% if ach.title %}
+          <a href="{{ ach.url}}" target="_block">{{ ach.title }}</a>:
+          {%endif%}
+          {{ ach.description|capfirst|safe }} 
+        </li>
+      </ul>
+      {% endfor %}
+    </ul>
+    <br>
 
-
-
-
+  {% if publication %}
+  <div class="subheading mb-3">
+    <h3 class="mb-0">Publications</h3>
+  </div>
+  <ul class="achievements">
+    {% for pub in publication %}
+    <ul class="fa-ul mb-0">
+      <li >
+        <i class="fa-li fa fa-check" style="display:block;"></i>
+        {{ pub.formatted_authors|safe }} {{ pub.title }} 
+          <span class="italic">{{ pub.journal }}</span>, {{ pub.year }},
+        {{ pub.journalpages }}.
+        <a target="_blank" href="{{ pub.link }}">Link</a>
+      </li>
+    </ul>
+    {% endfor %}
+  </ul>
+  {% endif %}
 
 
 
@@ -328,7 +346,7 @@
 
   <!-- I need this css! -->
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  -->
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <br>
@@ -336,14 +354,13 @@
   <div class="container">
     <h2>Carousel Example</h2>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
 
-      <!-- Wrapper for slides -->
+
       <div class="carousel-inner">
 
         <div class="item active">
@@ -372,7 +389,6 @@
     
       </div>
 
-      <!-- Left and right controls -->
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
@@ -383,7 +399,7 @@
       </a>
     </div>
   </div>
-
+-->
 </section>
 {% endwith %}
 {% endblock %}
