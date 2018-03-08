@@ -5,9 +5,12 @@ from .models import Skillset, Skill, ProgrammingArea, ProgrammingLanguage, Langu
 
 # Register your models here.
 
+class PersonalInfoAdmin(admin.ModelAdmin):
+    exclude = ()
+    list_display = ('first_name','last_name','title','locality','region',)
+
 class OverviewAdmin(admin.ModelAdmin): #customize appearance
     list_display = ['text'] #otherwise it displays 'object'
-
 
 class EducationAdmin(admin.ModelAdmin):
     list_display = ('name','name2', 'degree', 'formatted_end_date', 'location', 'description')
@@ -47,8 +50,8 @@ class SkillsetAdmin(admin.ModelAdmin):
 
 class SkillAdmin(admin.ModelAdmin):
     exclude = ()
-    list_display = ('get_skillset','order', 'name', 'id')
-    list_filter = ('skillset__name', 'name', 'id')
+    list_display = ('get_skillset','order', 'text', 'id')
+    list_filter = ('skillset__name', 'text', 'id')
     search_fields = ('skillset__name',)
     #prepopulated_fields = {'slug': ('degree',)}
     #date_hierarchy = 'order'
@@ -113,8 +116,8 @@ class ProjectAdmin(admin.ModelAdmin):
     #date_hierarchy = 'order'
     ordering = ['order','name']
 
+admin.site.register(PersonalInfo, PersonalInfoAdmin)
 admin.site.register(Overview,OverviewAdmin)
-admin.site.register(PersonalInfo)
 admin.site.register(Education, EducationAdmin)
 admin.site.register(Job, JobAdmin)
 admin.site.register(JobAccomplishment, JobAccomplishmentAdmin)

@@ -9,19 +9,11 @@ def showall(klass):
             value = getattr(object, field.name, None)
             print(field.name, value)
             
-class Overview(models.Model):
-    text = models.TextField()
-    class Meta:
-        verbose_name_plural = "01. Overview"
-    def __unicode__(self):
-        return self.text[0:40] + '...'
-    def __str__(self):
-        return self.text[0:40] + '...'
-
 class PersonalInfo(models.Model):
     first_name = models.CharField(max_length=255)
     middle_name = models.CharField(max_length=255, blank=True)
     last_name = models.CharField(max_length=255)
+    suffix = models.CharField(max_length=255, blank=True, help_text="e.g. PhD")
     locality = models.CharField(max_length=255, help_text="e.g. city such as Boston")
     region = models.CharField(max_length=255, help_text="e.g. MA or Italy",blank=True)
     title = models.CharField(max_length=255, help_text="e.g. Developer",blank=True)
@@ -32,7 +24,7 @@ class PersonalInfo(models.Model):
     site = models.URLField(blank=True)
     twittername = models.CharField(max_length=100, blank=True)
     class Meta:
-        verbose_name_plural = "02. Personal Info"    
+        verbose_name_plural = "01. Personal Info"    
     def full_name(self):
         return " ".join([self.first_name, self.middle_name, self.last_name])    
     def githubname(self):
@@ -44,7 +36,16 @@ class PersonalInfo(models.Model):
     def __unicode__(self):
         return self.full_name()
     def __str__(self):
-        return self.full_name
+        return self.full_name()
+
+class Overview(models.Model):
+    text = models.TextField()
+    class Meta:
+        verbose_name_plural = "02. Overview"
+    def __unicode__(self):
+        return self.text[0:40] + '...'
+    def __str__(self):
+        return self.text[0:40] + '...'
 
 class Education(models.Model):
     name = models.CharField(max_length=250)
@@ -75,7 +76,7 @@ class Education(models.Model):
         return self.start_date.strftime("%b %Y")
     def formatted_end_date(self):
         if (self.end_date == None):
-            return "Current"
+            return "Present"
         else:
             return self.end_date.strftime("%b %Y")
     def __unicode__(self):
@@ -117,7 +118,7 @@ class Job(models.Model):
         return self.start_date.strftime("%b %Y")        
     def formatted_end_date(self):
         if self.is_current == True or self.end_date is None:
-            return "Current"
+            return "Present"
         else:
             return self.end_date.strftime("%b %Y")
     def __unicode__(self):
@@ -176,7 +177,7 @@ class Publication(models.Model):
         return self.title[0:10]+'...'
 
 class Skillset(models.Model):
-    name = models.CharField(max_length=250)
+    name = models.TextField()
     class Meta:
         verbose_name_plural = "08. Skillsets"
         ordering = ['id']
@@ -187,7 +188,7 @@ class Skillset(models.Model):
 
 
 class Skill(models.Model):
-    name =  models.CharField(max_length=250)
+    text =  models.TextField()
     order = models.IntegerField(default=1)
     #skillurl = models.URLField('Skill URL', blank=True)
     skillset = models.ForeignKey('Skillset',on_delete=models.CASCADE)
@@ -195,9 +196,9 @@ class Skill(models.Model):
         verbose_name_plural = "09. Skills"
         ordering = ['order','id']
     def __unicode__(self):
-        return ' - '.join([self.skillset.name, self.name])
+        return ' - '.join([self.skillset.name, self.text])
     def __str__(self):
-        return self.name
+        return self.text
 
 class ProgrammingArea(models.Model):
     name = models.CharField(max_length=250)

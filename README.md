@@ -112,9 +112,9 @@ ed2.save()
 from resume.models import Skillset
 from resume.models import Skill
 sks=Skillset.objects.create(name='Technical Skills')
-s1=Skill.objects.create(name='Data analysis in MATLAB, R, Python',skillset=sks)
-s2=Skill.objects.create(name='Experience with relational and NoSQL databases',skillset=sks)
-s3=Skill.objects.create(name='UI development in LabView, HTML/Javascript (jQuery, AJAX, D3), LabWindows',skillset=sks)
+s1=Skill.objects.create(text='Data analysis in MATLAB, R, Python',skillset=sks)
+s2=Skill.objects.create(text='Experience with relational and NoSQL databases',skillset=sks)
+s3=Skill.objects.create(text='UI development in LabView, HTML/Javascript (jQuery, AJAX, D3), LabWindows',skillset=sks)
 s1.save()
 s2.save()
 s3.save()
