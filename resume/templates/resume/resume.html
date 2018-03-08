@@ -42,7 +42,9 @@
       <h1 class="mb-0">{{ pinfo.first_name }} {{ pinfo.middle_name }}
         {% spaceless %}
         <span class="primary">{{ pinfo.last_name}}</span>
+        {% if pinfo.suffix %}
         <span style="text-transform: none;">, {{ pinfo.suffix}}</span>
+        {% endif %}
         {% endspaceless %}
       </h1>
       <div class="subheading mb-5">{{pinfo.title}}
@@ -149,7 +151,7 @@
         </div>
         <div class="resume-date text-md-right">
           <div class="subheading mb-3 text-primary">{{ job.formatted_start_date }} - {{ job.formatted_end_date }}</div>
-          <p >{{ job.location }}</p>
+          <p >{{ job.location|safe }}</p>
         </div>
       </div>
       {% endfor %}
@@ -182,8 +184,8 @@
         </div>
         <div class="resume-date text-md-right mb-0">
           <div class="subheading mb-3 text-primary">{{ edu.formatted_start_date }} - {{ edu.formatted_end_date }}</div>
-          <p>{{ edu.location }}</p>
-          <p>{{ edu.location2 }}</p>
+          <p>{{ edu.location|safe }}</p>
+          <p>{{ edu.location2|safe }}</p>
         </div>
       </div>
       {% endfor %}
@@ -227,7 +229,7 @@
         {% for sk in sks.skill_set.all %} 
         <li>
           <p>
-          {{ sk.name }}
+          {{ sk.text }}
           {{ sk.skillurl }}
           </p>
         </li>

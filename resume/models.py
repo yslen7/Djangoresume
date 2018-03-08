@@ -186,7 +186,6 @@ class Skillset(models.Model):
     def __str__(self):
         return self.name
 
-
 class Skill(models.Model):
     text =  models.TextField()
     order = models.IntegerField(default=1)

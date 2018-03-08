@@ -79,3 +79,6 @@ img{
   height:auto;
   width:auto;
 }
+
+/*  override dates and locations on the right*/
+section.resume-section .resume-item .resume-date{min-width:15rem}

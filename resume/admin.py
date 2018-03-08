@@ -32,7 +32,7 @@ class JobAdmin(admin.ModelAdmin):
 
 class JobAccomplishmentAdmin(admin.ModelAdmin):
     list_display = ('get_job', 'order', 'description')
-    list_filter = ('job__company', 'order')
+    list_filter = ('job__company',)
     ordering = ['-job__end_date','order']
     def get_job(self, obj):
         return obj.job.company
@@ -51,7 +51,7 @@ class SkillsetAdmin(admin.ModelAdmin):
 class SkillAdmin(admin.ModelAdmin):
     exclude = ()
     list_display = ('get_skillset','order', 'text', 'id')
-    list_filter = ('skillset__name', 'text', 'id')
+    list_filter = ('skillset__name',)
     search_fields = ('skillset__name',)
     #prepopulated_fields = {'slug': ('degree',)}
     #date_hierarchy = 'order'
@@ -64,7 +64,7 @@ class SkillAdmin(admin.ModelAdmin):
 class AchievementAdmin(admin.ModelAdmin):
     exclude = ()
     list_display = ('title','description', 'order', 'url','id')
-    list_filter = ('title','description', 'order', 'url','id')
+    list_filter = ('title','url')
     search_fields = ('title','description','name',)
     #prepopulated_fields = {'slug': ('degree',)}
     #date_hierarchy = 'order'
@@ -74,7 +74,7 @@ class PublicationAdmin(admin.ModelAdmin):
     exclude = ()
     list_display = ('title','year','order', 'journal',)
     list_filter = ('title','year','order', 'journal',)
-    search_fields = ('title','year','order', 'journal',)
+    search_fields = ('title','year','journal',)
     #prepopulated_fields = {'slug': ('degree',)}
     #date_hierarchy = 'order'
     ordering = ['-year','order']
@@ -82,8 +82,8 @@ class PublicationAdmin(admin.ModelAdmin):
 class ProgrammingAreaAdmin(admin.ModelAdmin):
     exclude = ()
     list_display = ('name', 'order',)
-    list_filter = ('name','order', )
-    search_fields = ('name','order',)
+    list_filter = ('name', )
+    search_fields = ('name',)
     #prepopulated_fields = {'slug': ('degree',)}
     #date_hierarchy = 'order'
     ordering = ['order','name']
@@ -91,8 +91,8 @@ class ProgrammingAreaAdmin(admin.ModelAdmin):
 class ProgrammingLanguageAdmin(admin.ModelAdmin):
     exclude = ()
     list_display = ('name', 'get_area','order', 'level','description',)
-    list_filter = ('name','level', 'description', 'order')
-    search_fields = ('name','level', 'description', 'order',)
+    list_filter = ('name','level', 'description', )
+    search_fields = ('name','level', 'description', )
     #prepopulated_fields = {'slug': ('degree',)}
     ordering = ['programmingarea__name','order']
     def get_area(self, obj):
@@ -102,7 +102,7 @@ class LanguageAdmin(admin.ModelAdmin):
     exclude = ()
     list_display = ('language', 'order', 'level',)
     list_filter = ('language', 'order', 'level',)
-    search_fields = ('language', 'order', 'level',)
+    search_fields = ('language', 'level',)
     #prepopulated_fields = {'slug': ('degree',)}
     #date_hierarchy = 'order'
     ordering = ['-level','order']
@@ -110,7 +110,7 @@ class LanguageAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     exclude = ()
     list_display = ('name','order', 'description',)
-    list_filter = ('name','order', 'description',)
+    list_filter = ('name','order',)
     search_fields = ('name','order', 'description', 'link',)
     #prepopulated_fields = {'slug': ('degree',)}
     #date_hierarchy = 'order'
