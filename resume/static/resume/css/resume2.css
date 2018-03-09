@@ -63,7 +63,7 @@ h1, h2 {
   padding: .5rem;
 }
 /* This one in _spacing.scss is used to vertically center div in sections. do I want it? */
-/*  override these two !important make the h2 be vertically centered */
+/*  override this  margin-top: 0 !important make the h2 be vertically centered */
 .mt-auto, .my-auto {
   margin-top: 3rem !important;
 }
