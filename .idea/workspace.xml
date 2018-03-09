@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c86ce9f-0b92-480c-86e1-6c7f59023de2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="6c86ce9f-0b92-480c-86e1-6c7f59023de2" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,10 +56,10 @@
         <entry file="file://$PROJECT_DIR$/resume/templates/resume/resume.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+              <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
               <folding>
-                <marker date="1520514769407" expanded="true" signature="303:436" placeholder="..." />
-                <marker date="1520514769407" expanded="true" signature="1057:1112" placeholder="..." />
+                <marker date="1520565446840" expanded="true" signature="303:436" placeholder="..." />
+                <marker date="1520565446840" expanded="true" signature="1057:1112" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -506,8 +504,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
           <folding>
-            <marker date="1520514769407" expanded="true" signature="303:436" placeholder="..." />
-            <marker date="1520514769407" expanded="true" signature="1057:1112" placeholder="..." />
+            <marker date="1520565446840" expanded="true" signature="303:436" placeholder="..." />
+            <marker date="1520565446840" expanded="true" signature="1057:1112" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -552,8 +550,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
           <folding>
-            <marker date="1520514769407" expanded="true" signature="303:436" placeholder="..." />
-            <marker date="1520514769407" expanded="true" signature="1057:1112" placeholder="..." />
+            <marker date="1520565446840" expanded="true" signature="303:436" placeholder="..." />
+            <marker date="1520565446840" expanded="true" signature="1057:1112" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -588,10 +586,10 @@
     <entry file="file://$PROJECT_DIR$/resume/templates/resume/resume.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
           <folding>
-            <marker date="1520514769407" expanded="true" signature="303:436" placeholder="..." />
-            <marker date="1520514769407" expanded="true" signature="1057:1112" placeholder="..." />
+            <marker date="1520565446840" expanded="true" signature="303:436" placeholder="..." />
+            <marker date="1520565446840" expanded="true" signature="1057:1112" placeholder="..." />
           </folding>
         </state>
       </provider>
