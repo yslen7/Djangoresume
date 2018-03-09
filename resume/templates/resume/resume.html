@@ -303,7 +303,8 @@
   </section>
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="courses">
-  <div class="subheading mb-3">
+    <div class="my-auto">
+    <div class="subheading mb-3">
       <h3 class="mb-0">Certificates and Courses</h3>
     </div>
     <ul class="achievements">
@@ -321,25 +322,25 @@
     </ul>
     <br>
 
-  {% if publication %}
-  <div class="subheading mb-3">
-    <h3 class="mb-0">Publications</h3>
-  </div>
-  <ul class="achievements">
-    {% for pub in publication %}
-    <ul class="fa-ul mb-0">
-      <li >
-        <i class="fa-li fa fa-check" style="display:block;"></i>
-        {{ pub.formatted_authors|safe }} {{ pub.title }} 
-          <span class="italic">{{ pub.journal }}</span>, {{ pub.year }},
-        {{ pub.journalpages }}.
-        <a target="_blank" href="{{ pub.link }}">Link</a>
-      </li>
+    {% if publication %}
+    <div class="subheading mb-3">
+      <h3 class="mb-0">Publications</h3>
+    </div>
+    <ul class="achievements">
+      {% for pub in publication %}
+      <ul class="fa-ul mb-0">
+        <li >
+          <i class="fa-li fa fa-check" style="display:block;"></i>
+          {{ pub.formatted_authors|safe }} {{ pub.title }} 
+            <span class="italic">{{ pub.journal }}</span>, {{ pub.year }},
+          {{ pub.journalpages }}.
+          <a target="_blank" href="{{ pub.link }}">Link</a>
+        </li>
+      </ul>
+      {% endfor %}
     </ul>
-    {% endfor %}
-  </ul>
-  {% endif %}
-
+    {% endif %}
+  </div>
 
 
 
