@@ -260,13 +260,13 @@
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="achievements">
     <div class="my-auto">
-      <h2 class="mb-5">Projects</h2>
-  
+      <h2 class="mb-5">Projects</h2>  
+      {% for prtype in projtype %}
       <div class="subheading mb-3">
-          <h3 class="mb-0">Projects</h3>
+          <h3 class="mb-0">{{ prtype.name }}</h3>
       </div>
       <ul class="achievements">
-        {% for proj in project %}
+        {% for proj in prtype.project_set.all %}
         <ul class="fa-ul mb-0">
           <li>
             <i class="fa-li fa fa-check"></i>
@@ -279,26 +279,7 @@
         {% endfor %}
       </ul>
       <br>
-
-      {% if ongoingproject %}
-      <div class="subheading mb-3">
-          <h3 class="mb-0">Ongoing Projects</h3>
-      </div>
-      <ul class="achievements">
-        {% for proj in ongoingproject %}
-        <ul class="fa-ul mb-0">
-          <li>
-            <i class="fa-li fa fa-circle-thin"></i>
-            {% if proj.name %}
-            <a href="{{ proj.link}}" target="_block">{{ proj.name }}</a>:
-            {%endif%}
-            {{ proj.description|safe }} 
-          </li>
-        </ul>
-        {% endfor %}
-      </ul>
-      <br>
-      {% endif %}
+      {% endfor %}
     </div>
   </section>
 

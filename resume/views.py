@@ -6,7 +6,7 @@ from django.template import RequestContext
 from .models import Overview, PersonalInfo
 from .models import Education, Job, JobAccomplishment
 from .models import Skillset, Skill, ProgrammingArea, ProgrammingLanguage, Language
-from .models import ProjectType, Project, OngoingProject
+from .models import ProjectType, Project
 from .models import Achievement, Publication
 
 
@@ -28,7 +28,6 @@ def index(request):
     language = Language.objects.all()
     projtype = ProjectType.objects.all()
     project = Project.objects.all()
-    ongoingproject = OngoingProject.objects.all()
     achievement = Achievement.objects.all()
     publication = Publication.objects.all()
 
@@ -44,7 +43,6 @@ def index(request):
         'proglan' : proglan,
         'projtype' : projtype,
         'project' : project,
-        'ongoingproject' : ongoingproject,
         'achievement' : achievement,
         'publication' : publication,
     })

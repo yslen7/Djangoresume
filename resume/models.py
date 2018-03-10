@@ -238,20 +238,6 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
-class OngoingProject(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.TextField(blank=True)
-    link = models.URLField(blank=True)
-    order = models.IntegerField(default=1)
-    picture = models.CharField(blank=True, max_length=150)
-    class Meta:
-        verbose_name_plural = "12. Ongoing Projects"
-        ordering = ['order','id']
-    def __unicode__(self):
-        return ' - '.join([self.name, self.link, self.description[0:50]+'...'])
-    def __str__(self):
-        return self.name
-
 class Achievement(models.Model):
     title = models.CharField(max_length=50, blank=True)
     description = models.TextField()
