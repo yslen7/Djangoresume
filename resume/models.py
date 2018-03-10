@@ -212,14 +212,26 @@ class Language(models.Model):
     def __str__(self):
         return self.language
 
+class ProjectType(models.Model):
+    name = models.CharField(max_length=255)
+    order = models.IntegerField(default=1)
+    class Meta:
+        verbose_name_plural = "11. ProjectTypes"
+        ordering = ['order','id']
+    def __unicode__(self):
+        return ' - '.join([self.name, self.id])
+    def __str__(self):
+        return self.name
+
 class Project(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     link = models.URLField(blank=True)
     order = models.IntegerField(default=1)
     picture = models.CharField(blank=True, max_length=150)
+    projtype = models.ForeignKey('ProjectType',on_delete=models.CASCADE,default=1)
     class Meta:
-        verbose_name_plural = "11. Projects"
+        verbose_name_plural = "12. Projects"
         ordering = ['order','id']
     def __unicode__(self):
         return ' - '.join([self.name, self.link, self.description[0:50]+'...'])

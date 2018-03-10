@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Overview, PersonalInfo
 from .models import Education, Job, JobAccomplishment
 from .models import Skillset, Skill, ProgrammingArea, ProgrammingLanguage, Language
-from .models import Project, OngoingProject
+from .models import ProjectType, Project, OngoingProject
 from .models import Achievement, Publication
 
 # Register your models here.
@@ -91,14 +91,21 @@ class LanguageAdmin(admin.ModelAdmin):
     #date_hierarchy = 'order'
     ordering = ['-level','order']
 
+class ProjectTypeAdmin(admin.ModelAdmin):
+    exclude = ()
+    list_display = ('name','order',)
+    list_filter = ('name','order',)
+    search_fields = ('name','order',)
+    ordering = ['order','name']
+
 class ProjectAdmin(admin.ModelAdmin):
     exclude = ()
-    list_display = ('name','order', 'description',)
-    list_filter = ('name','order',)
-    search_fields = ('name','order', 'description', 'link',)
-    #prepopulated_fields = {'slug': ('degree',)}
-    #date_hierarchy = 'order'
-    ordering = ['order','name']
+    list_display = ('get_projtype','name','order', 'description',)
+    list_filter = ('projtype__name','name','order',)
+    search_fields = ('projtype__name','name','order', 'description', 'link',)
+    ordering = ['projtype__name','order']
+    def get_projtype(self, obj):
+        return obj.projtype.name
 
 class OngoingProjectAdmin(admin.ModelAdmin):
     exclude = ()
@@ -136,6 +143,7 @@ admin.site.register(Skill, SkillAdmin)
 admin.site.register(ProgrammingArea,ProgrammingAreaAdmin)
 admin.site.register(ProgrammingLanguage, ProgrammingLanguageAdmin)
 admin.site.register(Language, LanguageAdmin)
+admin.site.register(ProjectType, ProjectTypeAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(OngoingProject, OngoingProjectAdmin)
 admin.site.register(Achievement, AchievementAdmin)

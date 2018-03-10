@@ -6,7 +6,7 @@ from django.template import RequestContext
 from .models import Overview, PersonalInfo
 from .models import Education, Job, JobAccomplishment
 from .models import Skillset, Skill, ProgrammingArea, ProgrammingLanguage, Language
-from .models import Project, OngoingProject
+from .models import ProjectType, Project, OngoingProject
 from .models import Achievement, Publication
 
 
@@ -26,6 +26,7 @@ def index(request):
     progarea = ProgrammingArea.objects.all()
     proglan = ProgrammingLanguage.objects.all()
     language = Language.objects.all()
+    projtype = ProjectType.objects.all()
     project = Project.objects.all()
     ongoingproject = OngoingProject.objects.all()
     achievement = Achievement.objects.all()
@@ -41,6 +42,7 @@ def index(request):
         'skillset' : skillset,
         'progarea' : progarea,
         'proglan' : proglan,
+        'projtype' : projtype,
         'project' : project,
         'ongoingproject' : ongoingproject,
         'achievement' : achievement,
