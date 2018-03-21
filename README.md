@@ -3,15 +3,20 @@ Resume site based on Django. See it live at [aless80.pythonanywhere.com](https:/
 
 ## Table of Contents
 * [Installation](#installation)  
-  * [Install the virtual environment](#install-the-virtual-environment)
-  * [Security settings](#security-settings)
+  * [PostgreSQL](#postgresql)
+  * [Install the virtual environment](#virtual-environment)
   * [Security settings](#security-settings)
   * [Start Djangoresume](#start-djangoresume)  
 * [Models available](#models-available)  
 
+-------------
+
 ## Installation
 This repository uses a PostgreSQL database. The data for my CV has been dumped to resume/fictures/data.json. 
-I suggest setting up a pyton virtual environment, installing PostgreSQL, and a database user as follows (in linux):
+I suggest setting up a virtual environment for python 3.4, installing PostgreSQL, and a database user.
+
+### PostgreSQL
+ as follows (in linux):
 <pre>
 sudo apt-get install python-pip python-dev libpq-dev postgresql postgresql-contrib
 sudo -u postgres psql
@@ -23,7 +28,7 @@ ALTER ROLE <i>myprojectuser</i> SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE Djangoresume TO <i>myprojectuser</i>;
 \q
 </pre>
-### Install the virtual environment
+### Virtual environment
 <pre>
 python -m pip install --user virtualenv 	#
 cd ~/virtualenv 		#virtual environment created in a folder inside the git folder 
@@ -52,7 +57,6 @@ and then exporting an environment variable as follows (in linux) before running 
 ```
 export SECRET_KEY="*my secret key*"
 ```
-
 
 ### Start Djangoresume
 To start Djangoresume with the data in my CV run the following: 
