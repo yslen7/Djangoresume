@@ -36,7 +36,7 @@ cd ~/virtualenv 		#virtual environment created in a folder inside the git folder
 virtualenv django_resume
 source django_resume/bin/activate
 (django_resume)$ pip3 install psycopg2 --user
-(django_resume)$ pip install -r requirements.txt 	#<b style='background-color:red;'>TODO!!</b>
+(django_resume)$ pip install -r requirements.txt 	#<b>TODO!!</b>
 (django_resume)$ python setup.py install          	#<b>TODO*!!</b>
 </pre>
 
