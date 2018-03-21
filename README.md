@@ -4,19 +4,16 @@ Resume site based on Django. See it live at [aless80.pythonanywhere.com](https:/
 ## Installation
 This repository uses a PostgreSQL database. The data for my CV has been dumped to resume/fictures/data.json. 
 I suggest setting up a pyton virtual environment, installing PostgreSQL, and a database user as follows (in linux):
-```
+<pre>
 sudo apt-get install python-pip python-dev libpq-dev postgresql postgresql-contrib
 sudo -u postgres psql
 CREATE DATABASE Djangoresume;
-CREATE USER *myprojectuser* WITH PASSWORD '<i>password</i>';
-ALTER ROLE *myprojectuser* SET client_encoding TO 'utf8';
-ALTER ROLE *myprojectuser* SET default_transaction_isolation TO 'read committed';
-ALTER ROLE *myprojectuser* SET timezone TO 'UTC';
-GRANT ALL PRIVILEGES ON DATABASE Djangoresume TO *myprojectuser*;
+CREATE USER <i>myprojectuser</i> WITH PASSWORD '<i>password</i>';
+ALTER ROLE <i>myprojectuser</i> SET client_encoding TO 'utf8';
+ALTER ROLE <i>myprojectuser</i> SET default_transaction_isolation TO 'read committed';
+ALTER ROLE <i>myprojectuser</i> SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE Djangoresume TO <i>myprojectuser</i>;
 \q
-```
-<pre>
-CREATE USER *myprojectuser* WITH PASSWORD '<i>password</i>';
 </pre>
 ### Install the virtual environment
 ```
@@ -36,7 +33,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'resume',
-        'USER': 'resume',     		#change this to the user *myprojectuser* created above
+        'USER': 'resume',     		#change this to the user <i>myprojectuser</i> created above
         'PASSWORD': 'Djangoresume',	#change this to the database password above
 ```
 Also change the SECRET_KEY in djangoresume/settings.py. I suggest setting SECRET_KEY to the following line: 
