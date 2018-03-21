@@ -1,6 +1,14 @@
 ## Djangoresume
 Resume site based on Django. See it live at [aless80.pythonanywhere.com](https://aless80.pythonanywhere.com/)
 
+## Table of Contents
+* [Installation](#installation)  
+  * [Install the virtual environment](#install-the-virtual-environment)
+  * [Security settings](#security-settings)
+  * [Start Djangoresume](#start-djangoresume)
+  * [Security settings](#security-settings)  
+* [Models available](#models-available)  
+
 ## Installation
 This repository uses a PostgreSQL database. The data for my CV has been dumped to resume/fictures/data.json. 
 I suggest setting up a pyton virtual environment, installing PostgreSQL, and a database user as follows (in linux):
