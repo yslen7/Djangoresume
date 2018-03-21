@@ -8,14 +8,16 @@ I suggest setting up a pyton virtual environment, installing PostgreSQL, and a d
 sudo apt-get install python-pip python-dev libpq-dev postgresql postgresql-contrib
 sudo -u postgres psql
 CREATE DATABASE Djangoresume;
-CREATE USER *myprojectuser* WITH PASSWORD '<i>password<\i>';
+CREATE USER *myprojectuser* WITH PASSWORD '<i>password</i>';
 ALTER ROLE *myprojectuser* SET client_encoding TO 'utf8';
 ALTER ROLE *myprojectuser* SET default_transaction_isolation TO 'read committed';
 ALTER ROLE *myprojectuser* SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE Djangoresume TO *myprojectuser*;
 \q
 ```
-
+<pre>
+CREATE USER *myprojectuser* WITH PASSWORD '<i>password</i>';
+</pre>
 ### Install the virtual environment
 ```
 python -m pip install --user virtualenv 	#
