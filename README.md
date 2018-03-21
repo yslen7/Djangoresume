@@ -68,6 +68,8 @@ python3 manage.py runserver 		#launch the server
 ```
 Then use the UI to manually insert data.
 
+----------
+
 ## Models available
 The available models are:  
 ```
