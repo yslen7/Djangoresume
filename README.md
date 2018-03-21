@@ -1,9 +1,58 @@
 ## Djangoresume
 Resume site based on Django. See it live at [aless80.pythonanywhere.com](https://aless80.pythonanywhere.com/)
 
+## Installation
+This repository uses a PostgreSQL database. The data for my CV has been dumped to resume/fictures/data.json. 
+I suggest setting up a pyton virtual environment, installing PostgreSQL, and a database user as follows (in linux):
+```
+sudo apt-get install python-pip python-dev libpq-dev postgresql postgresql-contrib
+sudo -u postgres psql
+CREATE DATABASE Djangoresume;
+CREATE USER *myprojectuser* WITH PASSWORD '*password*';
+ALTER ROLE *myprojectuser* SET client_encoding TO 'utf8';
+ALTER ROLE *myprojectuser* SET default_transaction_isolation TO 'read committed';
+ALTER ROLE *myprojectuser* SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE Djangoresume TO *myprojectuser*;
+\q
+```
 
-This repository contains the SQL database with my CV. To start yours I suggest running: 
+### Install the virtual environment
+```
+python -m pip install --user virtualenv 	#
+cd ~/virtualenv 		#virtual environment created in a folder inside the git folder 
+virtualenv django_resume
+source django_resume/bin/activate
+(django_resume)$ pip3 install psycopg2 --user
+(django_resume)$ pip install -r requirements.txt          #*TODO*!!
+(django_resume)$ python setup.py install          		  #*TODO*!!
+```
 
+### Security settings
+There are a couple of security settings to setup manually. Open the djangoresume/settings.py file and change USER and PASSWORD here: 
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'resume',
+        'USER': 'resume',     		#change this to the user *myprojectuser* created above
+        'PASSWORD': 'Djangoresume',	#change this to the database password above
+```
+Also change the SECRET_KEY in djangoresume/settings.py. I suggest setting SECRET_KEY to the following line: 
+```
+SECRET_KEY=os.environ.get('SECRET_KEY')
+```
+and then exporting an environment variable as follows (in linux) before running the server:
+```
+export SECRET_KEY="*my secret key*"
+```
+
+
+### Start Djangoresume
+To start Djangoresume with the data in my CV run the following: 
+```
+python3 manage.py loaddata resume/fixtures/data.json
+```
+To start fresh: 
 ```
 python3 manage.py flush 			#clear all data
 python3 manage.py createsuperuser 	#create a superuser
@@ -12,6 +61,7 @@ python3 manage.py runserver 		#launch the server
 ```
 Then use the UI to manually insert data.
 
+## Models available
 The available models are:  
 ```
 Overview  
@@ -28,7 +78,8 @@ Language
 Project  
 ```
 
-Alternatively, fire up a shell and create a mock resume with commands similar to the following ones: 
+## Create data from shell
+If you like using objects from shell, create a mock resume with commands similar to the following ones (this is outdated): 
 
 ```
 python3 manage.py shell

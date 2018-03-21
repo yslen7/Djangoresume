@@ -29,7 +29,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY=os.environ.get('SECRET_KEY')
 SECRET_KEY = 'pdr@%#n+*#s)4d5rso^m#a@2b=ozbv3k6)z8^)4)-&k7#fc)%i'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = RUNNING_DEVSERVER
@@ -89,8 +91,12 @@ WSGI_APPLICATION = 'djangoresume.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'resume',
+        'USER': 'resume',
+        'PASSWORD': 'Djangoresume',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
