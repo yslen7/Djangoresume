@@ -66,10 +66,10 @@ python3 manage.py loaddata resume/fixtures/data.json
 ```
 To start fresh: 
 ```
-python3 manage.py flush 			#clear all data
+python3 manage.py flush 	#clear all data
 python3 manage.py createsuperuser 	#create a superuser
 python3 manage.py runserver 		#launch the server
-!firefox http://127.0.0.1:8000/admin #launch your browser on localhost
+!firefox http://127.0.0.1:8000/admin 	#launch your browser on localhost
 ```
 Then use the UI to manually insert data.
 
