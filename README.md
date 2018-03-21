@@ -16,26 +16,26 @@ GRANT ALL PRIVILEGES ON DATABASE Djangoresume TO <i>myprojectuser</i>;
 \q
 </pre>
 ### Install the virtual environment
-```
+<pre>
 python -m pip install --user virtualenv 	#
 cd ~/virtualenv 		#virtual environment created in a folder inside the git folder 
 virtualenv django_resume
 source django_resume/bin/activate
 (django_resume)$ pip3 install psycopg2 --user
-(django_resume)$ pip install -r requirements.txt          #*TODO*!!
-(django_resume)$ python setup.py install          		  #*TODO*!!
-```
+(django_resume)$ pip install -r requirements.txt          #<b>TODO!!</b>
+(django_resume)$ python setup.py install          		  #<b>TODO*!!</b>
+</pre>
 
 ### Security settings
 There are a couple of security settings to setup manually. Open the djangoresume/settings.py file and change USER and PASSWORD here: 
-```
+<pre>
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'resume',
         'USER': 'resume',     		#change this to the user <i>myprojectuser</i> created above
         'PASSWORD': 'Djangoresume',	#change this to the database password above
-```
+</pre>
 Also change the SECRET_KEY in djangoresume/settings.py. I suggest setting SECRET_KEY to the following line: 
 ```
 SECRET_KEY=os.environ.get('SECRET_KEY')
