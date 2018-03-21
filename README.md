@@ -5,8 +5,8 @@ Resume site based on Django. See it live at [aless80.pythonanywhere.com](https:/
 * [Installation](#installation)  
   * [Install the virtual environment](#install-the-virtual-environment)
   * [Security settings](#security-settings)
-  * [Start Djangoresume](#start-djangoresume)
-  * [Security settings](#security-settings)  
+  * [Security settings](#security-settings)
+  * [Start Djangoresume](#start-djangoresume)  
 * [Models available](#models-available)  
 
 ## Installation
