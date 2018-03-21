@@ -31,8 +31,8 @@ GRANT ALL PRIVILEGES ON DATABASE Djangoresume TO <i>myprojectuser</i>;
 
 #### Virtual environment
 <pre>
-python3 -m pip3 install --user virtualenv 	#
-cd ~/virtualenv 		#virtual environment created in a folder inside the git folder 
+python3 -m pip3 install --user virtualenv 
+cd ~/virtualenv 
 virtualenv django_resume
 source django_resume/bin/activate
 (django_resume)$ pip3 install psycopg2 --user
