@@ -31,12 +31,12 @@ GRANT ALL PRIVILEGES ON DATABASE Djangoresume TO <i>myprojectuser</i>;
 
 #### Virtual environment
 <pre>
-python -m pip install --user virtualenv 	#
+python3 -m pip3 install --user virtualenv 	#
 cd ~/virtualenv 		#virtual environment created in a folder inside the git folder 
 virtualenv django_resume
 source django_resume/bin/activate
 (django_resume)$ pip3 install psycopg2 --user
-(django_resume)$ pip install -r requirements.txt 	#<b>TODO!!</b>
+(django_resume)$ pip install -r requirements.txt 	#<b style='background-color:red;'>TODO!!</b>
 (django_resume)$ python setup.py install          	#<b>TODO*!!</b>
 </pre>
 
@@ -66,7 +66,7 @@ python3 manage.py loaddata resume/fixtures/data.json
 ```
 To start fresh: 
 ```
-python3 manage.py flush 	#clear all data
+python3 manage.py flush 		#clear all data
 python3 manage.py createsuperuser 	#create a superuser
 python3 manage.py runserver 		#launch the server
 !firefox http://127.0.0.1:8000/admin 	#launch your browser on localhost
