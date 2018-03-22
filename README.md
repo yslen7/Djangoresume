@@ -1,9 +1,9 @@
 ## Djangoresume
 Resume site based on Django. See it live at [aless80.pythonanywhere.com](https://aless80.pythonanywhere.com/)
+This Django project uses sqlite because it is free on pythonanywhere.com. See my other project Django-resume-PostgreSQL 
 
 ## Table of Contents
 * [Installation](#installation)  
-  * [PostgreSQL](#postgresql)
   * [Install the virtual environment](#virtual-environment)
   * [Security settings](#security-settings)
   * [Start Djangoresume](#start-djangoresume)  
@@ -15,46 +15,18 @@ Resume site based on Django. See it live at [aless80.pythonanywhere.com](https:/
 This repository uses a PostgreSQL database. The data for my CV has been dumped to resume/fictures/data.json. 
 I suggest setting up a virtual environment for python 3.4, installing PostgreSQL, create a database user, and set up a couple of secret keys and passwords.
 
-#### PostgreSQL
-Install PostgreSQL and create a database user as follows (in linux):
-<pre>
-sudo apt-get install python-pip python-dev libpq-dev postgresql postgresql-contrib
-sudo -u postgres psql
-CREATE DATABASE Djangoresume;
-CREATE USER <i>myprojectuser</i> WITH PASSWORD '<i>password</i>';
-ALTER ROLE <i>myprojectuser</i> SET client_encoding TO 'utf8';
-ALTER ROLE <i>myprojectuser</i> SET default_transaction_isolation TO 'read committed';
-ALTER ROLE <i>myprojectuser</i> SET timezone TO 'UTC';
-GRANT ALL PRIVILEGES ON DATABASE Djangoresume TO <i>myprojectuser</i>;
-\q
-</pre>
-
 #### Virtual environment
 <pre>
 python3 -m pip3 install --user virtualenv 
 cd ~/virtualenv 
 virtualenv django_resume
 source django_resume/bin/activate
-(django_resume)$ pip3 install psycopg2 --user
 (django_resume)$ pip install -r requirements.txt 	#<b>TODO!!</b>
 (django_resume)$ python setup.py install          	#<b>TODO*!!</b>
 </pre>
 
-#### Security settings
-There are a couple of security settings to setup manually. Open the djangoresume/settings.py file and change USER and PASSWORD here: 
-<pre>
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'resume',
-        'USER': 'resume',     		#change this to the user <i>myprojectuser</i> created above
-        'PASSWORD': 'Djangoresume',	#change this to the database password above
-</pre>
-Also change the SECRET_KEY in djangoresume/settings.py. I suggest setting SECRET_KEY to the following line: 
-```
-SECRET_KEY=os.environ.get('SECRET_KEY')
-```
-and then exporting an environment variable as follows (in linux) before running the server:
+#### Security Settings
+Export an environment variable as follows (in linux) before running the server:
 ```
 export SECRET_KEY="*my secret key*"
 ```
