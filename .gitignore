@@ -12,6 +12,7 @@ eggs
 fake-eggs
 parts
 dist
+.idea/
 .installed.cfg
 .mr.developer.cfg
 .hg
