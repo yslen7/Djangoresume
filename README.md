@@ -21,8 +21,8 @@ python3 -m pip3 install --user virtualenv
 cd ~/virtualenv 
 virtualenv django_resume
 source django_resume/bin/activate
-(django_resume)$ pip install -r requirements.txt 	#<b>TODO!!</b>
-(django_resume)$ python setup.py install          	#<b>TODO*!!</b>
+(django_resume)$ pip install -r requirements.txt 
+(django_resume)$ python setup.py install  
 </pre>
 
 #### Security Settings
