@@ -390,7 +390,7 @@
 		width: 250px;
 		height: 195px;
 	}
-	#content img { /*Have to override #content img in style.css*/
+	container img { /*Have to override #content img in style.css*/
 		/*Auto resize*/
 		max-width:100%;
     	max-height:100%;
@@ -417,51 +417,32 @@
                       <ul class="portfolio" id="thumbs">
                           {% for prtype in projtype %}
                           {% for proj in prtype.project_set.all %}
-                          {% if proj.name == 'pypanda' %}
+                          {% if proj.picture %}
                           <li data-type="web" data-id="id-0" class="col-lg-3 design">
                               <div class="item-thumbs">
-
-                  {% with proj.picture as image_static %}
-
-
-
-
+                              {% with proj.picture as image_static %}
+                                <!--<p>project is: {{ proj.name }}</p>
                                 <p>sourceimg is: {{ image_static }}</p>
+                                <p>description is: {{ proj.description|safe }}</p>
                                 <br>
-                                  <img alt="{{ proj.picture }}" src="{% static image_static %}">
-                                  <a href="{% static '{{ proj.picture }}' %}" title="{{ proj.description|safe }}" data-fancybox-group="gallery" class="hover-wrap fancybox">
-                                  <span class="overlay-img"></span>
-                                  <span class="overlay-img-thumb font-icon-plus"></span>
-                                  </a>
-                  {% endwith %}
+                                -->
+                                <img alt="{{ proj.name }}" src="{% static image_static %}">
+                                <a href="{% static '{{ proj.picture }}' %}" title="{{ proj.description|safe }}" data-fancybox-group="gallery" class="hover-wrap fancybox">
+                                <span class="overlay-img"></span>
+                                <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                              {% endwith %}
                               </div>
                           </li>
                           {% endif %}
                           {% endfor %}
                           {% endfor %}
                         <p>ALE end</p>
+                        <br>
                           <li data-type="icon" data-id="id-1" class="col-lg-3 design">
                               <div class="item-thumbs">
                                   <img alt="InstallBI.png" src="{% static 'resume/img/panda_topgenes.png' %}">
                                   <a href="{% static 'resume/img/panda_topgenes.png' %}" title="InstallBI" data-fancybox-group="gallery" class="hover-wrap fancybox">
-                                  <span class="overlay-img"></span>
-                                  <span class="overlay-img-thumb font-icon-plus"></span>
-                                  </a>
-                              </div>
-                          </li>
-                          <li data-type="illustrator" data-id="id-2" class="col-lg-3 photography">
-                              <div class="item-thumbs">
-                                  <img alt="tantrix_game_2players" src="{% static 'resume/img/panda_topgenes.png' %}">
-                                  <a href="{% static 'resume/img/panda_topgenes.png' %}" title="Tantrix" data-fancybox-group="gallery" class="hover-wrap fancybox">
-                                  <span class="overlay-img"></span>
-                                  <span class="overlay-img-thumb font-icon-plus"></span>
-                                  </a>
-                              </div>
-                          </li>
-                          <li data-type="illustrator" data-id="id-2" class="col-lg-3 photography">
-                              <div class="item-thumbs">
-                                  <img alt="orig_from_moderna 1" src="{% static 'resume/img/panda_topgenes.png' %}">
-                                  <a href="{% static 'resume/img/panda_topgenes.png' %}" title="Tantrix" data-fancybox-group="gallery" class="hover-wrap fancybox">
                                   <span class="overlay-img"></span>
                                   <span class="overlay-img-thumb font-icon-plus"></span>
                                   </a>

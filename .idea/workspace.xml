@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c86ce9f-0b92-480c-86e1-6c7f59023de2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resume/admin.py" afterPath="$PROJECT_DIR$/resume/admin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resume/templates/resume/resume.html" afterPath="$PROJECT_DIR$/resume/templates/resume/resume.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,8 +57,8 @@
       <file leaf-file-name="resume.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resume/templates/resume/resume.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41919193">
-              <caret line="419" column="53" selection-start-line="419" selection-start-column="53" selection-end-line="419" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.16666667">
+              <caret line="392" column="13" selection-start-line="392" selection-start-column="13" selection-end-line="392" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -433,7 +430,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="26" y="104" width="1250" height="790" extended-state="1" />
+    <frame x="26" y="104" width="1250" height="790" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23712184" sideWeight="0.49543378" order="0" side_tool="false" content_ui="combo" />
@@ -674,8 +671,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resume/templates/resume/resume.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41919193">
-          <caret line="419" column="53" selection-start-line="419" selection-start-column="53" selection-end-line="419" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.16666667">
+          <caret line="392" column="13" selection-start-line="392" selection-start-column="13" selection-end-line="392" selection-end-column="13" />
           <folding />
         </state>
       </provider>
