@@ -228,8 +228,10 @@ class Project(models.Model):
     description = models.TextField(blank=True)
     link = models.URLField(blank=True)
     order = models.IntegerField(default=1)
-    picture = models.CharField(blank=True, max_length=150)
+    #picture = models.CharField(blank=True, max_length=150)
+    image = models.FileField(upload_to='static/resume/img/',blank=True)
     projtype = models.ForeignKey('ProjectType',on_delete=models.CASCADE,default=1)
+    #image = models.FileField(upload_to='static/resume/img/',blank=True)
     class Meta:
         verbose_name_plural = "12. Projects"
         ordering = ['order','id']
@@ -237,6 +239,7 @@ class Project(models.Model):
         return ' - '.join([self.name, self.link, self.description[0:50]+'...'])
     def __str__(self):
         return self.name
+    # file will be uploaded to MEDIA_ROOT/<upload_to>  '/resume/static/resume/'
 
 class Achievement(models.Model):
     title = models.CharField(max_length=50, blank=True)

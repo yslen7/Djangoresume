@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #SECURE_SSL_REDIRECT = True          #Serve https
 #SESSION_COOKIE_SECURE = True
 #CSRF_COOKIE_SECURE = True
-
+print("BASE_DIR: "+str(BASE_DIR))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -75,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+              'django.template.context_processors.media', #TO USE MEDIA_URL
             ],
         },
     },
@@ -138,6 +139,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR, '/static')
 ]
+MEDIA_ROOT = os.path.join(BASE_DIR, "resume/")
+MEDIA_URL = '/'
+
 print("STATIC_ROOT: "+str(STATIC_ROOT))
 print("STATIC_URL: "+str(STATIC_URL))
 print("STATICFILES_DIRS: "+str(STATICFILES_DIRS))

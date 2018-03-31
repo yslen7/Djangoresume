@@ -385,30 +385,67 @@
 
 <section id="content">
     <h2> Work in progress here</h2>
-<style>
-  .portfolio .item-thumbs {
-		width: 250px;
-		height: 195px;
-	}
-	container img { /*Have to override #content img in style.css*/
-		/*Auto resize*/
-		max-width:100%;
-    	max-height:100%;
-		/*The following width is needed because some imported style.css has width=100% stretching my tall image*/
-		width: auto;
-		height:auto;
-		position: absolute;
-		/*vertically align*/
-    	top: 0;
-    	bottom: 0;
-    	left: 0;
-    	right: 0;
-    	margin: auto;
-	}
-</style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .carousel-inner .item {
+    	height: 600px;
+		background-color: rgb(0, 217, 255);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+  }
+  </style>
 
+
+
+<div class="container">
+  <div id="main-slider2" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#main-slider2" data-slide-to="0" class="active"></li>
+      <li data-target="#main-slider2" data-slide-to="1"></li>
+      <li data-target="#main-slider2" data-slide-to="2"></li>
+    </ul>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      {% for prtype in projtype %}
+      {% for proj in prtype.project_set.all %}
+      {% if proj.image %}
+      <p>{{ proj.image.url }}</p>
+      {% with proj.image.url as image_static %}
+      <!--/img/profile.jpg   works-->
+      <div class="item active" style="background-image: url('{{ proj.image.url }}');">
+		  <div class="flex-caption">
+			  <h3>{{ proj.name }}</h3>
+			  <p>{{ proj.description }}</p>
+			  <a href="#" class="btn btn-theme">Learn More</a>
+		  </div>
+	  </div>
+      {% endwith %}
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#main-slider2" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#main-slider2" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+<!--
       <div class="container">
-          <!-- Portfolio Projects -->
           <div class="row">
               <div class="col-lg-12">
                   <h4 class="heading">Projects</h4>
@@ -421,11 +458,6 @@
                           <li data-type="web" data-id="id-0" class="col-lg-3 design">
                               <div class="item-thumbs">
                               {% with proj.picture as image_static %}
-                                <!--<p>project is: {{ proj.name }}</p>
-                                <p>sourceimg is: {{ image_static }}</p>
-                                <p>description is: {{ proj.description|safe }}</p>
-                                <br>
-                                -->
                                 <img alt="{{ proj.name }}" src="{% static image_static %}">
                                 <a href="{% static '{{ proj.picture }}' %}" title="{{ proj.description|safe }}" data-fancybox-group="gallery" class="hover-wrap fancybox">
                                 <span class="overlay-img"></span>
@@ -453,7 +485,7 @@
                   </div>
               </div>
           </div>
-      </div>
+      </div>-->
   </section>
 
 

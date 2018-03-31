@@ -17,6 +17,16 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from resume import views #import my views
 from django.urls import path
+
+
+
+from django.conf import settings
+from django.conf.urls.static import static
+urlpatterns = [
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
@@ -24,8 +34,12 @@ urlpatterns = [
 urlpatterns += [ #Add Django site authentication urls (for login, logout, password management)
     path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+
+
+'''
 ### TODO <int:pk> can be a slug - https://chriskief.com/2012/12/29/django-generic-detailview-without-a-pk-or-slug/
-urlpatterns += [  
+urlpatterns += [
     path('overview/create/', views.OverviewCreate.as_view(), name='overview_create'),
     path('overview/<int:pk>/update/', views.OverviewUpdate.as_view(), name='overview_update'),
     path('overview/<int:pk>/delete/', views.OverviewDelete.as_view(), name='overview_delete'),
@@ -36,3 +50,6 @@ urlpatterns += [
     path('education/<int:pk>/update/', views.EducationUpdate.as_view(), name='education_update'),
     path('education/<int:pk>/delete/', views.EducationDelete.as_view(), name='education_delete'),
 ]
+'''
+
+
