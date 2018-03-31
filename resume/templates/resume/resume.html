@@ -7,7 +7,7 @@
     <span class="d-block d-lg-none">Resume</span>
     <span class="d-none d-lg-block">
       {% with personal_info|first as pinfo %}
-      <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{pinfo.image.url}}" alt="">
+      <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ pinfo.image.url }}" alt="">
       {% endwith %}
     </span>
   </a>
