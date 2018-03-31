@@ -9,7 +9,7 @@ from .models import Achievement, Publication
 
 class PersonalInfoAdmin(admin.ModelAdmin):
     exclude = ()
-    list_display = ('first_name','last_name','title','locality','region',)
+    list_display = ('first_name','last_name','title','image','locality','region',)
 
 class OverviewAdmin(admin.ModelAdmin): #customize appearance
     list_display = ['text'] #otherwise it displays 'object'

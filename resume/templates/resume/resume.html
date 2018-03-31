@@ -6,7 +6,9 @@
   <a class="navbar-brand js-scroll-trigger" href="#page-top">
     <span class="d-block d-lg-none">Resume</span>
     <span class="d-none d-lg-block">
-      <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'resume/img/profile.jpg' %}" alt="">
+      {% with personal_info|first as pinfo %}
+      <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{pinfo.image.url}}" alt="">
+      {% endwith %}
     </span>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -416,9 +418,7 @@
       {% for prtype in projtype %}
       {% for proj in prtype.project_set.all %}
       {% if proj.image %}
-      <p>{{ proj.image.url }}</p>
       {% with proj.image.url as image_static %}
-      <!--/img/profile.jpg   works-->
       <div class="item active" style="background-image: url('{{ proj.image.url }}');">
 		  <div class="flex-caption">
 			  <h3>{{ proj.name }}</h3>
