@@ -9,7 +9,8 @@
     <meta name="author" content="">
 
     <title>Resume</title>
-
+    {% load compress %}
+    {% compress css %}
     <!-- Bootstrap core CSS  -->
     <link href="{% static 'resume/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -23,7 +24,7 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'resume/css/resume.min.css' %}" rel="stylesheet">
     <link href="{% static 'resume/css/resume2.css' %}" rel="stylesheet">
-
+    {% endcompress %}
   </head>
 
   <body id="page-top">
