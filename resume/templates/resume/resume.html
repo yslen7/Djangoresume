@@ -386,77 +386,106 @@
 -->
 
 <section id="content">
-  <h2> Work in progress here. add css below that messes up style</h2>
-  <!--<meta charset="utf-8">
+  <!--<h2> Work in progress here. add css below that messes up style</h2>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">-->
   <!-- THIS IS NEEDED FOR BOOTSTRAP BUT MESSES UP STYLE
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  -->
+  --><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
   <style>
+    section #projects {
+      width: 100%;
+    }
+    .portfolio li {
+      list-style-type: none;
+    }
+    #projects .item-thumbs > img {
+		padding: 2px;
+
+        object-fit: contain;
+	}
     .portfolio .item-thumbs {
-		width: 250px;
 		height: 195px;
+        background-color: #68A4C4;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
 	}
-	#content img { /*Have to override #content img in style.css*/
-		/*Auto resize*/
-		max-width:100%;
-    	max-height:100%;
-		/*The following width is needed because some imported style.css has width=100% stretching my tall image*/
-		width: auto;
-		height:auto;
-		position: absolute;
-		/*vertically align*/
-    	top: 0;
-    	bottom: 0;
-    	left: 0;
-    	right: 0;
-    	margin: auto;
-	}
+    .font-icon-plus:before {
+	  content: "\e063";
+    }
+    .font-icon-plus, .font-icon-plus-sign {
+  	  font-family: 'Icons';
+	  speak: none;
+	  font-style: normal;
+	  font-weight: normal;
+	  font-variant: normal;
+	  text-transform: none;
+	  line-height: 1;
+	  -webkit-font-smoothing: antialiased;
+    }
+
+
+
   </style>
-  	<section id="content">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+  <section id="project-container">
 		<div class="container">
-            <div class="row">
+			<!-- end divider -->
+			<!-- Portfolio Projects -->
+			<div class="row">
 				<div class="col-lg-12">
 					<h4 class="heading">Projects</h4>
 					<div class="row">
 						<section id="projects">
 						<ul class="portfolio" id="thumbs">
 							<li data-type="web" data-id="id-0" class="col-lg-3 design">
-								<div class="item-thumbs">
-									<img alt="panda_topgenes" src="{% static 'resume/img/panda_topgenes.png' %}">
-									<a href="{% static 'resume/img/panda_topgenes.png' %}" title="PyPanda" data-fancybox-group="gallery" class="hover-wrap fancybox">
+								<div class="item-thumbs" style="background-image: url('/static/resume/img/panda_topgenes.png');">
+
+									<!--<img alt="panda_topgenes" src="/static/resume/img/panda_topgenes.png"/>-->
+									<a href="/static/resume/img/panda_topgenes.png" title="PyPanda" data-fancybox-group="gallery" class="hover-wrap fancybox">
 									<span class="overlay-img"></span>
 									<span class="overlay-img-thumb font-icon-plus"></span>
+                                      <i class="fas fa-plus-circle"></i>
 									</a>
 								</div>
 							</li>
 							<li data-type="icon" data-id="id-1" class="col-lg-3 design">
-								<div class="item-thumbs">
-									<img alt="Picture for the Install-Samples-BI project" src="{% static 'resume/img/Install-Samples-BI.png' %}">
-									<a href="{% static 'resume/img/Install-Samples-BI.png' %}" title="Install-Samples-BI" data-fancybox-group="gallery" class="hover-wrap fancybox">
+								<div class="item-thumbs" style="background-image: url('/static/resume/img/Install-Samples-BI.png');">
+									<!--<img alt="Picture for the Install-Samples-BI project" src="/static/resume/img/Install-Samples-BI.png">-->
+									<a href="{% static 'img/works/Install-Samples-BI.png' %}" title="Install-Samples-BI" data-fancybox-group="gallery" class="hover-wrap fancybox">
 									<span class="overlay-img"></span>
 									<span class="overlay-img-thumb font-icon-plus"></span>
 									</a>
 								</div>
 							</li>
 							<li data-type="illustrator" data-id="id-2" class="col-lg-3 photography">
-								<div class="item-thumbs">
-									<img alt="tantrix_game_2players" src="{% static 'resume/img/tantrix_game_2players.png' %}">
-									<a href="{% static 'resume/img/tantrix_game_2players.png' %}" title="Tantrix" data-fancybox-group="gallery" class="hover-wrap fancybox">
+								<div class="item-thumbs" style="background-image: url('/static/resume/img/tantrix_game_2players.png');">
+									<!--<img alt="tantrix_game_2players" src="/static/resume/img/tantrix_game_2players.png">-->
+									<a href="{% static 'img/works/tantrix_game_2players.png' %}" title="Tantrix" data-fancybox-group="gallery" class="hover-wrap fancybox">
 									<span class="overlay-img"></span>
 									<span class="overlay-img-thumb font-icon-plus"></span>
 									</a>
 								</div>
 							</li>
 							<li data-type="illustrator" data-id="id-2" class="col-lg-3 photography">
-								<div class="item-thumbs">
-									<img alt="orig_from_moderna 1" src="{% static 'img/works/Djangoresume.png' %}">
-									<a href="{% static 'static/resume/img/Djangoresume.png' %}" title="Tantrix" data-fancybox-group="gallery" class="hover-wrap fancybox">
+								<div class="item-thumbs" style="background-image: url('/static/resume/img/Djangoresume.png');">
+									<!--<img alt="orig_from_moderna 1" src="/static/resume/img/Djangoresume.png">-->
+									<a href="{% static 'img/works/Djangoresume.png' %}" title="Tantrix" data-fancybox-group="gallery" class="hover-wrap fancybox">
 									<span class="overlay-img"></span>
 									<span class="overlay-img-thumb font-icon-plus"></span>
 									</a>
 								</div>
 							</li>
+                            <li data-type="illustrator" data-id="id-2" class="col-lg-3 photography">
+                                <div class="item-thumbs" style="background-image: url('/static/resume/img/Djangoresume.png');">
+                                    <!--<img alt="orig_from_moderna 1" src="/static/resume/img/Djangoresume.png"/>-->
+                                    <a href="{% static 'img/works/Djangoresume.png' %}" title="Tantrix" data-fancybox-group="gallery" class="hover-wrap fancybox">
+                                    <span class="overlay-img"></span>
+                                    <span class="overlay-img-thumb font-icon-plus"></span>
+                                    </a>
+                                </div>
+                            </li>
 						</ul>
 						</section>
 					</div>

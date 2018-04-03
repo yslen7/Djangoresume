@@ -74,12 +74,13 @@ h1, h2 {
   color: rgba(255,255,255,.75);
 }
 
-img{
+/* STILL NEEDED?
+img {
   max-height:500px;
   max-width:500px;
   height:auto;
   width:auto;
-}
+}*/
 
 /*  override dates and locations on the right*/
 section.resume-section .resume-item .resume-date{min-width:15rem}
