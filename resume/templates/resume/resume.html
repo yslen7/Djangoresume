@@ -434,6 +434,16 @@
 
 
     }
+
+  #test0 .thumb {
+    height: 195px;
+    background-color: #68A4C4;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  #test0 . {
+  }
   </style>
 
   <section class="resume-section" id="test0"> <!-- class="resume-section p-3 p-lg-5 d-flex flex-column" id="test"> -->
@@ -445,13 +455,14 @@
         {% for proj in prtype.project_set.all %}
         {% if proj.image %}
         <div class="col-sm-4 col-md-3 maxheight">
-          <div class="thumb">
-            <a href="{{ proj.link }}">
-              <!--<div class="item active" style="background-image: url('static/resume/img/Djangoresume.png');"></div>-->
-              <img class="img-responsive" src="{{ proj.image }}">
+          <div class="thumb" style="background-image: url({{ proj.image }});">
+            <div class="item active" >
+              <a href="{{ proj.link }}">
+              <!--<img class="img-responsive" src="{{ proj.image }}">-->
               <div class="hover-opaque"></div>
               <span class="glyphicon glyphicon-star text-center" aria-hidden="true"></span>
-            </a>
+              </a>
+            </div>
           </div>
         </div>
         {% endif %}
