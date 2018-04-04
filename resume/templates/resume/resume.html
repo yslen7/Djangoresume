@@ -330,34 +330,7 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
   <style>
-    .containerZZZ .thumbnail .overlay-img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0.00;
-      filter: alpha(opacity=80);
-      background: #000;
-    }
-    .thumbnail .overlay-img:hover {
-      opacity: 0.80;
-    }
-
-
-  .hover-opaque {
-    background: #000;
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    transition: all ease .5s;
-    -webkit-transition: all ease .5s;
-    -moz-transition: all ease .5s;
-  }
-  .thumb:hover .hover-opaque {
-      opacity: 0.5;
-  }
-  .fa-star {
+  #test1 .fa-star {
     position: absolute;
 
     top: auto;
@@ -368,31 +341,21 @@
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
   }
-  .thumb:hover .fa-star {
+
+  #test1 .thumb:hover .fa-star {
     opacity: 1;
   }
-
-   .containerZZZ .item-thumbs .hover-wrap .overlay-img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0.00;
-      filter: alpha(opacity=80);
-      background: #000;
-    }
-   .thumb {
+   #test1 .thumb {
 	  width: 250px;
   	  height: 195px;
       margin-left: 15px;
       margin-right: 15px;
-      margin-bottom: 15px;
-
-    /*vertically align*/
-    	top: 0;
-    	bottom: 0;
-    	left: 0;
-    	right: 0;
-
+      margin-bottom: 30px;
+      /*vertically align*/
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
     }
     #test1 img {
       /*Auto resize*/
@@ -442,19 +405,49 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
-  #test0 . {
+  #test0 .thumb {
+	  width: 250px;
+  	  height: 195px;
+      margin-left: 15px;
+      margin-right: 15px;
+      margin-bottom: 30px;
+
+    /*vertically align*/
+    	top: 0;
+    	bottom: 0;
+    	left: 0;
+    	right: 0;
+
+    }
+
+
+  .hover-opaque {
+    background: #000;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    /*width: 100%;  why not working?
+    height: 100%;*/
+    width: 250px;
+    height: 195px;
+    transition: all ease .5s;
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+  }
+  .thumb:hover .hover-opaque {
+      opacity: 0.5;
   }
   </style>
 
   <section class="resume-section" id="test0"> <!-- class="resume-section p-3 p-lg-5 d-flex flex-column" id="test"> -->
     <h3>From https://codepen.io/thepeted/pen/ojvjbL</h3>
     <br>
-    <div class="containerZZZ text-center">
+    <div class="container text-center">
       <div class="row">
         {% for prtype in projtype %}
         {% for proj in prtype.project_set.all %}
         {% if proj.image %}
-        <div class="col-sm-4 col-md-3 maxheight">
+        <div class="col-sm-4 col-md-3">
           <div class="thumb" style="background-image: url({{ proj.image }});">
             <div class="item active" >
               <a href="{{ proj.link }}">
@@ -477,7 +470,7 @@
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="test1">
     <div class="containerZZZ">
-    <div id="maxheight" class="row">
+    <div class="row">
 
       {% for prtype in projtype %}
       {% for proj in prtype.project_set.all %}
