@@ -394,7 +394,7 @@
     	right: 0;
 
     }
-    #maxheight img {
+    #test1 img {
       /*Auto resize*/
 		max-width:100%;
     	max-height:100%;
@@ -411,11 +411,32 @@
     }
     .backgrounded {
       background-color: rgb(0, 217, 255);
+    }
+    .hover-opaque {
+      width:100%;
+    }
+    #test0 img {
+      /*Auto resize*/
+		max-width:100%;
+    	max-height:100%;
+		/*The following width is needed because some imported style.css has width=100% stretching my tall image*/
+		/*width: auto;
+		height:auto;
+		position: absolute;
+    */
+		/*vertically align does not work well*/
+        /*position: absolute;
+        top: 0;
+    	bottom: 0;*/
+    	left: auto;
+    	right: auto;
+    	margin: auto;
+
 
     }
   </style>
 
-  <section>
+  <section class="resume-section" id="test0"> <!-- class="resume-section p-3 p-lg-5 d-flex flex-column" id="test"> -->
     <h3>From https://codepen.io/thepeted/pen/ojvjbL</h3>
     <br>
     <div class="containerZZZ text-center">
@@ -425,10 +446,10 @@
         {% if proj.image %}
         <div class="col-sm-4 col-md-3 maxheight">
           <div class="thumb">
-            <a href="#">
+            <a href="{{ proj.link }}">
+              <!--<div class="item active" style="background-image: url('static/resume/img/Djangoresume.png');"></div>-->
               <img class="img-responsive" src="{{ proj.image }}">
-              <div class="hover-opaque">
-              </div>
+              <div class="hover-opaque"></div>
               <span class="glyphicon glyphicon-star text-center" aria-hidden="true"></span>
             </a>
           </div>
@@ -443,7 +464,7 @@
 
 
 
-  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="test">
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="test1">
     <div class="containerZZZ">
     <div id="maxheight" class="row">
 
