@@ -510,38 +510,6 @@
 
     }
   </style>
-  <section class="resume-section" id="testmodal"> <!-- class="resume-section p-3 p-lg-5 d-flex flex-column" id="test"> -->
-    <h3>From https://codepen.io/thepeted/pen/ojvjbL with modal</h3>
-    <br>
-    <div class="container text-center">
-      <div class="row">
-        {% for prtype in projtype %}
-        {% for proj in prtype.project_set.all %}
-        {% if proj.image %}
-        <div class="col-sm-4 col-md-3">
-          <div id="myImg" class="thumb" style="background-image: url({{ proj.image }});">
-            <div class="item active" >
-              <!--<img id="myImg" src="{{proj.image}}" alt="Trolltunga, Norway" width="300" height="200">-->
-              <div id="myModal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="img01">
-                <div id="caption">my caption</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-        {% endif %}
-        {% endfor %}
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-
-
-
 
 
 
@@ -641,26 +609,66 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <script>
 // Get the modal
-var modal = document.getElementById('myModal');
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById('myImg');
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
+
+  function openModal(img) {
+    var modal = img.querySelector('.modal');
+    //var img = document.getElementById(elem.id);
+    var modalImg = document.getElementById("img"+img.id);
+    var captionText = img.querySelector(".caption");
+    console.log(img.id);
+    console.log(modal.id);
+    console.log("modalImg.id:"+modalImg.id);
+    console.log("captionText:"+captionText);
+
     modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
-}
+    console.log(img.style.backgroundImage.split('\"')[1])
+    modalImg.src = img.style.backgroundImage.split('\"')[1];
+    captionText.innerHTML = img.alt;
+  }
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
+function closeModal(elem) {
+  var modal = elem.parentElement;
+  modal.style.display = "none";
+  console.log(elem);
+};
 </script>
+  <section class="resume-section" id="testmodal"> <!-- class="resume-section p-3 p-lg-5 d-flex flex-column" id="test"> -->
+    <h3>From https://codepen.io/thepeted/pen/ojvjbL with modal</h3>
+    <br>
+    <div class="container text-center">
+      <div class="row">
+        {% for prtype in projtype %}
+        {% for proj in prtype.project_set.all %}
+        {% if proj.image %}
+        <div class="col-sm-4 col-md-3">
+          <div id="{{ proj.name }}" class="thumb" onclick="openModal(this);" style="background-image: url({{ proj.image }});">
+            <div class="item active" >
+              <!--<img id="myImg" src="{{proj.image}}" alt="Trolltunga, Norway" width="300" height="200">-->
+              <div id="myModal" class="modal">
+                <span class="close{{proj.name}}">&times;</span>
+                <img class="modal-content" id="img{{proj.name}}">
+                <div id="caption" class="caption" onclick="closeModal(this);">overridden</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+
+
+
 
 
 
