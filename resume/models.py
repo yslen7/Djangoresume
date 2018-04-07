@@ -230,7 +230,8 @@ class Project(models.Model):
     link = models.URLField(blank=True)
     order = models.IntegerField(default=1)
     #file will be uploaded to MEDIA_ROOT/<upload_to>  '/resume/static/resume/'
-    image = models.ImageField(upload_to='static/resume/img/',blank=True)
+    image = models.ImageField(upload_to='static/resume/img/',blank=True,
+                              help_text="Preferred width x height: 247x200")
     projtype = models.ForeignKey('ProjectType',on_delete=models.CASCADE,default=1)
     class Meta:
         verbose_name_plural = "12. Projects"
