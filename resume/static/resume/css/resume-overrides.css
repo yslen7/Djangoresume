@@ -1,4 +1,8 @@
 
+body {
+    background-color: #e8f3f2;
+}
+
 .subheading{text-transform: none;}
 
 .subheading{text-transform:none;font-weight:500;font-family:'Saira Extra Condensed',serif;font-size:1.35rem}
@@ -215,3 +219,4 @@ backdrop-filter: blur(5px);
           width: 100%;
       }
   }
+
