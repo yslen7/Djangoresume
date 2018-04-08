@@ -115,17 +115,29 @@ section.resume-section .resume-item .resume-date{min-width:15rem}
       text-align: center;
 
   }
-/*
-.thumb:hover {
-      filter: blur(0.75px) opacity(65%);
-}
 
-.launcher {opacity:0;}
+/*.thumb:hover {
+      filter: blur(0.75px) opacity(65%);
+}*/
+
+
+
+.launcher {
+-webkit-backdrop-filter: blur(5px);
+backdrop-filter: blur(5px);
+    opacity:0;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0%;
+    text-align: center;
+    color:rgb(0, 217, 255);
+}
 .thumb:hover > .launcher {
     opacity:1;
     transition: 0.3s;
 }
-*/
+
   /* The Modal (background) */
   .modal {
     display: none; /* Hidden by default */
