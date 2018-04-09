@@ -3,7 +3,7 @@
     "model": "auth.user",
     "fields": {
         "password": "pbkdf2_sha256$100000$pe599X7B8YyS$+Ijv1/dyiZsU+1ucdxTpGWHFuGb/oJAA07RmWdfYeIY=",
-        "last_login": "2018-03-21T03:42:00.899Z",
+        "last_login": "2018-04-08T14:30:58.879Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -14,6 +14,14 @@
         "date_joined": "2018-03-05T02:15:33.884Z",
         "groups": [],
         "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "0hvsabwlo0cdv7bxf297eppkhxtpv2ru",
+    "fields": {
+        "session_data": "M2Q1MWI3YTkwMGEzY2YxZWNjNTU5YWRlOTAzYzRkYjJjODI5NTI1Mjp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIzODRiODY3MzAwMTYxMjNjYzE3OGFiZDBlOWNhYTMzZjJkNmM5N2IzIn0=",
+        "expire_date": "2018-04-16T22:01:14.763Z"
     }
 },
 {
@@ -34,10 +42,66 @@
 },
 {
     "model": "sessions.session",
+    "pk": "7ky99cpsg8risvt8h0sooq8l6rvpgco5",
+    "fields": {
+        "session_data": "NTU3MjIyYzgzYjRiNGY2Y2RiOTZmYWZhODk3YWIxNjNiZWY3OTc2Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjIiLCJfYXV0aF91c2VyX2hhc2giOiIzODRiODY3MzAwMTYxMjNjYzE3OGFiZDBlOWNhYTMzZjJkNmM5N2IzIn0=",
+        "expire_date": "2018-04-14T18:13:20.091Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "9p95bmtebpmz3dmqk3d1we1jjqm1oh1r",
+    "fields": {
+        "session_data": "NzQ3MGJiYWIxZDExMjU3M2EwZTc4YWRkNTZiZDU3MTYyM2QzYjQyMzp7Il9hdXRoX3VzZXJfaGFzaCI6Ijc2ZDFiZjQ4Mzg0MjMwMDk4YTFkNDVmMzM4NzJkMTA5MWZjNDU3MTIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
+        "expire_date": "2018-04-21T11:31:11.833Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "dtwgnd2u4mg8tt7blwuhcniu2tku9df9",
+    "fields": {
+        "session_data": "NjE1ODI2YzY2Y2RkMjUxOTIyZTY0MWZjMTAzNzBiODIzZDk0MjMxZjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiMzg0Yjg2NzMwMDE2MTIzY2MxNzhhYmQwZTljYWEzM2YyZDZjOTdiMyIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
+        "expire_date": "2018-04-15T01:59:29.222Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "e26yrfy05g2w44qxe0seix8s0dmymm2j",
+    "fields": {
+        "session_data": "MTFiZWU2OWE5Mzk2NDhiNjQxYTgzZjc0MDgwYmMxODg5MTY4YmI2Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjM4NGI4NjczMDAxNjEyM2NjMTc4YWJkMGU5Y2FhMzNmMmQ2Yzk3YjMiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+        "expire_date": "2018-04-14T18:23:14.347Z"
+    }
+},
+{
+    "model": "sessions.session",
     "pk": "ff5s35bd0yke8pdhjazf5tf9i1bp8ak9",
     "fields": {
         "session_data": "ODM5MTExZGZiYmQ5OWE4MmI0MmVmNGYzN2JkMTc0Njg2YTc1ZDcxMzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzODRiODY3MzAwMTYxMjNjYzE3OGFiZDBlOWNhYTMzZjJkNmM5N2IzIn0=",
         "expire_date": "2018-03-19T02:40:00.696Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "g6avmabm0crk539glsym3riyx6gebj3r",
+    "fields": {
+        "session_data": "NTUxMzVkYWMzN2RmNjExOWQ1NzQxODBlODAwNWZhZDJlOTc5MzMwMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjM4NGI4NjczMDAxNjEyM2NjMTc4YWJkMGU5Y2FhMzNmMmQ2Yzk3YjMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
+        "expire_date": "2018-04-15T11:02:48.434Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hguiu08w46xmyyln45fenppu24o1cx3g",
+    "fields": {
+        "session_data": "NTUxMzVkYWMzN2RmNjExOWQ1NzQxODBlODAwNWZhZDJlOTc5MzMwMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjM4NGI4NjczMDAxNjEyM2NjMTc4YWJkMGU5Y2FhMzNmMmQ2Yzk3YjMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
+        "expire_date": "2018-04-15T10:59:38.758Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hlhv1ysh91g303r751uhzwmvh5jtjs52",
+    "fields": {
+        "session_data": "NmFiZThmYjU2MjMzYzJhNjM4NWQ0ZTQ1YzYyZGM5OGI1MmUwMzhkNzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9oYXNoIjoiMzg0Yjg2NzMwMDE2MTIzY2MxNzhhYmQwZTljYWEzM2YyZDZjOTdiMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+        "expire_date": "2018-04-05T04:46:24.712Z"
     }
 },
 {
@@ -50,10 +114,34 @@
 },
 {
     "model": "sessions.session",
-    "pk": "lnqzp2eg1w2sxln9bmmj0su8safu3w1h",
+    "pk": "ptb2u43xdhn5dpln74ouzv4im1q110gf",
     "fields": {
-        "session_data": "N2FkZDJkZGM0MjgwNjE4MDM1OGIzN2FkODMzOTZhMDEwOTIzOWNmZTp7Il9hdXRoX3VzZXJfaGFzaCI6IjM4NGI4NjczMDAxNjEyM2NjMTc4YWJkMGU5Y2FhMzNmMmQ2Yzk3YjMiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
-        "expire_date": "2018-04-04T03:42:00.921Z"
+        "session_data": "MTFiZWU2OWE5Mzk2NDhiNjQxYTgzZjc0MDgwYmMxODg5MTY4YmI2Nzp7Il9hdXRoX3VzZXJfaGFzaCI6IjM4NGI4NjczMDAxNjEyM2NjMTc4YWJkMGU5Y2FhMzNmMmQ2Yzk3YjMiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+        "expire_date": "2018-04-14T14:26:01.597Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "sui8kpyg6zq6qker5w4c0vm3r1v1d810",
+    "fields": {
+        "session_data": "NTUxMzVkYWMzN2RmNjExOWQ1NzQxODBlODAwNWZhZDJlOTc5MzMwMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjM4NGI4NjczMDAxNjEyM2NjMTc4YWJkMGU5Y2FhMzNmMmQ2Yzk3YjMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
+        "expire_date": "2018-04-15T11:04:40.522Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "tkzc7op97m0wmu8zll47mpgeubspzdxy",
+    "fields": {
+        "session_data": "NmFiZThmYjU2MjMzYzJhNjM4NWQ0ZTQ1YzYyZGM5OGI1MmUwMzhkNzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9oYXNoIjoiMzg0Yjg2NzMwMDE2MTIzY2MxNzhhYmQwZTljYWEzM2YyZDZjOTdiMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+        "expire_date": "2018-04-13T10:53:36.883Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "vaxrztegy5u7zni39z2ee5x7t0f4fj3k",
+    "fields": {
+        "session_data": "YmJlMTcyOThmYjM3MWM4ODY4YWZkN2QyYWJlMWNjOWM3MWQ0NGY2Yjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYmQxYzdkZGM0OTA5MjA5NDhkNDhkMGM1ZTg1Nzk0NDE0NjU1NjdlZiIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
+        "expire_date": "2018-04-22T14:30:58.974Z"
     }
 },
 {
@@ -72,7 +160,8 @@
         "facebook": "",
         "github": "https://github.com/aless80",
         "site": "https://aless80.pythonanywhere.com/",
-        "twittername": ""
+        "twittername": "",
+        "image": "static/resume/img/profile.jpg"
     }
 },
 {
@@ -707,10 +796,11 @@
     "pk": 1,
     "fields": {
         "name": "Djangoresume",
-        "description": "Django app generating an online resume",
+        "short_description": "Django app generating an online resume",
+        "long_description": "Django app generating an online resume",
         "link": "https://github.com/aless80/Djangoresume",
         "order": 3,
-        "picture": "resume/img/iGrow.png",
+        "image": "static/resume/img/Djangoresume.png",
         "projtype": 1
     }
 },
@@ -719,10 +809,11 @@
     "pk": 5,
     "fields": {
         "name": "Machine Learning Notebooks",
-        "description": "ipython notebooks with Machine Learning projects",
+        "short_description": "IPython notebooks for Machine Learning projects",
+        "long_description": "ipython notebooks for Machine Learning projects",
         "link": "https://aless80.github.io/#machine-learning",
         "order": 1,
-        "picture": "",
+        "image": "",
         "projtype": 1
     }
 },
@@ -731,10 +822,11 @@
     "pk": 6,
     "fields": {
         "name": "iGrow",
-        "description": "app allowing users to plot a child\u2019s weight, length and BMI in comparison to\r\nreference data from the World Health Organization.",
+        "short_description": "Webapp allowing users to plot a child\u2019s weight, length and BMI in comparison to\r\nreference data from the World Health Organization.",
+        "long_description": "Webapp allowing users to plot a child\u2019s weight, length and BMI in comparison to\r\nreference data from the World Health Organization. My first javascript project",
         "link": "http://edosil.net/igrow",
         "order": 7,
-        "picture": "",
+        "image": "static/resume/img/iGrow.png",
         "projtype": 1
     }
 },
@@ -743,10 +835,11 @@
     "pk": 7,
     "fields": {
         "name": "Tantrix",
-        "description": "implementation in Python of a puzzle game",
+        "short_description": "Implementation in Python of a puzzle game",
+        "long_description": "Implementation in Python of the Tantrix puzzle game. My first Python project. It uses TKinter for the UI",
         "link": "https://github.com/aless80/tantrix",
         "order": 6,
-        "picture": "",
+        "image": "static/resume/img/tantrix_game_2players.png",
         "projtype": 1
     }
 },
@@ -755,10 +848,11 @@
     "pk": 9,
     "fields": {
         "name": "DeepSeeButtons",
-        "description": "Reporting routine for InterSystems' Business Intelligence product DeepSee",
+        "short_description": "Reporting routine for InterSystems' Business Intelligence product DeepSee",
+        "long_description": "Reporting routine for InterSystems' Business Intelligence product DeepSee. This project will be added to the product. This project uses InterSystems' proprietary language Cach\u00e9 ObjectScript, as well as HTML/CSS/JavaScript",
         "link": "https://github.com/aless80/DeepSeeButtons",
         "order": 1,
-        "picture": "",
+        "image": "static/resume/img/DeepSeeButtons.gif",
         "projtype": 2
     }
 },
@@ -767,10 +861,11 @@
     "pk": 10,
     "fields": {
         "name": "pypanda",
-        "description": "Translating to python a gene regulatory network reconstruction algorithm from Quackenbush Lab",
+        "short_description": "Translating to python a gene regulatory network reconstruction algorithm",
+        "long_description": "Translation to Python of a gene regulatory network reconstruction algorithm. The algorithm was published by the Quackenbush Lab at the Dana Farber cancer institute",
         "link": "https://github.com/aless80/pypanda",
         "order": 3,
-        "picture": "",
+        "image": "static/resume/img/panda_topgenes.png",
         "projtype": 2
     }
 },
@@ -779,11 +874,38 @@
     "pk": 11,
     "fields": {
         "name": "Projects at InterSystems",
-        "description": "Projects involving InterSystems' technology",
+        "short_description": "Projects involving InterSystems' technology",
+        "long_description": "Projects involving InterSystems' technology, in particular InterSystems' Business Intelligence product DeepSee",
         "link": "https://aless80.github.io/#intersystems",
         "order": 5,
-        "picture": "",
+        "image": "",
         "projtype": 2
+    }
+},
+{
+    "model": "resume.project",
+    "pk": 12,
+    "fields": {
+        "name": "PyPuma",
+        "short_description": "Translation to Python of a gene regulatory network reconstruction algorithm",
+        "long_description": "Translation to Python of a gene regulatory network reconstruction algorithm. The algorithm was published by the Quackenbush Lab at the Dana Farber cancer institute",
+        "link": "https://github.com/aless80/PyPuma",
+        "order": 2,
+        "image": "",
+        "projtype": 2
+    }
+},
+{
+    "model": "resume.project",
+    "pk": 13,
+    "fields": {
+        "name": "Install-Samples-BI",
+        "short_description": "Automatically install SAMPLES in IRIS Data Platform",
+        "long_description": "Automatically install SAMPLES in IRIS Data Platform. This project uses InterSystems' proprietary language Cach\u00e9 ObjectScript.",
+        "link": "https://github.com/aless80/Install-Samples-BI",
+        "order": 3,
+        "image": "static/resume/img/Install-Samples-BI.png",
+        "projtype": 1
     }
 },
 {
