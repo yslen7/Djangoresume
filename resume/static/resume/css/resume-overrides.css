@@ -6,20 +6,20 @@ body {
 .subheading{text-transform: none;}
 
 .subheading{text-transform:none;font-weight:500;font-family:'Saira Extra Condensed',serif;font-size:1.35rem}
-.bg-primary{background-color:rgb(0, 217, 255)!important}
+.bg-primary{background-color:rgb(39, 156, 231)!important}
 
 .text-primary{
-    /* color:rgb(0, 217, 255)!important} */
+    /* color:rgb(39, 156, 231)!important} */
     color:#868e96!important;
 }
 
 a {
-  color:rgb(0, 217, 255);
+  color:rgb(39, 156, 231);
 }
 a:active,a:focus,a:hover{color:rgb(0, 26, 255)}
 
 .primary {
-  color:rgb(0, 217, 255);
+  color:rgb(39, 156, 231);
 }
 .strong-underlined {
   font-weight: bolder;
@@ -96,7 +96,7 @@ section.resume-section .resume-item .resume-date{min-width:15rem}
 /* Thumb images and modals */
 .thumb {
       height: 200px;
-      background-color: rgb(0, 217, 255);
+      background-color: rgb(39, 156, 231);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center center;
@@ -135,7 +135,7 @@ backdrop-filter: blur(5px);
     top: 50%;
     left: 0%;
     text-align: center;
-    color:rgb(0, 217, 255);
+    color:rgb(39, 156, 231);
 }
 .thumb:hover > .launcher {
     opacity:1;
