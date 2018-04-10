@@ -136,18 +136,23 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, "assets")  #it was static
-STATIC_URL = '/static/'
+# Static files (CSS, JavaScript, Images) and Media files (uploaded by users)
+# URL prefix for static files. eg http://aless80.pythonanywhere.com/static/
+STATIC_URL = "/static/"
+#Absolute path to the directory static files should be collected to, eg: /home/amarin/Mezzanine/static/
+# Don't put anything here yourself; store your static files in subdirectories of apps/static/ and in STATICFILES_DIRS.
+STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL.strip("/"))
+# URL that handles the media served from MEDIA_ROOT. NB trailing slash. eg http://aless80.pythonanywhere.com/media/
+MEDIA_URL = STATIC_URL + "media/"
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/home/amarin/Mezzanine/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, *MEDIA_URL.strip("/").split("/"))
+
 
 STATICFILES_DIRS = [ #directories with files to look into
         os.path.join(BASE_DIR, 'resume/static'),
         os.path.join(BASE_DIR, 'resume/static/resume')
 ]
-MEDIA_ROOT = os.path.join(BASE_DIR, "resume/")
-MEDIA_URL = '/'
-
 print("STATIC_ROOT: "+str(STATIC_ROOT))
 print("STATIC_URL: "+str(STATIC_URL))
 print("STATICFILES_DIRS: "+str(STATICFILES_DIRS))
