@@ -38,6 +38,7 @@ SECRET_KEY=os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = RUNNING_DEVSERVER
+
 print("DEBUG: "+str(DEBUG))
 
 ALLOWED_HOSTS = ['127.0.0.1','aless80.pythonanywhere.com']
@@ -140,8 +141,9 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")  #it was static
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [ #directories with files to look into
+        os.path.join(BASE_DIR, 'resume/static'),
+        os.path.join(BASE_DIR, 'resume/static/resume')
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, "resume/")
 MEDIA_URL = '/'
