@@ -146,7 +146,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 MEDIA_URL = "/media/"
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/amarin/Mezzanine/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, *MEDIA_URL.strip("/").split("/"))
+#MEDIA_ROOT = os.path.join(BASE_DIR, *MEDIA_URL.strip("/").split("/"))
+MEDIA_ROOT = os.path.join(BASE_DIR, "assets/media/")
 
 
 STATICFILES_DIRS = [ #directories with files to look into
