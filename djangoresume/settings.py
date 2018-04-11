@@ -38,7 +38,7 @@ SECRET_KEY=os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = RUNNING_DEVSERVER
-
+DEBUG = True
 print("DEBUG: "+str(DEBUG))
 
 ALLOWED_HOSTS = ['127.0.0.1','aless80.pythonanywhere.com']
@@ -155,5 +155,7 @@ STATICFILES_DIRS = [ #directories with files to look into
 ]
 print("STATIC_ROOT: "+str(STATIC_ROOT))
 print("STATIC_URL: "+str(STATIC_URL))
+print("STATIC_ROOT: "+str(MEDIA_ROOT))
+print("STATIC_URL: "+str(MEDIA_URL))
 print("STATICFILES_DIRS: "+str(STATICFILES_DIRS))
 print("")
