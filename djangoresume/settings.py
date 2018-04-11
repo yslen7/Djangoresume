@@ -141,7 +141,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 #Absolute path to the directory static files should be collected to, eg: /home/amarin/Mezzanine/static/
 # Don't put anything here yourself; store your static files in subdirectories of apps/static/ and in STATICFILES_DIRS.
-STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL.strip("/"))
+STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 # URL that handles the media served from MEDIA_ROOT. NB trailing slash. eg http://aless80.pythonanywhere.com/media/
 MEDIA_URL = STATIC_URL + "media/"
 # Absolute filesystem path to the directory that will hold user-uploaded files.
