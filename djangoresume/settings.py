@@ -143,7 +143,7 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 # URL that handles the media served from MEDIA_ROOT. NB trailing slash. eg http://aless80.pythonanywhere.com/media/
 #MEDIA_URL = STATIC_URL + "media/"
-MEDIA_URL = "/media"
+MEDIA_URL = "/media/"
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/amarin/Mezzanine/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, *MEDIA_URL.strip("/").split("/"))
