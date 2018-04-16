@@ -36,6 +36,13 @@ urlpatterns += [ #Add Django site authentication urls (for login, logout, passwo
 ]
 
 
+if settings.DEBUG is True:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#urlpatterns += [
+#] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+#urlpatterns += [
+#] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 '''
 ### TODO <int:pk> can be a slug - https://chriskief.com/2012/12/29/django-generic-detailview-without-a-pk-or-slug/

@@ -141,7 +141,7 @@ STATIC_URL = "/static/"
 #Absolute path to the directory static files should be collected to, eg: /home/amarin/Mezzanine/static/
 # Don't put anything here yourself; store your static files in subdirectories of apps/static/ and in STATICFILES_DIRS.
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
-# URL that handles the media served from MEDIA_ROOT. NB trailing slash. eg http://aless80.pythonanywhere.com/media/
+# URL that handles the media served from MEDIA_ROOT. Different than STATIC_URL. NB trailing slash. eg http://aless80.pythonanywhere.com/media/
 #MEDIA_URL = STATIC_URL + "media/"
 MEDIA_URL = "/media/"
 # Absolute filesystem path to the directory that will hold user-uploaded files.
@@ -150,13 +150,23 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "assets/media/")
 
 
+#STATICFILES_DIRS = [ #directories with files to look into
+#        os.path.join(BASE_DIR, 'resume/static'),
+#        os.path.join(BASE_DIR, 'resume/static/resume')
+#]
 STATICFILES_DIRS = [ #directories with files to look into
-        os.path.join(BASE_DIR, 'resume/static'),
-        os.path.join(BASE_DIR, 'resume/static/resume')
+        os.path.join(BASE_DIR, 'static')
 ]
 print("STATIC_ROOT: "+str(STATIC_ROOT))
 print("STATIC_URL: "+str(STATIC_URL))
-print("STATIC_ROOT: "+str(MEDIA_ROOT))
-print("STATIC_URL: "+str(MEDIA_URL))
+print("MEDIA_ROOT: "+str(MEDIA_ROOT))
+print("MEDIA_URL: "+str(MEDIA_URL))
 print("STATICFILES_DIRS: "+str(STATICFILES_DIRS))
 print("")
+
+
+
+
+
+
+
