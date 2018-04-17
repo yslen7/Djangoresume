@@ -220,7 +220,7 @@ class ProjectType(models.Model):
         verbose_name_plural = "11. ProjectTypes"
         ordering = ['order','id']
     def __unicode__(self):
-        return ' - '.join([self.name, self.id])
+        return ' - '.join([self.name, str(self.id)])
     def __str__(self):
         return self.name
 
