@@ -242,7 +242,7 @@ class Project(models.Model):
         verbose_name_plural = "12. Projects"
         ordering = ['order','id']
     def __unicode__(self):
-        return ' - '.join([self.name, self.link, self.description[0:50]+'...'])
+        return ' - '.join([self.name, self.link, self.short_description[0:50]+'...'])
     def __str__(self):
         return self.name
 
