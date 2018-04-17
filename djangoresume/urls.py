@@ -35,6 +35,9 @@ urlpatterns += [ #Add Django site authentication urls (for login, logout, passwo
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
+urlpatterns += [
+    url(r'^$', views.download, name='download'),
+]
 
 if settings.DEBUG is True:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
