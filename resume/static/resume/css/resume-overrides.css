@@ -75,7 +75,7 @@ h1, h2 {
 
 
 body {
-    padding-left: 17rem;
+    /*padding-left: 17rem;*/
     padding-left: 13%;
 }
 #sideNav {
@@ -222,3 +222,7 @@ backdrop-filter: blur(5px);
       }
   }
 
+  .resume-section ul {
+    padding-left: 40px;
+    margin-left: 0;
+  }
