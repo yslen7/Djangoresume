@@ -20,7 +20,7 @@ class EducationAdmin(admin.ModelAdmin):
     search_fields = ('name','name2', 'degree')
     #prepopulated_fields = {'slug': ('degree',)}
     date_hierarchy = 'end_date'
-    ordering = ['end_date', 'id']
+    ordering = ['-end_date', 'id']
 
 class JobAdmin(admin.ModelAdmin):
     list_display = ('company', 'location', 'title', 'end_date')
@@ -28,7 +28,7 @@ class JobAdmin(admin.ModelAdmin):
     search_fields = ('company', 'location', 'title')
     #prepopulated_fields = {'slug': ('degree',)}
     date_hierarchy = 'end_date'
-    ordering = ['end_date', 'id']
+    ordering = ['-end_date', 'id']
     #def __unicode__(self):
     #    return self.company
 

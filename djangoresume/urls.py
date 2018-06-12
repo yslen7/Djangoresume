@@ -30,6 +30,7 @@ urlpatterns = [
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
+    url(r'^resume/$', views.index, name='index'),
 ]
 urlpatterns += [ #Add Django site authentication urls (for login, logout, password management)
     path('accounts/', include('django.contrib.auth.urls')),

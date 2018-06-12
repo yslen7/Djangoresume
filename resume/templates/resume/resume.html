@@ -196,7 +196,7 @@
             <a href="{{ edu.schoolurl2 }}" target="_blank">{{ edu.name2|safe }}</a>
             {% endif %} 
           </p>
-          <p>{{ edu.description }}</p>
+          <p>{{ edu.description|safe }}</p>
         </div>
         <div class="resume-date text-md-right mb-0">
           <div class="subheading mb-3 text-primary">{{ edu.formatted_start_date }} - {{ edu.formatted_end_date }}</div>
