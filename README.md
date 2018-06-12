@@ -1,5 +1,5 @@
 ## Djangoresume
-Resume site based on Django. See it live at [aless80.pythonanywhere.com](https://aless80.pythonanywhere.com/)
+Resume site based on Django. See it live at [aless80.pythonanywhere.com/resume](https://aless80.pythonanywhere.com/resume)
 This Django project uses sqlite because it is free on pythonanywhere.com. See my other project Django-resume-PostgreSQL 
 
 ## Table of Contents
