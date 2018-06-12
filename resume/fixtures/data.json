@@ -1046,10 +1046,10 @@
     "model": "resume.project",
     "pk": 14,
     "fields": {
-        "name": "Mezzanineresume",
+        "name": "Mezzanine-website",
         "short_description": "My Django/Mezzanine-based site",
         "long_description": "My Django/Mezzanine-based site (online resume, blog)",
-        "link": "https://github.com/aless80/Mezzanineresume",
+        "link": "https://github.com/aless80/Mezzanine-website",
         "order": 2,
         "image": "",
         "projtype": 2
