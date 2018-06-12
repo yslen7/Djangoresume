@@ -2,6 +2,9 @@
 Resume site based on Django. See it live at [aless80.pythonanywhere.com/resume](https://aless80.pythonanywhere.com/resume)
 This Django project uses sqlite because it is free on pythonanywhere.com. See my other project Django-resume-PostgreSQL 
 
+![Alt Text](https://github.com/aless80/Djangoresume/blob/master/Djangoresume.png)
+
+
 ## Table of Contents
 * [Installation](#installation)  
   * [Install the virtual environment](#virtual-environment)
