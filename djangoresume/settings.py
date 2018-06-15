@@ -166,8 +166,3 @@ print("STATICFILES_DIRS: "+str(STATICFILES_DIRS))
 print("")
 
 
-
-
-
-
-
