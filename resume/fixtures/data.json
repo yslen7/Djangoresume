@@ -3,7 +3,7 @@
     "model": "auth.user",
     "fields": {
         "password": "pbkdf2_sha256$100000$pe599X7B8YyS$+Ijv1/dyiZsU+1ucdxTpGWHFuGb/oJAA07RmWdfYeIY=",
-        "last_login": "2018-06-12T22:42:04.960Z",
+        "last_login": "2018-06-15T15:57:57.288Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -30,6 +30,14 @@
     "fields": {
         "session_data": "ZDdmZjczYTE5NWViZDgyMmUxY2FlZjkzNWZmOTg5YTcxOTc1YmViZDp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9oYXNoIjoiMDJhZTVhMDVmODVhNGM5NGEzNjAxYmJiYmI3NjRlMWRlZGQyNTgyZSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
         "expire_date": "2018-06-25T22:39:41.234Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "2cs3w7iu1i8i1s0xgvb1plo59oc2a9f0",
+    "fields": {
+        "session_data": "OGFmOTVhMTE2NTZlYTNiYTBiZmM0ZTZkYWI2NjI5ZWY5ZDNjMDMzNTp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9oYXNoIjoiMjQwNTYxZDg1NTUwNTViMTdiODVhNmFlYzliMzVhZWVlMDllYjY4YyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+        "expire_date": "2018-06-29T15:57:57.298Z"
     }
 },
 {
@@ -174,14 +182,6 @@
     "fields": {
         "session_data": "ODM5MTExZGZiYmQ5OWE4MmI0MmVmNGYzN2JkMTc0Njg2YTc1ZDcxMzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzODRiODY3MzAwMTYxMjNjYzE3OGFiZDBlOWNhYTMzZjJkNmM5N2IzIn0=",
         "expire_date": "2018-03-20T00:44:53.257Z"
-    }
-},
-{
-    "model": "sessions.session",
-    "pk": "jiu5rp1cbyuriu82v1aaodzrya6bysag",
-    "fields": {
-        "session_data": "M2IwMzU0NzkyOGUzZjZlMTZlMWYzNGIwZjhjY2JmZDRhOTE4Nzg0MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjAyYWU1YTA1Zjg1YTRjOTRhMzYwMWJiYmJiNzY0ZTFkZWRkMjU4MmUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
-        "expire_date": "2018-06-26T22:42:04.971Z"
     }
 },
 {
@@ -1056,7 +1056,7 @@
     "fields": {
         "name": "Mezzanine-website",
         "short_description": "My Django/Mezzanine-based site",
-        "long_description": "My Django/Mezzanine-based site (online resume, blog)",
+        "long_description": "My site including online resume, and blog based on Django and the Mezzanine CMS",
         "link": "https://github.com/aless80/Mezzanine-website",
         "order": 2,
         "image": "static/resume/img/Mezzanine-website.png",
@@ -1069,7 +1069,7 @@
     "fields": {
         "title": "MIT Professional Education Program",
         "description": "Certificate for the \"Data Science: Data to Insights\" online course on Data Science and Machine Learning",
-        "order": 1,
+        "order": 2,
         "url": "https://mitxpro.mit.edu/certificates/8c1eea3404c447968295be53c177a82b"
     }
 },
@@ -1091,6 +1091,16 @@
         "description": "My articles on Developer Community, InterSystems' online community for developers",
         "order": 6,
         "url": "https://community.intersystems.com/user/14041/posts"
+    }
+},
+{
+    "model": "resume.achievement",
+    "pk": 8,
+    "fields": {
+        "title": "Oracle Certified Associate",
+        "description": "Java SE 8 Programmer",
+        "order": 1,
+        "url": ""
     }
 },
 {
