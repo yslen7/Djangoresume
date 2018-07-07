@@ -15,8 +15,8 @@ This Django project uses sqlite because it is free on pythonanywhere.com. See my
 -------------
 
 ## Installation
-This repository uses a PostgreSQL database. The data for my CV has been dumped to resume/fictures/data.json. 
-I suggest setting up a virtual environment for python 3.4, installing PostgreSQL, create a database user, and set up a couple of secret keys and passwords.
+This repository uses a sqlite database. The data for my CV has been dumped to resume/fictures/data.json. 
+I suggest setting up a virtual environment for python 3.4, installing sqlite, create a database user, and set up a couple of secret keys and passwords.
 
 #### Virtual environment
 <pre>
