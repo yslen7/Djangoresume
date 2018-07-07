@@ -3,7 +3,7 @@
     "model": "auth.user",
     "fields": {
         "password": "pbkdf2_sha256$100000$pe599X7B8YyS$+Ijv1/dyiZsU+1ucdxTpGWHFuGb/oJAA07RmWdfYeIY=",
-        "last_login": "2018-06-15T15:57:57.288Z",
+        "last_login": "2018-06-20T16:05:22.147Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -142,6 +142,14 @@
     "fields": {
         "session_data": "ODM5MTExZGZiYmQ5OWE4MmI0MmVmNGYzN2JkMTc0Njg2YTc1ZDcxMzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2hhc2giOiIzODRiODY3MzAwMTYxMjNjYzE3OGFiZDBlOWNhYTMzZjJkNmM5N2IzIn0=",
         "expire_date": "2018-03-19T02:40:00.696Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "fwa1l6cro248y52zqtonc3wi5qfz5948",
+    "fields": {
+        "session_data": "ZGMzZGFmMWJkYWYxMTk3ZTc0N2I4YjMzOGExOTBkNTdlMjY4OGIwODp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6IjIiLCJfYXV0aF91c2VyX2hhc2giOiIyNDA1NjFkODU1NTA1NWIxN2I4NWE2YWVjOWIzNWFlZWUwOWViNjhjIn0=",
+        "expire_date": "2018-07-04T16:05:22.158Z"
     }
 },
 {
@@ -1100,7 +1108,7 @@
         "title": "Oracle Certified Associate",
         "description": "Java SE 8 Programmer",
         "order": 1,
-        "url": ""
+        "url": "https://www.youracclaim.com/badges/cb1477d0-5a97-4116-8155-39a2fc0efa76/linked_in_profile"
     }
 },
 {
