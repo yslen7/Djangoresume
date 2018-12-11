@@ -84,9 +84,9 @@ class ProgrammingLanguageAdmin(admin.ModelAdmin):
 
 class LanguageAdmin(admin.ModelAdmin):
     exclude = ()
-    list_display = ('language', 'order', 'level',)
-    list_filter = ('language', 'order', 'level',)
-    search_fields = ('language', 'level',)
+    list_display = ('language', 'order', 'level','addendum')
+    list_filter = ('language', 'order', 'level','addendum')
+    search_fields = ('language', 'level','addendum')
     #prepopulated_fields = {'slug': ('degree',)}
     #date_hierarchy = 'order'
     ordering = ['-level','order']
@@ -109,7 +109,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 class AchievementAdmin(admin.ModelAdmin):
     exclude = ()
-    list_display = ('title','description', 'order', 'url','id')
+    list_display = ('title', 'description', 'order', 'id', 'url', 'achievement_pdf')
     list_filter = ('title','url')
     search_fields = ('title','description','name',)
     #prepopulated_fields = {'slug': ('degree',)}

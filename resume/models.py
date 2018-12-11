@@ -206,6 +206,7 @@ class Language(models.Model):
         (1, 'Elementary professional proficiency')
         )
     level = models.IntegerField(help_text='Choice between 1 and 5', default=5, choices=ILR_scale)
+    addendum = models.CharField(max_length=20, blank=True)
     class Meta:
         verbose_name_plural = "10. Languages"
         ordering = ['level','order']
@@ -252,6 +253,8 @@ class Achievement(models.Model):
     description = models.TextField()
     order = models.IntegerField(default=1)
     url = models.URLField('URL', blank=True)
+    # file will be uploaded to MEDIA_ROOT/<upload_to>  '/resume/static/resume/'
+    achievement_pdf = models.FileField(upload_to='static/resume/img/', blank=True, help_text='Downloadable file')
     #linkdefault = 'this link'
     #if url is not '': linkdefault = ''
     #linkname = models.CharField(default=linkdefault, max_length=150, blank=True)

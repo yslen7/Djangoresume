@@ -156,7 +156,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "assets/media/")
 #        os.path.join(BASE_DIR, 'resume/static/resume')
 #]
 STATICFILES_DIRS = [ #directories with files to look into
-        os.path.join(BASE_DIR, 'static')
+        os.path.join(BASE_DIR, 'static'),
 ]
 print("STATIC_ROOT: "+str(STATIC_ROOT))
 print("STATIC_URL: "+str(STATIC_URL))

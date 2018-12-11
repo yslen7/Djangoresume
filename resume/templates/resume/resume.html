@@ -257,6 +257,9 @@
         <li>
           <p>
           <strong>{{ lan.language }}</strong>: {{ lan.get_level_display }}
+            {% if lan.addendum  %}
+              {{ lan.addendum }}
+            {% endif %}
           </p>
         </li>
         {% endfor %}
@@ -331,7 +334,11 @@
           <li>
             <i class="fa-li fa fa-check"></i>
             {% if ach.title %}
-            <a href="{{ ach.url}}" target="_block">{{ ach.title }}</a>:
+              {% if ach.url %}
+                <a href="{{ ach.url }}" target="_block">{{ ach.title }}</a>:
+              {% elif ach.achievement_pdf %}
+                <a href="{{ ach.achievement_pdf.url }}" target="_block">{{ ach.title }} </a>:
+              {%endif%}
             {%endif%}
             {{ ach.description|capfirst|safe }}
           </li>
