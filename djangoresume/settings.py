@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'djangoresume.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-	'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -156,7 +156,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "assets/media/")
 #        os.path.join(BASE_DIR, 'resume/static/resume')
 #]
 STATICFILES_DIRS = [ #directories with files to look into
-        os.path.join(BASE_DIR, 'static')
+        os.path.join(BASE_DIR, 'static'),
 ]
 print("STATIC_ROOT: "+str(STATIC_ROOT))
 print("STATIC_URL: "+str(STATIC_URL))
@@ -164,10 +164,5 @@ print("MEDIA_ROOT: "+str(MEDIA_ROOT))
 print("MEDIA_URL: "+str(MEDIA_URL))
 print("STATICFILES_DIRS: "+str(STATICFILES_DIRS))
 print("")
-
-
-
-
-
 
 

@@ -25,6 +25,7 @@
     <link href="{% static 'resume/css/resume.min.css' %}" rel="stylesheet">
     <link href="{% static 'resume/css/resume-overrides.css' %}" rel="stylesheet">
 
+
     <!--Modals project-->
     <script>
     // Get the image and insert it inside the modal - use its "alt" text as a caption
@@ -44,9 +45,20 @@
     }
     </script>
     <!-- endcompress -->
+    <!-- particles -->
+    <script src="{% static 'resume/particles/particles.js' %}"></script>
+    <link href="{% static 'resume/particles/particles.css' %}" rel="stylesheet">
+    <script>  
+      particlesJS.load("particles-js", "{% static 'resume/particles/particles.json' %}", function(){
+      console.log('particles.json loaded...');
+      });
+    </script>
   </head>
 
   <body id="page-top">
+    <!-- particles -->
+    <div id="particles-js"></div>
+    
     {% block sideNav %}
     {% endblock %}
     {% block content %}

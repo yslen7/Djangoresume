@@ -226,3 +226,15 @@ backdrop-filter: blur(5px);
     padding-left: 40px;
     margin-left: 0;
   }
+  .resume-section ul > ul {
+    padding-left: 0px;
+  }
+
+  /*#about > div > ul
+  //*[@id="about"]/div/ul
+  #experience > div > div:nth-child(3) > div > a > ul
+  #achievements > div > ul:nth-child(3) > ul:nth-child(1)
+  */
+  .resume-section ul.list-inline {
+    padding-left: 1px;
+  }

@@ -253,6 +253,7 @@ class Achievement(models.Model):
     description = models.TextField()
     order = models.IntegerField(default=1)
     url = models.URLField('URL', blank=True)
+    # file will be uploaded to MEDIA_ROOT/<upload_to>  '/resume/static/resume/'
     achievement_pdf = models.FileField(upload_to='static/resume/img/', blank=True, help_text='Downloadable file')
     #linkdefault = 'this link'
     #if url is not '': linkdefault = ''
