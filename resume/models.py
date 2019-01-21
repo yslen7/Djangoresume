@@ -8,7 +8,7 @@ def showall(klass):
         for field in object._meta.get_fields():
             value = getattr(object, field.name, None)
             print(field.name, value)
-            
+
 class PersonalInfo(models.Model):
     first_name = models.CharField(max_length=255)
     middle_name = models.CharField(max_length=255, blank=True)
@@ -26,9 +26,9 @@ class PersonalInfo(models.Model):
     image = models.ImageField(upload_to='static/resume/img/',blank=True)
     cv_pdf = models.FileField(upload_to='static/resume/img/', blank=True, help_text='Downloadable resume file')
     class Meta:
-        verbose_name_plural = "01. Personal Info"    
+        verbose_name_plural = "01. Personal Info"
     def full_name(self):
-        return " ".join([self.first_name, self.middle_name, self.last_name])    
+        return " ".join([self.first_name, self.middle_name, self.last_name])
     def githubname(self):
         print('git='+str(self.github))
         if self.github is not '':
@@ -65,7 +65,7 @@ class Education(models.Model):
         verbose_name_plural = "03. Education"
         ordering = ['-end_date','id']
     def edu_date_range(self):
-        return ' - '.join(['(', self.formatted_start_date(), 
+        return ' - '.join(['(', self.formatted_start_date(),
                             self.formatted_end_date(), ')'])
     def full_start_date(self):
         return self.start_date.strftime("%Y-%m-%d")
@@ -90,21 +90,21 @@ class Job(models.Model):
     company = models.CharField(max_length=250)
     companyurl = models.URLField('Company URL')
     location = models.CharField(max_length=250)
-    title = models.CharField(max_length=250)    
+    title = models.CharField(max_length=250)
     description = models.TextField(blank=True)
     start_date = models.DateField(blank=True,null=True)
     end_date = models.DateField(blank=True,null=True)
     is_current = models.BooleanField(default=False)
     is_public = models.BooleanField(default=True)
-    company_image = models.CharField(max_length=250, blank=True, 
+    company_image = models.CharField(max_length=250, blank=True,
         help_text='path to company image, local or otherwise')
     class Meta:
         db_table = 'jobs'
         verbose_name_plural = "04. Jobs"
-        ordering = ['-end_date','id']        
+        ordering = ['-end_date','id']
     def job_date_range(self):
         return ' - '.join(['(', self.formatted_start_date(),
-            self.formatted_end_date(), ')'])    
+            self.formatted_end_date(), ')'])
     def full_start_date(self):
         if self.start_date is None:
             return None
@@ -117,7 +117,7 @@ class Job(models.Model):
     def formatted_start_date(self):
         if self.start_date is None:
             return None
-        return self.start_date.strftime("%b %Y")        
+        return self.start_date.strftime("%b %Y")
     def formatted_end_date(self):
         if self.is_current == True or self.end_date is None:
             return "Present"
@@ -206,6 +206,7 @@ class Language(models.Model):
         (1, 'Elementary professional proficiency')
         )
     level = models.IntegerField(help_text='Choice between 1 and 5', default=5, choices=ILR_scale)
+    addendum = models.CharField(max_length=20, blank=True)
     class Meta:
         verbose_name_plural = "10. Languages"
         ordering = ['level','order']
@@ -252,6 +253,7 @@ class Achievement(models.Model):
     description = models.TextField()
     order = models.IntegerField(default=1)
     url = models.URLField('URL', blank=True)
+    achievement_pdf = models.FileField(upload_to='static/resume/img/', blank=True, help_text='Downloadable file')
     #linkdefault = 'this link'
     #if url is not '': linkdefault = ''
     #linkname = models.CharField(default=linkdefault, max_length=150, blank=True)

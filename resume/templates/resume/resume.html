@@ -32,7 +32,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="#achievements"><div>Projects</div></a>
-      </li>  
+      </li>
       <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="#other"><div>Other</div></a>
       </li>
@@ -85,7 +85,7 @@
             </span>
           </a>
         </li>
-        {% endif %} 
+        {% endif %}
         {% if pinfo.facebook %}
         <li class="list-inline-item">
           <a href="{{pinfo.facebook}}" target="_blank" title="Go to my facebook page">
@@ -153,7 +153,7 @@
             <a target="_blank" href="{{ job.companyurl }}">{{ job.company }}</a>
             {% else %}
             <a target="_blank" href="">{{ job.company }}</a>
-            {% endif %} 
+            {% endif %}
           </div>
           {% autoescape off %}
           <p>{{ job.description }}</p>
@@ -194,7 +194,7 @@
           <p>
             {% if edu.schoolurl2 %}
             <a href="{{ edu.schoolurl2 }}" target="_blank">{{ edu.name2|safe }}</a>
-            {% endif %} 
+            {% endif %}
           </p>
           <p>{{ edu.description|safe }}</p>
         </div>
@@ -229,16 +229,16 @@
             <span title={{prog.description}}>{{ prog.name }}</span>{%if not forloop.last%},{%endif%}
             {% endfor %}
           </p>
-        </li>          
+        </li>
         {% endfor %}
       </ul>
       <br>
       {% for sks in skillset %}
       <div class="subheading mb-3">
-        <h3 class="mb-0">{{sks.name}}</h3>          
+        <h3 class="mb-0">{{sks.name}}</h3>
       </div>
       <ul>
-        {% for sk in sks.skill_set.all %} 
+        {% for sk in sks.skill_set.all %}
         <li>
           <p>
           {{ sk.text }}
@@ -250,23 +250,26 @@
       <br>
       {% endfor %}
       <div class="subheading mb-3">
-        <h3 class="mb-0">Languages</h3>          
+        <h3 class="mb-0">Languages</h3>
       </div>
       <ul>
         {% for lan in language|dictsortreversed:"level" %}
         <li>
           <p>
           <strong>{{ lan.language }}</strong>: {{ lan.get_level_display }}
+            {% if lan.addendum  %}
+              {{ lan.addendum }}
+            {% endif %}
           </p>
         </li>
         {% endfor %}
       </ul>
     </div>
   </section>
-  
+
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="achievements">
     <div class="my-auto">
-      <h2 class="mb-5">Projects</h2>  
+      <h2 class="mb-5">Projects</h2>
       {% for prtype in projtype %}
       <div class="subheading mb-3">
           <h3 class="mb-0">{{ prtype.name }}</h3>
@@ -331,7 +334,11 @@
           <li>
             <i class="fa-li fa fa-check"></i>
             {% if ach.title %}
-            <a href="{{ ach.url}}" target="_block">{{ ach.title }}</a>:
+              {% if ach.url %}
+                <a href="{{ ach.url }}" target="_block">{{ ach.title }}</a>:
+              {% elif ach.achievement_pdf %}
+                <a href="{{ ach.achievement_pdf.url }}" target="_block">{{ ach.title }}</a>:
+              {%endif%}
             {%endif%}
             {{ ach.description|capfirst|safe }}
           </li>
