@@ -363,8 +363,12 @@
           <li >
             <i class="fa-li fa fa-check" style="display:block;"></i>
             {{ pub.formatted_authors|safe }} {{ pub.title }}
-              <span class="italic">{{ pub.journal }}</span>, {{ pub.year }},
-            {{ pub.journalpages }}.
+              <span class="italic">{{ pub.journal }}</span>, {{ pub.year }}
+              {% if pub.journalpages %}
+                  {{ pub.year }}, {{ pub.journalpages }}.
+              {% else %}
+                  {{ pub.year }}.
+              {% endif %}
             <a   target="_blank" href="{{ pub.link }}">Link</a>
           </li>
         </ul>
